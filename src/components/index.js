@@ -6,5 +6,5 @@ import Footer from "./Footer";
 export {
   Navbar,
   Sidebar,
-  Footer
+  Footer,
 }

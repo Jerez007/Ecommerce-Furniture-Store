@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import PersonOutlineRoundedIcon from "@material-ui/icons/PersonOutlineRounded";
 import PinDropOutlinedIcon from "@material-ui/icons/PinDropOutlined";
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import logo from "../assets/logo.png";
+import { Shop } from "@material-ui/icons";
 
 function Navbar() {
   return (
@@ -34,12 +36,17 @@ function Navbar() {
             </button>
           </form>
 
-          <p className="location">
-            My store: <span>Burnaby</span>
-            <br />
-            <span>(Granville St.), BC</span><br/>
-            10:00-18:00
-          </p>
+          <div className="location">
+            <p>
+              My store: <span>Burnaby</span>
+              <br />
+              <span>(Granville St.), BC</span>
+              <br />
+              10:00-18:00
+            </p>
+
+            <ShoppingCartOutlinedIcon className="basket" fontSize="large" />
+          </div>
         </div>
       </div>
     </NavContainer>
@@ -58,7 +65,9 @@ const NavContainer = styled.nav`
     align-items: center;
     background-color: var(--clr-primary-1);
     color: white;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
+    padding: 4px;
+    font-size: 14px;
   }
 
   .nav-left {
@@ -76,7 +85,7 @@ const NavContainer = styled.nav`
     align-items: center;
     justify-content: space-between;
     border-bottom: 2px solid lightgray;
-    margin-top: -17px;
+    padding-bottom: 10px;
 
     img {
       width: 120px;
@@ -85,23 +94,37 @@ const NavContainer = styled.nav`
     }
 
     .location {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       color: gray;
-      text-align: right; 
-      
+      text-align: right;
+      margin-right: 30px;
+      font-size: 14px;
+
+      .basket {
+        padding-left: 10px;
+      }
+
+      p {
+        border-right: 1px solid lightgray;
+        padding-right: 20px;
+      }
+
       span {
-        color: darkblue; 
+        color: darkblue;
       }
     }
 
     form {
       display: flex;
-      border: 1px solid grey;
-      border-radius: 3px;
+      border: 1px solid lightgray;
+      border-radius: var(--radius);
 
       input {
         border: none;
         width: 400px;
-        height: 40px;
+        height: 35px;
       }
 
       input:focus {

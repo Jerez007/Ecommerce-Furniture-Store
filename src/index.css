@@ -7,7 +7,8 @@ Variables
 :root {
   --clr-primary-1: hsl(222, 43%, 42%);
   --clr-primary-2: hsl(233, 59%, 40%);
- --radius: 0.25rem;
+  --radius: 0.25rem;
+  --spacing: 0.1rem;
 }
 
 /*
@@ -20,5 +21,13 @@ Global Styles
   background: var(--clr-primary-2);
   color: white;
   border-color: rgb(243, 238, 238);
-  border-radius: 5px;
+  border-radius: var(--radius);
+  padding: 0.45rem 0.85rem;
+  letter-spacing: var(--spacing);
+  cursor: pointer;
+  border-color: transparent;
+}
+
+* {
+  margin: 0;
 }

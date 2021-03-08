@@ -17,3 +17,42 @@ export const socialMediaIcons = [
     icon: <PinterestIcon />,
   },
 ];
+
+export const footerMenu = [
+  {
+    id: 1,
+    about: [
+      "about us",
+      "careers",
+      "contact us",
+      "store expansion",
+      "financing",
+      "blog",
+    ],
+  },
+  {
+    id: 2,
+    locations: ["store hours & location", "B2B"],
+  },
+  {
+    id: 3,
+    terms: [
+      "privacy policy",
+      "terms & conditions",
+      "press releases",
+      "return & exchange",
+    ],
+  },
+  {
+    id: 4,
+    help: [
+      "assembly tips",
+      "FAQ",
+      "shipping & delivery",
+      "curbside pickup",
+      "SOLIS-J gift card balance",
+      "Contest rules",
+      "gift card winners",
+    ],
+  },
+];

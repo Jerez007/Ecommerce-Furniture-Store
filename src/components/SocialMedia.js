@@ -29,6 +29,14 @@ const Wrapper = styled.div`
       padding: 10px 30px;
     }
   }
+
+  @media screen and (max-width: 280px) {
+    .icons-center {
+      .icon {
+        padding: 0px 5px;
+      }
+    }
+  }
 `;
 
 export default SocialMedia;

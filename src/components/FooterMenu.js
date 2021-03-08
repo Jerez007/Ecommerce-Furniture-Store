@@ -30,7 +30,8 @@ const Wrapper = styled.footer`
   .menu-center {
     display: flex;
     justify-content: space-around;
-    margin: 35px auto;
+    background-color: #f6f6f6;
+    padding: 35px 0px;
   }
 
   h2 {

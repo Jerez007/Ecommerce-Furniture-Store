@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   .icons-center {
     display: flex;
     justify-content: center;
-    background-color: #d3d3d3;
+    background-color: #e0e0e0;
 
     .icon {
       padding: 40px 30px;

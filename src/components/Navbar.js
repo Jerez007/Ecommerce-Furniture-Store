@@ -58,7 +58,7 @@ function Navbar() {
 
         {/* Search bar moves for devices 756px or less */}
 
-        <form action="mobile-search">
+        <form action="" className="mobile-search">
           <input type="text" placeholder="Type here to search" />
           <button type="submit">
             <SearchIcon />
@@ -89,10 +89,22 @@ const NavContainer = styled.nav`
   }
 
   .mobile-search {
-    width: 100%;
+    display: none;
+    border: 1px solid lightgray;
 
     input {
+      border: none;
+      background-color: lightgray;
       width: 100%;
+      height: 45px;
+    }
+
+    button {
+      border: none;
+      background: lightgray;
+    }
+    input:focus {
+      outline: none;
     }
   }
 
@@ -184,6 +196,9 @@ const NavContainer = styled.nav`
     @media screen and (max-width: 765px) {
       .desktop-search {
         display: none;
+      }
+      .mobile-search {
+        display: flex;
       }
     }
 

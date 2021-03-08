@@ -4,8 +4,10 @@ import styled from "styled-components";
 import PersonOutlineRoundedIcon from "@material-ui/icons/PersonOutlineRounded";
 import PinDropOutlinedIcon from "@material-ui/icons/PinDropOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import SearchIcon from "@material-ui/icons/Search";
+import { FaBars } from "react-icons/fa";
 import logo from "../assets/logo.png";
-import { Shop } from "@material-ui/icons";
+import { Search } from "@material-ui/icons";
 
 function Navbar() {
   return (
@@ -19,17 +21,22 @@ function Navbar() {
           <div className="nav-right">
             <PersonOutlineRoundedIcon fontSize="large" />
             <p>Sign In</p>
-            <PinDropOutlinedIcon fontSize="large" />
+            <PinDropOutlinedIcon fontSize="medium" />
             <p>Find a store</p>
           </div>
         </div>
 
         <div className="nav-search">
+          {/* Toggle button only visible for smaller screens */}
+          <button type="button" className="nav-toggle">
+            <FaBars />
+          </button>
+
           <Link to="/">
             <img src={logo} alt="logo furniture" />
           </Link>
 
-          <form action="">
+          <form action="" className="desktop-search">
             <input type="text" placeholder="Type here to search" />
             <button type="submit" className="btn">
               Search
@@ -38,7 +45,7 @@ function Navbar() {
 
           <div className="location">
             <p>
-              My store: <span>Burnaby</span>
+              My store: <span>Vancouver</span>
               <br />
               <span>(Granville St.), BC</span>
               <br />
@@ -48,6 +55,15 @@ function Navbar() {
             <ShoppingCartOutlinedIcon className="basket" fontSize="large" />
           </div>
         </div>
+
+        {/* Search bar moves for devices 756px or less */}
+
+        <form action="mobile-search">
+          <input type="text" placeholder="Type here to search" />
+          <button type="submit">
+            <SearchIcon />
+          </button>
+        </form>
       </div>
     </NavContainer>
   );
@@ -57,6 +73,8 @@ const NavContainer = styled.nav`
   .nav-center {
     display: flex;
     flex-direction: column;
+    width: 100vw;
+    max-width: 1534px;
   }
 
   .nav-header {
@@ -70,15 +88,45 @@ const NavContainer = styled.nav`
     font-size: 14px;
   }
 
+  .mobile-search {
+    width: 100%;
+
+    input {
+      width: 100%;
+    }
+  }
+
   .nav-left {
     flex: 1;
     margin-left: 30px;
   }
+
+  .nav-left p {
+    cursor: pointer;
+    width: max-content;
+  }
+
   .nav-right {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-right: 30px;
+    cursor: pointer;
+  }
+
+  .nav-right p:hover {
+    border-bottom: 1px white solid;
+  }
+
+  .nav-toggle {
+    display: none;
+    background: transparent;
+    border: transparent;
+    color: gray;
+    cursor: pointer;
+    svg {
+      font-size: 2rem;
+    }
   }
   .nav-search {
     display: flex;
@@ -91,6 +139,7 @@ const NavContainer = styled.nav`
       width: 120px;
       height: 50px;
       margin-left: 30px;
+      border-radius: 2px;
     }
 
     .location {
@@ -129,6 +178,18 @@ const NavContainer = styled.nav`
 
       input:focus {
         outline: none;
+      }
+    }
+
+    @media screen and (max-width: 765px) {
+      .desktop-search {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: 766px) {
+      .mobile-search {
+        display: none !important;
       }
     }
   }

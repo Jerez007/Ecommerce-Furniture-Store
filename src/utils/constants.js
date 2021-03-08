@@ -6,22 +6,23 @@ import PinterestIcon from "@material-ui/icons/Pinterest";
 export const socialMediaIcons = [
   {
     id: 1,
-    icon: <FacebookIcon />,
+    icon: <FacebookIcon fontSize="large" />,
   },
   {
     id: 2,
-    icon: <InstagramIcon />,
+    icon: <InstagramIcon fontSize="large" />,
   },
   {
     id: 3,
-    icon: <PinterestIcon />,
+    icon: <PinterestIcon fontSize="large" />,
   },
 ];
 
 export const footerMenu = [
   {
     id: 1,
-    about: [
+    title: "SOLIS-J CANADA",
+    links: [
       "about us",
       "careers",
       "contact us",
@@ -32,11 +33,13 @@ export const footerMenu = [
   },
   {
     id: 2,
-    locations: ["store hours & location", "B2B"],
+    title: "locations",
+    links: ["store hours & location", "B2B"],
   },
   {
     id: 3,
-    terms: [
+    title: "terms",
+    links: [
       "privacy policy",
       "terms & conditions",
       "press releases",
@@ -45,7 +48,8 @@ export const footerMenu = [
   },
   {
     id: 4,
-    help: [
+    title: "need help?",
+    links: [
       "assembly tips",
       "FAQ",
       "shipping & delivery",

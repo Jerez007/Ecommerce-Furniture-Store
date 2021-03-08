@@ -26,7 +26,7 @@ const Wrapper = styled.div`
     background-color: #d3d3d3;
 
     .icon {
-      padding: 10px 30px;
+      padding: 40px 30px;
     }
   }
 

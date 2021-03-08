@@ -57,6 +57,21 @@ const Wrapper = styled.footer`
     border-bottom: 1px solid gray;
     width: max-content;
   }
+
+  @media screen and (max-width: 765px) {
+    .menu-center {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media screen and (min-width: 300px) and (max-width: 639px) {
+    .menu-center {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-row-gap: 10px;
+    }
+  }
 `;
 
 export default FooterMenu;

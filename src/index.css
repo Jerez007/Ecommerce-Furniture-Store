@@ -6,7 +6,10 @@ Variables
 
 :root {
   --clr-primary-1: hsl(222, 43%, 42%);
+
+  /* for buttons */
   --clr-primary-2: hsl(233, 59%, 40%);
+
   --radius: 0.25rem;
   --spacing: 0.1rem;
 }
@@ -36,6 +39,19 @@ Global Styles
   border-color: transparent;
 }
 
-* {
-  margin: 0;
+::-webkit-input-placeholder {
+  font-style: italic;
+  padding-left: 15px;
+}
+:-moz-placeholder {
+  font-style: italic;
+  padding-left: 15px;
+}
+::-moz-placeholder {
+  font-style: italic;
+  padding-left: 15px;
+}
+:-ms-input-placeholder {
+  font-style: italic;
+  padding-left: 15px;
 }

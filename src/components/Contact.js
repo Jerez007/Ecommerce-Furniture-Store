@@ -30,9 +30,9 @@ const Contact = () => {
               type="email"
               name="_replyto"
               className="form-input"
-              placeholder="enter email"
+              placeholder="Email address"
             />
-            <button className="submit-btn">sign up</button>
+            <button className="btn">Sign up</button>
           </form>
         </div>
       </div>
@@ -64,21 +64,54 @@ const Wrapper = styled.section`
     p {
       text-align: center;
     }
+
+    h3 {
+      text-transform: uppercase;
+    }
   }
 
   .consent {
     display: flex;
     margin-left: 5px;
-    
+
     span {
       margin-left: 7px;
     }
+
+    input {
+      margin-top: 2px;
+    }
   }
 
-  h3 {
-    text-transform: uppercase;
+  form {
+    display: flex;
+    justify-content: center;
+
+    input {
+      flex: 1;
+      height: 45px;
+      border-radius: 5px;
+      padding: 20px;
+      margin-right: 8px;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    button {
+      border-radius: 5px;
+      border: none;
+      width: 120px;
+      text-transform: capitalize;
+    }
   }
 
+  @media screen and (max-width: 615px) {
+    .content {
+      width: 330px;
+    }
+  }
 `;
 
 export default Contact;

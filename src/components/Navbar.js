@@ -57,7 +57,6 @@ function Navbar() {
         </div>
 
         {/* Search bar moves for devices 756px or less */}
-
         <form action="" className="mobile-search">
           <input type="text" placeholder="Type here to search" />
           <button type="submit">
@@ -86,26 +85,6 @@ const NavContainer = styled.nav`
     margin-bottom: 10px;
     padding: 4px;
     font-size: 14px;
-  }
-
-  .mobile-search {
-    display: none;
-    border: 1px solid lightgray;
-
-    input {
-      border: none;
-      background-color: lightgray;
-      width: 100%;
-      height: 45px;
-    }
-
-    button {
-      border: none;
-      background: lightgray;
-    }
-    input:focus {
-      outline: none;
-    }
   }
 
   .nav-left {
@@ -140,12 +119,25 @@ const NavContainer = styled.nav`
       font-size: 2rem;
     }
   }
+
+  /* Element that contains the search bar on desktop */
   .nav-search {
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 2px solid lightgray;
     padding-bottom: 10px;
+
+    form {
+      display: flex;
+
+      input {
+        width: 410px;
+        height: 45px;
+        border-radius: 1px;
+        border: 1px solid #e4e4e4;
+      }
+    }
 
     img {
       width: 120px;
@@ -176,36 +168,40 @@ const NavContainer = styled.nav`
         color: darkblue;
       }
     }
+  }
+  /* End of element that contains search bar for desktop */
 
-    form {
-      display: flex;
-      border: 1px solid lightgray;
-      border-radius: var(--radius);
+  /* Search bar for mobile */
+  .mobile-search {
+    display: flex;
 
-      input {
-        border: none;
-        width: 400px;
-        height: 35px;
-      }
-
-      input:focus {
-        outline: none;
-      }
+    input {
+      border: none;
+      background-color: #e4e4e4;
+      flex: 1;
+      height: 45px;
     }
 
-    @media screen and (max-width: 765px) {
-      .desktop-search {
-        display: none;
-      }
-      .mobile-search {
-        display: flex;
-      }
+    button {
+      border: none;
+      background-color: #e4e4e4;
     }
+    input:focus {
+      outline: none;
+    }
+  }
+  /* End of search bar for mobile */
 
-    @media screen and (min-width: 766px) {
-      .mobile-search {
-        display: none !important;
-      }
+  //  /* MEDIA QUERIES */
+  @media screen and (max-width: 765px) {
+    .nav-search form {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 766px) {
+    .mobile-search {
+      display: none;
     }
   }
 `;

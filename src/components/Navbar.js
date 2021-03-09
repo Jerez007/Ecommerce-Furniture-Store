@@ -19,10 +19,15 @@ function Navbar() {
           </div>
 
           <div className="nav-right">
-            <PersonOutlineRoundedIcon fontSize="large" />
-            <p>Sign In</p>
-            <PinDropOutlinedIcon fontSize="medium" />
-            <p>Find a store</p>
+            <div>
+              <PersonOutlineRoundedIcon fontSize="large" />
+              <p>Sign In</p>
+            </div>
+
+            <div>
+              <PinDropOutlinedIcon fontSize="medium" />
+              <p>Find a store</p>
+            </div>
           </div>
         </div>
 
@@ -49,7 +54,7 @@ function Navbar() {
               <br />
               <span>(Granville St.), BC</span>
               <br />
-              10:00-18:00
+              <span className="hours">10:00-18:00</span>
             </p>
 
             <ShoppingCartOutlinedIcon className="basket" fontSize="large" />
@@ -109,24 +114,28 @@ const NavContainer = styled.nav`
     border-bottom: 1px white solid;
   }
 
-  .nav-toggle {
-    display: none;
-    background: transparent;
-    border: transparent;
-    color: gray;
-    cursor: pointer;
-    svg {
-      font-size: 2rem;
-    }
-  }
-
-  /* Element that contains the search bar on desktop */
+  /* Element that contains the search bar for the desktop version*/
   .nav-search {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    border-bottom: 2px solid lightgray;
-    padding-bottom: 10px;
+    border: 1px solid #f1f1f1;
+
+    /* sidebar for mobile */
+    .nav-toggle {
+      background: transparent;
+      border: transparent;
+      border-right: 1px solid #f1f1f1;
+      padding-right: 5px;
+
+      color: gray;
+      cursor: pointer;
+      margin-right: 10px;
+
+      svg {
+        font-size: 2rem;
+      }
+    }
+    /* End of sidebar for mobile */
 
     form {
       display: flex;
@@ -140,10 +149,10 @@ const NavContainer = styled.nav`
     }
 
     img {
-      width: 120px;
-      height: 50px;
-      margin-left: 30px;
+      width: 90px;
+      height: 40px;
       border-radius: 2px;
+      float: left;
     }
 
     .location {
@@ -152,8 +161,8 @@ const NavContainer = styled.nav`
       justify-content: space-between;
       color: gray;
       text-align: right;
-      margin-right: 30px;
       font-size: 14px;
+      margin-left: 5em;
 
       .basket {
         padding-left: 10px;
@@ -185,6 +194,7 @@ const NavContainer = styled.nav`
     button {
       border: none;
       background-color: #e4e4e4;
+      padding-right: 10px;
     }
     input:focus {
       outline: none;
@@ -193,15 +203,79 @@ const NavContainer = styled.nav`
   /* End of search bar for mobile */
 
   //  /* MEDIA QUERIES */
+  @media screen and (max-width: 358px) {
+    .nav-search {
+      margin-bottom: 6px;
+      border-bottom: 0px;
+    }
+
+    .location {
+      p {
+        width: 90px;
+        span.hours {
+          display: none;
+        }
+      }
+    }
+
+    .nav-left {
+      margin-left: 10px;
+    }
+
+    .nav-right {
+      margin-right: -5px;
+    }
+  }
+
   @media screen and (max-width: 765px) {
+    .nav-search {
+      margin-bottom: 8px;
+      border-bottom: 0px;
+
+      .location {
+        margin-left: auto;
+        margin-right: 10px;
+      }
+    }
+
     .nav-search form {
       display: none;
     }
+
+    /* start of header */
+    .nav-header {
+      background-color: white;
+      color: gray;
+      font-size: 18px;
+      margin: 2px;
+    }
+
+    .nav-right {
+      display: flex;
+      font-size: 15px;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px 20px;
+
+        .MuiSvgIcon-root {
+          font-size: 25px;
+        }
+      }
+    } /*  of header */
   }
 
   @media screen and (min-width: 766px) {
     .mobile-search {
       display: none;
+    }
+
+    .nav-search {
+      justify-content: space-between;
+      border-bottom: 2px solid lightgray;
+      padding-bottom: 10px;
     }
   }
 `;

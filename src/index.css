@@ -42,16 +42,20 @@ Global Styles
 ::-webkit-input-placeholder {
   font-style: italic;
   padding-left: 15px;
+  font-size: 18px;
 }
 :-moz-placeholder {
   font-style: italic;
   padding-left: 15px;
+  font-size: 18px;
 }
 ::-moz-placeholder {
   font-style: italic;
   padding-left: 15px;
+  font-size: 18px;
 }
 :-ms-input-placeholder {
   font-style: italic;
   padding-left: 15px;
+  font-size: 18px;
 }

@@ -70,7 +70,34 @@ function Navbar() {
         </form>
 
         {/* Show or hide navation menu, if button is toggled on or off */}
-        <div className="link-container show-container"></div>
+        <div className="link-container show-container">
+          {/* hardcoding the links for the categories for now */}
+          <ul className="links">
+            <li>
+              <a href="#">all products</a>
+            </li>
+
+            <li>
+              <a href="#">office</a>
+            </li>
+
+            <li>
+              <a href="#">living room</a>
+            </li>
+
+            <li>
+              <a href="#">kitchen</a>
+            </li>
+
+            <li>
+              <a href="#">dining</a>
+            </li>
+
+            <li>
+              <a href="#">bedroom</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </NavContainer>
   );
@@ -119,13 +146,23 @@ const NavContainer = styled.nav`
     border-bottom: 1px white solid;
   }
 
-  /* Element that contains the search bar for the desktop version*/
+  /* links from the sidebar */
+  .links {
+    li {
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+  /* end of links from the sidebar */
+
+  /* Element that contains the search bar*/
   .nav-search {
     display: flex;
     align-items: center;
     border: 1px solid #f1f1f1;
 
-    /* sidebar for mobile */
+    /* sidebar */
     .nav-toggle {
       background: transparent;
       border: transparent;
@@ -146,7 +183,7 @@ const NavContainer = styled.nav`
       color: darkgray;
       transform: rotate(90deg);
     }
-    /* End of sidebar for mobile */
+    /* End of sidebar*/
 
     form {
       display: flex;
@@ -189,7 +226,7 @@ const NavContainer = styled.nav`
       }
     }
   }
-  /* End of element that contains search bar for desktop */
+  /* End of element that contains search bar*/
 
   /* Search bar for mobile */
   .mobile-search {
@@ -216,8 +253,8 @@ const NavContainer = styled.nav`
   //  /* MEDIA QUERIES */
   @media screen and (max-width: 358px) {
     .nav-search {
-      margin-bottom: 6px;
       border-bottom: 0px;
+      padding: 7px 0;
     }
 
     .location {
@@ -240,7 +277,7 @@ const NavContainer = styled.nav`
 
   @media screen and (max-width: 765px) {
     .nav-search {
-      margin-bottom: 8px;
+      padding: 7px 0;
       border-bottom: 0px;
 
       .location {

@@ -61,20 +61,22 @@ function Navbar() {
           </div>
         </div>
 
-        {/* Search bar moves for devices 756px or less */}
+        {/* Search bar moves to it's own row by itself for devices 756px or less */}
         <form action="" className="mobile-search">
           <input type="text" placeholder="Type here to search" />
           <button type="submit">
             <SearchIcon />
           </button>
         </form>
+
+        {/* Show or hide navation menu, if button is toggled on or off */}
+        <div className="link-container show-container"></div>
       </div>
     </NavContainer>
   );
 }
 
 const NavContainer = styled.nav`
-
   .nav-center {
     display: flex;
     flex-direction: column;
@@ -133,10 +135,16 @@ const NavContainer = styled.nav`
       color: gray;
       cursor: pointer;
       margin-right: 10px;
+      transition: var(--transition);
 
       svg {
         font-size: 2rem;
       }
+    }
+
+    .nav-toggle:hover {
+      color: darkgray;
+      transform: rotate(90deg);
     }
     /* End of sidebar for mobile */
 

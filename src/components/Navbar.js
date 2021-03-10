@@ -74,10 +74,10 @@ function Navbar() {
 }
 
 const NavContainer = styled.nav`
+
   .nav-center {
     display: flex;
     flex-direction: column;
-    width: 100vw;
     max-width: 1534px;
   }
 
@@ -110,6 +110,9 @@ const NavContainer = styled.nav`
     cursor: pointer;
   }
 
+  button:focus {
+    outline: none;
+  }
   .nav-right p:hover {
     border-bottom: 1px white solid;
   }
@@ -253,12 +256,13 @@ const NavContainer = styled.nav`
     .nav-right {
       display: flex;
       font-size: 15px;
+      margin-right: -5px;
 
       div {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0px 20px;
+        padding: 0px 10px;
 
         .MuiSvgIcon-root {
           font-size: 25px;
@@ -272,10 +276,50 @@ const NavContainer = styled.nav`
       display: none;
     }
 
+    .nav-right {
+      div {
+        display: flex;
+        align-items: center;
+      }
+    }
+
     .nav-search {
       justify-content: space-between;
       border-bottom: 2px solid lightgray;
       padding-bottom: 10px;
+      border-top: none;
+      padding-left: 30px;
+
+      img {
+        width: 95px;
+        height: 50px;
+        margin-right: auto;
+      }
+
+      form {
+        input {
+          width: 300px;
+          margin-left: 30px;
+        }
+      }
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+
+    .location {
+      margin-right: 10px;
+    }
+  }
+
+  @media screen and (min-width: 1031px) {
+    .location {
+      margin-right: 35px;
+    }
+
+    .nav-right {
+      margin-right: 45px;
     }
   }
 `;

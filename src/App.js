@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import { Footer, Navbar, Sidebar } from './components';
 import FooterMenu from './components/FooterMenu';
 import SocialMedia from './components/SocialMedia';
-import {Home} from './pages';
+import {Home, Error} from './pages';
 
 function App() {
   return (
@@ -12,8 +12,14 @@ function App() {
       <Sidebar />
 
       <Switch>
-        <Route exact path='/'>
+        <Route exact path="/">
           <Home />
+        </Route>
+
+        <Route exact path="/products/:id"/>
+
+        <Route exact path="*">
+          <Error />
         </Route>
       </Switch>
 

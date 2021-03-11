@@ -10,6 +10,8 @@ Variables
   /* for buttons */
   --clr-primary-2: hsl(233, 59%, 40%);
 
+  --clr-primary-3: hsl(0, 0%, 41%);
+
   --transition: all 0.3s linear;
 
   --radius: 0.25rem;

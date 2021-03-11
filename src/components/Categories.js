@@ -48,7 +48,7 @@ const CategoriesContainer = styled.div`
   h1 {
     padding-bottom: 17px;
     text-transform: uppercase;
-    color: #696969;
+    color: var(--clr-primary-3);
     text-align: center;
   }
 

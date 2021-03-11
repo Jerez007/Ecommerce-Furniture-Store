@@ -69,35 +69,7 @@ function Navbar() {
           </button>
         </form>
 
-        {/* Show or hide navation menu, if button is toggled on or off */}
-        <div className="link-container show-container">
-          {/* hardcoding the links for the categories for now */}
-          <ul className="links">
-            <li>
-              <a href="#">all products</a>
-            </li>
-
-            <li>
-              <a href="#">office</a>
-            </li>
-
-            <li>
-              <a href="#">living room</a>
-            </li>
-
-            <li>
-              <a href="#">kitchen</a>
-            </li>
-
-            <li>
-              <a href="#">dining</a>
-            </li>
-
-            <li>
-              <a href="#">bedroom</a>
-            </li>
-          </ul>
-        </div>
+        
       </div>
     </NavContainer>
   );

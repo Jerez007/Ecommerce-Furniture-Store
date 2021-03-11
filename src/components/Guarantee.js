@@ -67,13 +67,36 @@ const GuaranteeContainer = styled.div`
 
       div {
         padding: 20px;
+
+        span {
+          font-size: 15px;
+          text-align: center;
+        }
       }
+    }
+
+    .MuiSvgIcon-root {
+      font-size: 40px;
     }
   }
 
   @media screen and (max-width: 399px) {
     span {
       text-align: center;
+    }
+  }
+
+  @media screen and (min-width: 770px) {
+    div {
+      padding: 15px;
+
+      span {
+        font-size: 17px;
+      }
+    }
+
+    .MuiSvgIcon-root {
+      font-size: 50px;
     }
   }
 `;

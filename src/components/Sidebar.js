@@ -6,13 +6,14 @@ import KitchenOutlinedIcon from "@material-ui/icons/KitchenOutlined";
 import LocalDiningOutlinedIcon from '@material-ui/icons/LocalDiningOutlined';
 import HotelOutlinedIcon from "@material-ui/icons/HotelOutlined";
 import HomeWorkOutlinedIcon from "@material-ui/icons/HomeWorkOutlined";
+import { useProductsContext } from "../context/products_context";
 
-function Sidebar() {
-  let isOpen = true;
+const Sidebar = () => {
+  const { isSidebarOpen, closeSidebar} = useProductsContext()
 
   return (
     <SidebarContainer>
-      <div className="sidebar">
+      <div className={`${isSidebarOpen ? 'sidebar' : 'hideSidebar'}`}>
         <div className="all">
           <DoneOutlinedIcon />
           <span>all products</span>
@@ -48,6 +49,7 @@ function Sidebar() {
 }
 
 const SidebarContainer = styled.div`
+  /* sidebar */
   .sidebar {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -61,11 +63,18 @@ const SidebarContainer = styled.div`
       border: 1px solid #f6f6f6;
       padding: 15px;
     }
+  }   
+  /* end of sidebar section*/
+
+  /* hides sidebar */
+  .hideSidebar {
+    display: none;
   }
 
+/* media queries */
   @media screen and (min-width: 766px) {
     .sidebar {
-      display: none;
+      display: none !important;
     }
   }
 `;

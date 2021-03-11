@@ -8,8 +8,11 @@ import SearchIcon from "@material-ui/icons/Search";
 import { FaBars } from "react-icons/fa";
 import logo from "../assets/logo.png";
 import { Search } from "@material-ui/icons";
+import { useProductsContext } from "../context/products_context";
 
 function Navbar() {
+  const { toggleSidebar } = useProductsContext();
+
   return (
     <NavContainer>
       <div className="nav-center">
@@ -33,7 +36,7 @@ function Navbar() {
 
         <div className="nav-search">
           {/* Toggle button only visible for smaller screens */}
-          <button type="button" className="nav-toggle">
+          <button type="button" className="nav-toggle" onClick={toggleSidebar}>
             <FaBars />
           </button>
 
@@ -153,7 +156,7 @@ const NavContainer = styled.nav`
 
     .nav-toggle:hover {
       color: darkgray;
-      transform: rotate(90deg);
+      /* transform: rotate(90deg); */
     }
     /* End of sidebar*/
 
@@ -281,7 +284,7 @@ const NavContainer = styled.nav`
         align-items: center;
         padding: 0px 10px;
 
-        .MuiSvgIcon-root {
+        .MuiSvgIcon-root {  
           font-size: 25px;
         }
       }

@@ -1,2 +1,3 @@
-export const SIDEBAR_OPEN = 'SIDEABAR_OPEN'
-export const SIDEBAR_CLOSE = "SIDEABAR_CLOSE";
+// export const SIDEBAR_OPEN = 'SIDEABAR_OPEN'
+// export const SIDEBAR_CLOSE = "SIDEABAR_CLOSE";
+export const TOGGLE_SIDEBAR = "TOGGLE_SIDEBAR";

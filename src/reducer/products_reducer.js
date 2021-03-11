@@ -1,4 +1,11 @@
-import { SIDEBAR_OPEN, SIDEBAR_CLOSE, TOGGLE_SIDEBAR } from "../actions";
+import {
+  SIDEBAR_OPEN,
+  SIDEBAR_CLOSE,
+  TOGGLE_SIDEBAR,
+  GET_PRODUCTS_START,
+  GET_PRODUCTS_SUCCESS,
+  GET_PRODUCTS_ERROR,
+} from "../actions";
 
 const products_reducer = (state, action) => {
   // if (action.type === SIDEBAR_OPEN) {
@@ -9,7 +16,11 @@ const products_reducer = (state, action) => {
   //   return { ...state, isSidebarOpen: false };
   // }
   if (action.type === TOGGLE_SIDEBAR) {
-    return { ...state, isSidebarOpen: !state.isSidebarOpen};
+    return { ...state, isSidebarOpen: !state.isSidebarOpen };
+  }
+
+  if (action.type === GET_PRODUCTS_START) {
+    return { ...state, products_loading: true };
   }
 };
 

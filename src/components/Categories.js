@@ -10,6 +10,7 @@ import office from "../assets/office.jpeg";
 const Categories = () => {
   return (
     <CategoriesContainer>
+      <h1>shop by categories</h1>
       <div className="categories-center">
         <div className="image-container">
           <img src={bedroom} alt="bedroom" />
@@ -41,9 +42,20 @@ const Categories = () => {
 }
 
 const CategoriesContainer = styled.div`
+  background-color: #f5f5f5;
+  padding: 25px 10px;
+
+  h1 {
+    padding-bottom: 17px;
+    text-transform: uppercase;
+    color: #696969;
+    text-align: center;
+  }
+
   .image-container {
     position: relative;
     padding: 10px;
+    margin-bottom: 15px;
 
     img {
       width: 100%;
@@ -58,14 +70,17 @@ const CategoriesContainer = styled.div`
       font-size: 25px;
       text-transform: uppercase;
       font-weight: bold;
-      color: #303030;
+      color: #696969;
       background-color: rgb(255, 255, 255, 0.5);
     }
   }
 
   /* media queries */
   @media screen and (min-width: 769px) {
-
+    .categories-center {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 `;
 

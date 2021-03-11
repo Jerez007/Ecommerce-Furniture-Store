@@ -12,7 +12,7 @@ function Sidebar() {
 
   return (
     <SidebarContainer>
-      <div className="sidebar-center">
+      <div className="sidebar">
         <div className="all">
           <DoneOutlinedIcon />
           <span>all products</span>
@@ -47,6 +47,27 @@ function Sidebar() {
   );
 }
 
-const SidebarContainer = styled.div``;
+const SidebarContainer = styled.div`
+  .sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 15px;
+    color: #545454;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid #f6f6f6;
+      padding: 15px;
+    }
+  }
+
+  @media screen and (min-width: 766px) {
+    .sidebar {
+      display: none;
+    }
+  }
+`;
 
 export default Sidebar;

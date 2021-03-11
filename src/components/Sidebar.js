@@ -55,6 +55,7 @@ const SidebarContainer = styled.div`
     grid-template-columns: 1fr 1fr;
     padding: 15px;
     color: #545454;
+    transition: all 0.3s ease-in-out;
 
     div {
       display: flex;
@@ -63,7 +64,7 @@ const SidebarContainer = styled.div`
       border: 1px solid #f6f6f6;
       padding: 15px;
     }
-  }   
+  }
   /* end of sidebar section*/
 
   /* hides sidebar */
@@ -71,7 +72,7 @@ const SidebarContainer = styled.div`
     display: none;
   }
 
-/* media queries */
+  /* media queries */
   @media screen and (min-width: 766px) {
     .sidebar {
       display: none !important;

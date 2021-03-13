@@ -50,6 +50,12 @@ body {
   border-color: transparent;
 }
 
+/* links */
+a {
+  text-decoration: none;
+}
+
+
 /* section */
 .section {
   padding: 5rem 0;
@@ -71,6 +77,7 @@ body {
   animation: spinner 0.6s linear infinite;
 }
 
+/* input */
 ::-webkit-input-placeholder {
   font-style: italic;
   padding-left: 15px;

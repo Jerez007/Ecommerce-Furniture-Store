@@ -7,7 +7,6 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import { FaBars } from "react-icons/fa";
 import logo from "../assets/logo.png";
-import { Search } from "@material-ui/icons";
 import { useProductsContext } from "../context/products_context";
 
 function Navbar() {
@@ -28,7 +27,7 @@ function Navbar() {
             </div>
 
             <div>
-              <PinDropOutlinedIcon fontSize="medium" />
+              <PinDropOutlinedIcon fontSize="large" />
               <p>Find a store</p>
             </div>
           </div>

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import { Footer, Navbar, Sidebar } from './components';
 import FooterMenu from './components/FooterMenu';
 import SocialMedia from './components/SocialMedia';
-import {Home, Error} from './pages';
+import {Home, Error, SingleProduct} from './pages';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Home />
         </Route>
 
-        <Route exact path="/products/:id"/>
+        <Route exact path="/products/:id" children={SingleProduct}/>
 
         <Route exact path="*">
           <Error />

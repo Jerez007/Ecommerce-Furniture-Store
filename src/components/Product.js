@@ -2,14 +2,15 @@ import React from "react";
 import { formatPrice } from "../utils/helpers";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
+
 
 const Product = ({ id, name, image, price }) => {
   return (
     <ProductsContainer>
       <div className="products-container">
-        <img src={image} alt={name} />
-        <Link to={`/products/${id}`} className='link'>
-          
+        <Link to={`/products/${id}`} className="link">
+          <img src={image} alt={name} />
         </Link>
       </div>
 
@@ -23,11 +24,16 @@ const Product = ({ id, name, image, price }) => {
 
 const ProductsContainer = styled.div`
   .products-container {
+    position: relative;
     padding: 30px 40px 2px 40px;
   }
 
-  .products-container:hover img{
+  .products-container:hover img {
     opacity: 0.5;
+  }
+
+  .products-container:hover link {
+    opacity: 1;
   }
 
   h5 {
@@ -41,6 +47,7 @@ const ProductsContainer = styled.div`
     width: 100%;
     display: block;
     object-fit: cover;
+    transition: var(--transition);
   }
 
   .info {
@@ -55,6 +62,7 @@ const ProductsContainer = styled.div`
 
   p {
     font-weight: 600;
+    letter-spacing: var(--spacing);
     color: #181818;
   }
 `;

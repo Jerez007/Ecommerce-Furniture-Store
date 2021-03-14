@@ -8,6 +8,7 @@ import Contact from "./Contact";
 import Error from "./Error";
 import Loading from "./Loading";
 import ProductHero from './ProductHero'
+import Stars from './Stars'
 
 export {
   Navbar,
@@ -20,4 +21,5 @@ export {
   Error,
   Loading,
   ProductHero,
+  Stars, 
 };

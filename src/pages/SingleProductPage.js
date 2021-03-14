@@ -4,7 +4,8 @@ import { useProductsContext } from "../context/products_context";
 import { formatPrice } from "../utils/helpers";
 import { single_product_url as url } from "../utils/constants";
 import styled from "styled-components";
-import { Loading, Error, ProductHero, Stars } from "../components";
+import { Loading, Error, ProductHero, Stars, ProductImageSlider } from "../components";
+
 
 const SingleProductPage = () => {
   const { id } = useParams();
@@ -15,6 +16,7 @@ const SingleProductPage = () => {
     single_product: product,
     fetchSingleProduct,
   } = useProductsContext();
+
 
   // gets single product everytime id in param changes
   useEffect(() => {
@@ -36,7 +38,7 @@ const SingleProductPage = () => {
     id: sku,
     name,
     price,
-    image,
+    images,
     colors,
     company,
     description,
@@ -45,7 +47,7 @@ const SingleProductPage = () => {
     stock,
     stars,
     reviews,
-  } = product;
+  } = product;     
 
   return (
     <ProductContainer>
@@ -53,13 +55,20 @@ const SingleProductPage = () => {
 
       <div className="section-center">
         <h2>
-          <span className="company">{company}</span> <span className="product-name">{name}</span>
+          <span className="company">{company}</span>{" "}
+          <span className="product-name">{name}</span>
         </h2>
 
         <div className="sku-review">
           <span>SKU: {sku}</span>
 
           <p>Write a review</p>
+        </div>
+
+        <div className="image-slider">
+          <ProductImageSlider
+            singleProductImages={images}
+          />
         </div>
       </div>
     </ProductContainer>
@@ -98,6 +107,7 @@ const ProductContainer = styled.div`
     font-size: 26px;
     font-weight: 500;
   }
+
 `;
 
 export default SingleProductPage;

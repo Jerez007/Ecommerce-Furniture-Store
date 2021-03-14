@@ -9,6 +9,7 @@ import Error from "./Error";
 import Loading from "./Loading";
 import ProductHero from './ProductHero'
 import Stars from './Stars'
+import ProductImageSlider from './ProductImageSlider'
 
 export {
   Navbar,
@@ -21,5 +22,6 @@ export {
   Error,
   Loading,
   ProductHero,
-  Stars, 
+  Stars,
+  ProductImageSlider,
 };

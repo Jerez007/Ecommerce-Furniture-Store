@@ -5,6 +5,7 @@ import { formatPrice } from "../utils/helpers";
 import { single_product_url as url } from "../utils/constants";
 import styled from "styled-components";
 import { Loading, Error, ProductHero, Stars, ProductImageSlider } from "../components";
+import AddToCart from "../components/AddToCart";
 
 
 const SingleProductPage = () => {
@@ -55,7 +56,7 @@ const SingleProductPage = () => {
 
       <div className="section-center">
         <h2>
-          <span className="company">{company}</span>{" "}
+          <span className="company">{company}</span>
           <span className="product-name">{name}</span>
         </h2>
 
@@ -70,6 +71,15 @@ const SingleProductPage = () => {
             singleProductImages={images}
           />
         </div>
+
+        <div className="info">
+          <h2>{name}</h2>
+          <Stars stars={stars} reviews={reviews}/>
+          <h3 className="price">{formatPrice(price)}</h3>
+        </div>
+      
+      
+        { stock > 0 && <AddToCart product={product} />}
       </div>
     </ProductContainer>
   );
@@ -88,6 +98,7 @@ const ProductContainer = styled.div`
 
   .sku-review {
     display: flex;
+    margin-bottom: 30px;
 
     p {
       margin-left: 40px;
@@ -108,6 +119,27 @@ const ProductContainer = styled.div`
     font-weight: 500;
   }
 
+  .info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+    h2 {
+      margin-top: 30px;
+      margin-bottom: 5px !important;
+      text-transform: uppercase;
+      letter-spacing: var(--spacing);
+      font-weight: 300;
+      color: black;
+    }
+
+    .price {
+      margin-top: 13px;
+      font-weight: 200px;
+      letter-spacing: var(--spacing)
+    }
+  }
 `;
+
 
 export default SingleProductPage;

@@ -21,7 +21,7 @@ const Stars = ({ stars, reviews }) => {
 
   return (
     <StarsContainer>
-      <div className="section">
+      <div className="content">
         <span className="stars"> {tempStars}</span>
         <span className="reviews">{reviews} (reviews)</span>
       </div>
@@ -30,12 +30,20 @@ const Stars = ({ stars, reviews }) => {
 };
 
 const StarsContainer = styled.div`
-  .section {
-    font-size: 14px;
+  .content {
+    display: flex;
+    font-size: 16px;
+    text-align: center;
+    justify-content: center;
   }
 
   .stars {
-    color: #ffb900;
+    color: black;
+    margin-right: 3px;
+  }
+
+  .reviews {
+    font-size: 15px;
   }
 `;
 

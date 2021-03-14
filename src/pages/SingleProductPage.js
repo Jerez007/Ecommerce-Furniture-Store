@@ -53,13 +53,13 @@ const SingleProductPage = () => {
 
       <div className="section-center">
         <h2>
-          {company} <span>{name}</span>
+          <span className="company">{company}</span> <span className="product-name">{name}</span>
         </h2>
 
-        <div className="sku-star-review">
+        <div className="sku-review">
           <span>SKU: {sku}</span>
 
-          <span><Stars stars={stars} reviews={reviews}/></span>
+          <p>Write a review</p>
         </div>
       </div>
     </ProductContainer>
@@ -68,15 +68,35 @@ const SingleProductPage = () => {
 
 const ProductContainer = styled.div`
   .section-center {
-
+    display: flex;
+    flex-direction: column;
+    color: var(--clr-primary-3);
   }
 
   h2 {
     margin-bottom: 15px;
   }
 
-  .sku-star-review {
+  .sku-review {
     display: flex;
+
+    p {
+      margin-left: 40px;
+      text-decoration: underline;
+    }
+  }
+
+  .company {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 800;
+    padding-right: 5px;
+  }
+
+  .product-name {
+    text-transform: capitalize;
+    font-size: 26px;
+    font-weight: 500;
   }
 `;
 

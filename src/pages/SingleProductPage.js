@@ -74,7 +74,9 @@ const SingleProductPage = () => {
         </div>
 
         <div className="image-slider">
-          <ProductImageSlider singleProductImages={images} />
+          <ProductImageSlider
+            singleProductImages={images}
+          />
         </div>
 
         <div className="info">
@@ -102,6 +104,8 @@ const SingleProductPage = () => {
             </div>
           )}
         </div>
+
+        <div className="description">{description}</div>
       </div>
     </ProductContainer>
   );
@@ -188,6 +192,10 @@ const ProductContainer = styled.div`
     margin-right: 4px;
   }
   /* end of stock info section */
+
+  .description {
+    margin-bottom: 30px;
+  }
 `;
 
 export default SingleProductPage;

@@ -44,7 +44,7 @@ function Navbar() {
           </Link>
 
           <form action="" className="desktop-search">
-            <input type="text" placeholder="Type here to search" />
+            <input type="text" placeholder="Type here to search"/>
             <button type="submit" className="btn">
               Search
             </button>

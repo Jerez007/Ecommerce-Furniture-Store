@@ -32,19 +32,19 @@ const Container = styled.div`
 
   .quantity-btn {
     background-color: var(--clr-primary-4);
-    width: 27px;
-    height: 27px;
+    width: 40px;
+    height: 35px;
     border: none;
     margin-bottom: 35px;
   }
 
   .quantity {
     background-color: var(--clr-primary-4);
-    width: 55px;
-    height: 27px;
+    width: 65px;
+    height: 35px;
     border: none;
     margin: 0 10px;
-    padding: 3px;
+    padding: 7px;
   }
 
   .title {

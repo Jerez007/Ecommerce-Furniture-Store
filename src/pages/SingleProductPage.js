@@ -4,9 +4,15 @@ import { useProductsContext } from "../context/products_context";
 import { formatPrice } from "../utils/helpers";
 import { single_product_url as url } from "../utils/constants";
 import styled from "styled-components";
-import { Loading, Error, ProductHero, Stars, ProductImageSlider } from "../components";
+import {
+  Loading,
+  Error,
+  ProductHero,
+  Stars,
+  ProductImageSlider,
+} from "../components";
 import AddToCart from "../components/AddToCart";
-
+import { FaCheck, FaMinus } from "react-icons/fa";
 
 const SingleProductPage = () => {
   const { id } = useParams();
@@ -17,7 +23,6 @@ const SingleProductPage = () => {
     single_product: product,
     fetchSingleProduct,
   } = useProductsContext();
-
 
   // gets single product everytime id in param changes
   useEffect(() => {
@@ -48,7 +53,9 @@ const SingleProductPage = () => {
     stock,
     stars,
     reviews,
-  } = product;     
+  } = product;
+
+  
 
   return (
     <ProductContainer>
@@ -67,19 +74,34 @@ const SingleProductPage = () => {
         </div>
 
         <div className="image-slider">
-          <ProductImageSlider
-            singleProductImages={images}
-          />
+          <ProductImageSlider singleProductImages={images} />
         </div>
 
         <div className="info">
           <h2>{name}</h2>
-          <Stars stars={stars} reviews={reviews}/>
+          <Stars stars={stars} reviews={reviews} />
           <h3 className="price">{formatPrice(price)}</h3>
         </div>
-      
-      
-        { stock > 0 && <AddToCart product={product} />}
+
+        <div className="addtocart">
+          {stock > 0 && <AddToCart product={product} />}
+        </div>
+
+        <div className="stock-info">
+          {stock > 0 && (
+            <div>
+              <FaCheck className="checkmark" />
+              <span>In stock online</span>
+            </div>
+          )}
+
+          {stock === 0 && (
+            <div>
+              <FaMinus className="minus-mark" />
+              <span>Out of stock online</span>
+            </div>
+          )}
+        </div>
       </div>
     </ProductContainer>
   );
@@ -123,7 +145,7 @@ const ProductContainer = styled.div`
     display: flex;
     flex-direction: column;
     text-align: center;
-    
+
     h2 {
       margin-top: 30px;
       margin-bottom: 5px !important;
@@ -136,10 +158,36 @@ const ProductContainer = styled.div`
     .price {
       margin-top: 13px;
       font-weight: 200px;
-      letter-spacing: var(--spacing)
+      letter-spacing: var(--spacing);
     }
   }
-`;
 
+  /* stock info section */
+  .stock-info {
+    margin-bottom: 30px;
+
+    div {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .checkmark {
+    background: #329932;
+    color: white;
+    padding: 5px;
+    font-size: 22px;
+    margin-right: 4px;
+  }
+
+  .minus-mark {
+    background: #ff3232;
+    color: white;
+    padding: 5px;
+    font-size: 22px;
+    margin-right: 4px;
+  }
+  /* end of stock info section */
+`;
 
 export default SingleProductPage;

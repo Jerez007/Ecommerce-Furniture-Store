@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useReducer } from "react";
-import reducer from "../reducers/filter_reducer";
+import reducer from "../reducer/filter_reducer";
 import {
   LOAD_PRODUCTS,
   SET_GRIDVIEW,
@@ -34,15 +34,33 @@ export const FilterProvider = ({ children }) => {
   const { state, dispatch } = useReducer(reducer, initialState);
   const { products } = useProductsContext();
 
+  // Gets the initial data from products and finds the max price when products list changes
   useEffect(() => {
     dispatch({ type: LOAD_PRODUCTS, payload: products})
   },[products])
 
-  
+  // Filters and sorts products when products list changes, or when sort and filter values are changed
+  useEffect(() => {
+    dispatch({ type: FILTER_PRODUCTS})
+    dispatch({ type: SORT_PRODUCTS})
+  },[products, state.sort, state.filters])
+
+  const setGridView = () => {
+    dispatch({ type: SET_GRIDVIEW })
+  }
+
+
+  const setListView = () => {
+    dispatch({ type: SET_LISTVIEW})
+  }
 
   return (
-    <FilterContext.Provider value={{ ...state }}>
+    <FilterContext.Provider value={{ ...state, setGridView, setListView }}>
       {children}
     </FilterContext.Provider>
   );
 };
+
+export const useFiltersContext = () => {
+  return useContext(FilterContext)
+}

@@ -30,6 +30,16 @@ const SingleProductPage = () => {
     // eslint-disable-next-line
   }, [id]);
 
+  // Automatiically redirects user back to homepage incase of error/product not found, after 3 seconds
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        history.push("/");
+      }, 3000);
+    }
+    // eslint-disable-next-line
+  }, [error]);
+
   // Handles loading and error
   if (loading) {
     return <Loading />;
@@ -55,8 +65,6 @@ const SingleProductPage = () => {
     reviews,
   } = product;
 
-  
-
   return (
     <ProductContainer>
       <ProductHero company={company} />
@@ -74,9 +82,7 @@ const SingleProductPage = () => {
         </div>
 
         <div className="image-slider">
-          <ProductImageSlider
-            singleProductImages={images}
-          />
+          <ProductImageSlider singleProductImages={images} />
         </div>
 
         <div className="info">

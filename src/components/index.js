@@ -10,6 +10,9 @@ import Loading from "./Loading";
 import ProductHero from './ProductHero'
 import Stars from './Stars'
 import ProductImageSlider from './ProductImageSlider'
+import Filters from './Filters'
+import ProductList from './ProductList'
+import Sort from './Sort'
 
 export {
   Navbar,
@@ -24,4 +27,7 @@ export {
   ProductHero,
   Stars,
   ProductImageSlider,
+  Filters,
+  ProductList,
+  Sort,
 };

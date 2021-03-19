@@ -2,13 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from "styled-components";
 
-const ProductHero = ({ company, product}) => {
+const ProductHero = ({ company, product, title}) => {
   return (
     <Container>
       <div className="section-center">
         <h3>
-          <Link to="/">Home  /  </Link>
-          <span>{company}</span>
+          <Link to="/">Home / </Link>
+          <span className={`${title ? 'title' : null}`}>{company || title}</span>
         </h3>
       </div>
     </Container>
@@ -23,14 +23,18 @@ const Container = styled.div`
       white-space: pre;
       color: var(--clr-primary-3);
       font-weight: 200;
+      a {
+        color: var(--clr-primary-3);
+      }
 
       span {
         text-transform: uppercase;
         letter-spacing: -1px;
       }
-      a {
-        color: var(--clr-primary-3);
-      }
+    }
+
+    .title {
+      text-transform: capitalize !important;
     }
   }
 `;

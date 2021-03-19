@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useReducer } from "react";
-import reducer from "../reducer/products_reducer";
+import reducer from "../reducers/products_reducer";
 import axios from "axios";
 import {
   TOGGLE_SIDEBAR,
@@ -14,6 +14,7 @@ import { products_url as url } from "../utils/constants";
 
 const initialState = {
   isSidebarOpen: false,
+  products: [],
   featured_products: [],
   products_loading: false,
   products_error: false,

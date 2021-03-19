@@ -12,15 +12,29 @@ import {
 const filter_reducer = (state, action) => {
   // Gets the maxium price from products. By default, filtered products is just set to products
   if (action.type === LOAD_PRODUCTS) {
-    let maxPrice = action.payload.map((product) => product.price);
-    maxPrice = Math.max(...maxPrice);
+    let highestPrice = action.payload.map((product) => product.price);
+    highestPrice = Math.max(...highestPrice);
 
     return {
       ...state,
       all_products: [...action.payload],
       filtered_products: [...action.payload],
-      filters: { ...state.filters, max_price: maxPrice, price: maxPrice },
+      filters: {
+        ...state.filters,
+        highest_price: highestPrice,
+        price: highestPrice,
+      },
     };
+  }
+
+  // Filters products
+  if (action.type === FILTER_PRODUCTS) {
+    return {};
+  }
+
+  // Sorts products
+  if (action.type === FILTER_PRODUCTS) {
+    return {};
   }
 
   // Sets products view to grid
@@ -31,7 +45,7 @@ const filter_reducer = (state, action) => {
     };
   }
 
-  // Sets products view to list 
+  // Sets products view to list
   if (action.type === SET_LISTVIEW) {
     return {
       ...state,
@@ -39,7 +53,7 @@ const filter_reducer = (state, action) => {
     };
   }
 
-  return null;
+  throw new Error(`The action type "${action.type}" was not found`);
 };
 
 export default filter_reducer;

@@ -45,10 +45,10 @@ export const FilterProvider = ({ children }) => {
   }, [products]);
 
   // Filters and sorts products when products list changes, or when sort and filter values are changed
-  // useEffect(() => {
-  //   dispatch({ type: FILTER_PRODUCTS });
-  //   dispatch({ type: SORT_PRODUCTS });
-  // }, [products, state.sort, state.filters]);
+  useEffect(() => {
+    // dispatch({ type: FILTER_PRODUCTS });
+    dispatch({ type: SORT_PRODUCTS });
+  }, [products, state.sort, state.filters, state.increasing]);
 
   //Sets grid view
   const setGridView = () => {
@@ -65,9 +65,21 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: INCREASE_DECREASE_TOGGLE })
   }
 
+  // gets the selected sort value
+  const updateSort = (e) => {
+    const value = e.target.value
+    dispatch({ type: UPDATE_SORT, payload: value });
+  }
+
   return (
     <FilterContext.Provider
-      value={{ ...state, setGridView, setListView, increaseDecreaseToggle }}
+      value={{
+        ...state,
+        setGridView,
+        setListView,
+        increaseDecreaseToggle,
+        updateSort,
+      }}
     >
       {children}
     </FilterContext.Provider>

@@ -15,6 +15,7 @@ const Sort = () => {
     setListView,
     increasing,
     increaseDecreaseToggle,
+    sort, updateSort,
   } = useFilterContext();
 
   return (
@@ -22,7 +23,7 @@ const Sort = () => {
       {/* Sort by options */}
       <form>
         <label htmlFor="sort">Sort By</label>
-        <select name="sort" id="sort" className="sort-input">
+        <select name="sort" id="sort" className="sort-input" value={sort} onChange={updateSort}>
           <option value="product-name">Product Name</option>
           <option value="price">Price</option>
         </select>

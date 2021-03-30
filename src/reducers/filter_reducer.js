@@ -7,6 +7,7 @@ import {
   FILTER_PRODUCTS,
   UPDATE_PRODUCTS,
   CLEAR_FILTERS,
+  INCREASE_DECREASE_TOGGLE,
 } from "../actions";
 
 const filter_reducer = (state, action) => {
@@ -39,21 +40,28 @@ const filter_reducer = (state, action) => {
   //   return {};
   // }
 
-  // // Sets products view to grid
-  // if (action.type === SET_GRIDVIEW) {
-  //   return {
-  //     ...state,
-  //     grid_view: true,
-  //   };
-  // }
+  // Sets products view to grid
+  if (action.type === SET_GRIDVIEW) {
+    return {
+      ...state,
+      grid_view: true,
+    };
+  }
 
-  // // Sets products view to list
-  // if (action.type === SET_LISTVIEW) {
-  //   return {
-  //     ...state,
-  //     grid_view: false,
-  //   };
-  // }
+  // Sets products view to list
+  if (action.type === SET_LISTVIEW) {
+    return {
+      ...state,
+      grid_view: false,
+    };
+  }
+
+  // Toggles the sort by function to increasing/decreasing
+  if (action.type === INCREASE_DECREASE_TOGGLE) {
+    return {
+      ...state, increasing: !state.increasing
+    }
+  }
 
   throw new Error(`The action type "${action.type}" was not found`);
 };

@@ -4,6 +4,7 @@ import {
   LOAD_PRODUCTS,
   SET_GRIDVIEW,
   SET_LISTVIEW,
+  INCREASE_DECREASE_TOGGLE,
   UPDATE_SORT,
   SORT_PRODUCTS,
   UPDATE_FILTERS,
@@ -16,7 +17,8 @@ const initialState = {
   all_products: [],
   filtered_products: [],
   grid_view: true,
-  sort: "price-lowest",
+  sort: "price",
+  increasing: true,
   filters: {
     text: "",
     color: "all",
@@ -49,17 +51,24 @@ export const FilterProvider = ({ children }) => {
   // }, [products, state.sort, state.filters]);
 
   //Sets grid view
-  // const setGridView = () => {
-  //   dispatch({ type: SET_GRIDVIEW });
-  // };
+  const setGridView = () => {
+    dispatch({ type: SET_GRIDVIEW });
+  };
 
   // // Sets list view
-  // const setListView = () => {
-  //   dispatch({ type: SET_LISTVIEW });
-  // };
+  const setListView = () => {
+    dispatch({ type: SET_LISTVIEW });
+  };
+
+  // Toggles increase/decrease sort by value
+  const increaseDecreaseToggle = () => {
+    dispatch({ type: INCREASE_DECREASE_TOGGLE })
+  }
 
   return (
-    <FilterContext.Provider value={{ ...state}}>
+    <FilterContext.Provider
+      value={{ ...state, setGridView, setListView, increaseDecreaseToggle }}
+    >
       {children}
     </FilterContext.Provider>
   );

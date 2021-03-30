@@ -5,3 +5,4 @@ export const formatPrice = (number) => {
   }).format(number / 100);
   return newNumber;
 };
+

@@ -14,13 +14,12 @@ const products_reducer = (state, action) => {
     return { ...state, isSidebarOpen: !state.isSidebarOpen };
   }
 
-
   // =====> Section for PRODUCTS
   if (action.type === GET_PRODUCTS_START) {
     return { ...state, products_loading: true };
   }
 
-  // products fetched successfully
+  // Featured products fetched successfully
   if (action.type === GET_PRODUCTS_SUCCESS) {
     const featured_products = action.payload.filter(
       (product) => product.featured === true
@@ -39,31 +38,34 @@ const products_reducer = (state, action) => {
   }
   //=====> End of section for PRODUCTS
 
-
   // =====> Section for SINGLE PRODUCTS
   if (action.type === GET_SINGLE_PRODUCT_START) {
-    return { ...state, single_product_loading: true, single_product_error: false,}
+    return {
+      ...state,
+      single_product_loading: true,
+      single_product_error: false,
+    };
   }
 
-    if (action.type === GET_SINGLE_PRODUCT_SUCCESS) {
-      return {
-        ...state,
-        single_product: action.payload,
-        single_product_loading: false,
-        single_product_error: false,
-      };
-    }
+  if (action.type === GET_SINGLE_PRODUCT_SUCCESS) {
+    return {
+      ...state,
+      single_product: action.payload,
+      single_product_loading: false,
+      single_product_error: false,
+    };
+  }
 
-      if (action.type === GET_SINGLE_PRODUCT_ERROR) {
-        return {
-          ...state,
-          single_product_loading: false,
-          single_product_error: true,
-        };
-      }
-
-
+  if (action.type === GET_SINGLE_PRODUCT_ERROR) {
+    return {
+      ...state,
+      single_product_loading: false,
+      single_product_error: true,
+    };
+  }
   // =====> End of section for SINGLE PRODUCTS
+
+  throw new Error(`The action type "${action.type}" was not found`);
 };
 
 export default products_reducer;

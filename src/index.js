@@ -7,13 +7,11 @@ import { ProductsProvider } from './context/products_context';
 import { FilterProvider } from './context/filter_context';
 
 ReactDOM.render(
-  <React.StrictMode>
     <ProductsProvider>
       <FilterProvider>
         <App />
       </FilterProvider>
-    </ProductsProvider>
-  </React.StrictMode>,
+    </ProductsProvider>,
   document.getElementById("root")
 );
 

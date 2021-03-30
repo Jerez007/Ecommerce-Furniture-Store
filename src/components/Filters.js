@@ -4,25 +4,44 @@ import { useFilterContext } from "../context/filter_context";
 import { formatPrice } from "../utils/helpers";
 
 const Filters = () => {
-  const { all_products } = useFilterContext();
-
-  // let test;
+  // console.log('useFilterContext>>>>>>>>', useFilterContext());
+  // const {
+  //   filters: {
+  //     text,
+  //     category,
+  //     company,
+  //     color,
+  //     min_price,
+  //     price,
+  //     max_price,
+  //     shipping,
+  //   },
+  //   updateFilters,
+  //   clearFilters,
+  //   all_products,
+  // } = useFilterContext();
 
   // // Gets unique list of data
   // const getUniqueList = (data, type) => {
   //   let list = data.map((item) => item[type]);
-  //   test = list;
+
+  //   if (type === "colors") {
+  //     list = list.flat();
+  //   }
+
+  //   return ["all", ...new Set(list)]; //returns a new list with unique values
   // };
 
-  // useEffect(() => {
-  //   getUniqueList(all_products, "category");
-  //   console.log(">>>>>>>>>>>>>>>>>>>", test);
-  // });
+  // // Gets a unique array of categories, companies and colors
+  // let categories = getUniqueList(all_products, "category");
+  // let companies = getUniqueList(all_products, "companies");
+  // let colors = getUniqueList(all_products, "colors");
 
   return (
     <Container>
       <h4>Colors</h4>
       <hr />
+
     </Container>
   );
 };

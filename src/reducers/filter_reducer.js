@@ -4,6 +4,7 @@ import {
   SET_LISTVIEW,
   SORT_PRODUCTS,
   UPDATE_SORT,
+  UPDATE_FILTERS,
   FILTER_PRODUCTS,
   UPDATE_PRODUCTS,
   CLEAR_FILTERS,
@@ -18,25 +19,20 @@ const filter_reducer = (state, action) => {
       action.payload
     ); //returns 0 lenght
 
-    // let highestPrice = action.payload.map((product) => product.price);
-    // highestPrice = Math.max(...highestPrice);
+    let highestPrice = action.payload.map((product) => product.price);
+    highestPrice = Math.max(...highestPrice);
 
     return {
       ...state,
       all_products: [...action.payload],
       filtered_products: [...action.payload],
-      // filters: {
-      //   ...state.filters,
-      //   highest_price: highestPrice,
-      //   price: highestPrice,
-      // },
+      filters: {
+        ...state.filters,
+        highest_price: highestPrice,
+        price: highestPrice,
+      },
     };
   }
-
-  // // Filters products
-  // if (action.type === FILTER_PRODUCTS) {
-  //   return {};
-  // }
 
   // Sets products view to grid
   if (action.type === SET_GRIDVIEW) {
@@ -84,16 +80,28 @@ const filter_reducer = (state, action) => {
     // sorts by ascending/descending product name
     if (sort === "product-name") {
       if (increasing) {
-                tempProducts = tempProducts.sort((a, b) => a.name.localeCompare(b.name));
-
+        tempProducts = tempProducts.sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
       } else {
-                tempProducts = tempProducts.sort((a, b) =>
-                  b.name.localeCompare(a.name)
-                );
+        tempProducts = tempProducts.sort((a, b) =>
+          b.name.localeCompare(a.name)
+        );
       }
     }
 
     return { ...state, filtered_products: tempProducts };
+  }
+
+  // Updates filters
+  if (action.type === UPDATE_FILTERS) {
+    const { name, value } = action.payload;
+    return { ...state, filters: { ...state.filters, [name]: value } };
+  }
+
+  // Filters products
+  if (action.type === FILTER_PRODUCTS) {
+    return {...state}
   }
 
   throw new Error(`The action type "${action.type}" was not found`);

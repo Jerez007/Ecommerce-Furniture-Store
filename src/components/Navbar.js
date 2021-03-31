@@ -8,9 +8,14 @@ import SearchIcon from "@material-ui/icons/Search";
 import { FaBars } from "react-icons/fa";
 import logo from "../assets/logo.png";
 import { useProductsContext } from "../context/products_context";
+import { useFilterContext } from "../context/filter_context";
 
 function Navbar() {
   const { toggleSidebar } = useProductsContext();
+  const {
+    filters: { text },
+    updateFilters,
+  } = useFilterContext();
 
   return (
     <NavContainer>
@@ -43,8 +48,14 @@ function Navbar() {
             <img src={logo} alt="logo furniture" />
           </Link>
 
-          <form action="" className="desktop-search">
-            <input type="text" placeholder="Type here to search"/>
+          <form onSubmit={(e) => e.preventDefault()} className="desktop-search">
+            <input
+              type="text"
+              name="text"
+              placeholder="Type here to search"
+              value={text}
+              onChange={updateFilters}
+            />
             <button type="submit" className="btn">
               Search
             </button>
@@ -64,14 +75,18 @@ function Navbar() {
         </div>
 
         {/* Search bar moves to it's own row by itself for devices 756px or less */}
-        <form action="" className="mobile-search">
-          <input type="text" placeholder="Type here to search" />
+        <form onSubmit={(e) => e.preventDefault()} className="mobile-search">
+          <input
+            type="text"
+            name="text"
+            placeholder="Type here to search"
+            value={text}
+            onChange={updateFilters}
+          />
           <button type="submit">
             <SearchIcon />
           </button>
         </form>
-
-        
       </div>
     </NavContainer>
   );
@@ -167,6 +182,11 @@ const NavContainer = styled.nav`
         height: 45px;
         border-radius: 1px;
         border: 1px solid #e4e4e4;
+        outline: none;
+      }
+
+      input[type="text"] {
+        padding-left: 20px;
       }
     }
 
@@ -211,6 +231,10 @@ const NavContainer = styled.nav`
       background-color: #e4e4e4;
       flex: 1;
       height: 45px;
+    }
+
+    input[type="text"] {
+      padding-left: 20px;
     }
 
     button {
@@ -283,7 +307,7 @@ const NavContainer = styled.nav`
         align-items: center;
         padding: 0px 10px;
 
-        .MuiSvgIcon-root {  
+        .MuiSvgIcon-root {
           font-size: 25px;
         }
       }

@@ -66,6 +66,11 @@ const Sort = () => {
 };
 
 const Container = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  margin-left: 10px;
+
   button {
     border: transparent;
     background-color: white;
@@ -76,6 +81,29 @@ const Container = styled.div`
   .active {
     color: var(--clr-primary-3);
     border: black;
+  }
+
+  label,
+  select {
+    margin-right: 15px;
+  }
+
+  select {
+    height: 30px;
+    font-size: 17px;
+    outline: none;
+  }
+
+  .btn-container {
+    margin-left: auto;
+    padding-right: 20px;
+  }
+
+  /* media queries */
+  @media screen and (max-width: 769px) {
+    .btn-container {
+      display: none;
+    }
   }
 `;
 

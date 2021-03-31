@@ -46,7 +46,7 @@ export const FilterProvider = ({ children }) => {
 
   // Filters and sorts products when products list changes, or when sort and filter values are changed
   useEffect(() => {
-    // dispatch({ type: FILTER_PRODUCTS });
+    dispatch({ type: FILTER_PRODUCTS });
     dispatch({ type: SORT_PRODUCTS });
   }, [products, state.sort, state.filters, state.increasing]);
 
@@ -62,14 +62,27 @@ export const FilterProvider = ({ children }) => {
 
   // Toggles increase/decrease sort by value
   const increaseDecreaseToggle = () => {
-    dispatch({ type: INCREASE_DECREASE_TOGGLE })
-  }
+    dispatch({ type: INCREASE_DECREASE_TOGGLE });
+  };
 
   // gets the selected sort value
   const updateSort = (e) => {
-    const value = e.target.value
+    const value = e.target.value;
     dispatch({ type: UPDATE_SORT, payload: value });
-  }
+  };
+
+  // Updates the filters
+  const updateFilters = (e) => {
+    let name = e.target.name
+    let value = e.target.value
+    dispatch({ type: UPDATE_FILTERS, payload: {name, value} })
+  };
+
+
+  // clears filters and sets back to default
+    const clearFilters = (e) => {
+
+    };
 
   return (
     <FilterContext.Provider
@@ -79,6 +92,8 @@ export const FilterProvider = ({ children }) => {
         setListView,
         increaseDecreaseToggle,
         updateSort,
+        updateFilters,
+        clearFilters
       }}
     >
       {children}

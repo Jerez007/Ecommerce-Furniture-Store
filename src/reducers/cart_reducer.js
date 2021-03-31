@@ -11,9 +11,25 @@ const cart_reducer = (state, action) => {
     const { id, amount, product } = action.payload;
     const tempItem = state.cart.find((i) => i.id === id);
 
-    // if item is already in the cart
+    // update amount value if item is already in the cart
     if (tempItem) {
-    } else {
+      const tempCart = state.cart.map((item) => {
+        if (item.id === id) {
+          let newAmount = item.amount + amount
+
+          // Makes sure that the new amount is not higher than the stock
+          if (newAmount > item.max) {
+            newAmount = item.max
+          }
+
+          return {...item, amount: newAmount}
+        } else  {
+          return item 
+        }
+      })
+
+      return {...state, cart: tempCart}
+    } else {  // adds new time to cart
       const newItem = {
         id,
         name: product.name,

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import { Footer, Navbar, Sidebar } from './components';
 import FooterMenu from './components/FooterMenu';
 import SocialMedia from './components/SocialMedia';
-import { Home, Error, SingleProduct, ProductsPage } from "./pages";
+import { Home, Error, SingleProduct, ProductsPage, CartPage } from "./pages";
 
 function App() {
   return (
@@ -21,6 +21,10 @@ function App() {
         </Route>
 
         <Route exact path="/products/:id" children={<SingleProduct />} />
+
+        <Route exact path="/cart">
+          <CartPage />
+        </Route>
 
         <Route exact path="*">
           <Error />

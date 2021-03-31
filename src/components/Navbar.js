@@ -69,8 +69,9 @@ function Navbar() {
               <br />
               <span className="hours">10:00-18:00</span>
             </p>
-
-            <ShoppingCartOutlinedIcon className="basket" fontSize="large" />
+            <Link to="/cart">
+              <ShoppingCartOutlinedIcon className="basket" fontSize="large" />
+            </Link>
           </div>
         </div>
 

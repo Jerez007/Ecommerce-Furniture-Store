@@ -97,7 +97,7 @@ const filter_reducer = (state, action) => {
   // Filters products
   if (action.type === FILTER_PRODUCTS) {
     const { all_products } = state;
-    const { text, category, company, color, price} = state.filters
+    const { text, category, company, color, price } = state.filters;
 
     // gets a fresh copy of all the products. spread operator is used to override the values being overridden
     let tempProducts = [...all_products];
@@ -105,9 +105,26 @@ const filter_reducer = (state, action) => {
     // filters by the text in the search bar
     if (text) {
       tempProducts = tempProducts.filter((product) => {
-        return product.name.toLowerCase().includes(text.toLowerCase())
-      })
+        return product.name.toLowerCase().includes(text.toLowerCase());
+      });
     }
+
+    // filters by category
+    if (category !== "all") {
+      tempProducts = tempProducts.filter((product) => {
+        return product.category === category;
+      });
+    }
+
+    // filters by company
+    if (company !== "all") {
+      tempProducts = tempProducts.filter((product) => {
+        return product.company === company;
+      });
+    }
+
+    // filters by price
+    tempProducts = tempProducts.filter((product) => product.price <= price);
 
     return { ...state, filtered_products: tempProducts };
   }
@@ -116,14 +133,14 @@ const filter_reducer = (state, action) => {
   if (action.type === CLEAR_FILTERS) {
     return {
       ...state,
-        filters: {
-          ...state.filters,
-          text: "",
-          color: "all",
-          category: "all",
-          company: "all",
-          price: state.filters.max_price, // sets default value to the max price
-        },
+      filters: {
+        ...state.filters,
+        text: "",
+        color: "all",
+        category: "all",
+        company: "all",
+        price: state.filters.max_price, // sets default value to the max price
+      },
     };
   }
 

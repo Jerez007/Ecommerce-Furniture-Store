@@ -100,3 +100,9 @@ a {
   padding-left: 15px;
   font-size: 18px;
 }
+
+/* error */
+.error-product {
+  margin: 25px;
+  font-size: 20px;
+}

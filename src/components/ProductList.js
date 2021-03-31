@@ -8,7 +8,7 @@ const ProductList = () => {
 
   // if no products match the filter
   if (products.length < 1) {
-    return <h5>Sorry, no products matched your search...</h5>;
+    return <h5 className="error-product">Sorry, no products matched your search...</h5>;
   }
 
   // Display list view if list view is selected
@@ -17,5 +17,6 @@ const ProductList = () => {
   }
   return <Gridview products={products}>product list</Gridview>;
 };
+
 
 export default ProductList;

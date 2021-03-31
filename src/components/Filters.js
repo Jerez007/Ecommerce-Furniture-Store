@@ -34,7 +34,7 @@ const Filters = () => {
       <div className="btn-container">
         <button type="button">Hide Filters</button>
 
-        <button type="button">Clear Filters</button>
+        <button type="button" className="clear-btn" onClick={clearFilters}>Clear Filters</button>
       </div>
 
       {/* categories filter*/}
@@ -136,6 +136,11 @@ const Container = styled.div`
 
   .active {
     border: 3px solid var(--clr-primary-3);
+  }
+
+  .clear-btn {
+    background-color: red;
+    color: white;
   }
 `;
 

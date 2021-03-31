@@ -96,8 +96,35 @@ const filter_reducer = (state, action) => {
 
   // Filters products
   if (action.type === FILTER_PRODUCTS) {
-    // console.log('filtering products');      
-    return {...state}
+    const { all_products } = state;
+    const { text, category, company, color, price} = state.filters
+
+    // gets a fresh copy of all the products. spread operator is used to override the values being overridden
+    let tempProducts = [...all_products];
+
+    // filters by the text in the search bar
+    if (text) {
+      tempProducts = tempProducts.filter((product) => {
+        return product.name.toLowerCase().includes(text.toLowerCase())
+      })
+    }
+
+    return { ...state, filtered_products: tempProducts };
+  }
+
+  // Clears the filters and resets to initial default values
+  if (action.type === CLEAR_FILTERS) {
+    return {
+      ...state,
+        filters: {
+          ...state.filters,
+          text: "",
+          color: "all",
+          category: "all",
+          company: "all",
+          price: state.filters.max_price, // sets default value to the max price
+        },
+    };
   }
 
   throw new Error(`The action type "${action.type}" was not found`);

@@ -90,7 +90,7 @@ export const FilterProvider = ({ children }) => {
 
   // clears filters and sets back to default
     const clearFilters = (e) => {
-
+      dispatch({ type: CLEAR_FILTERS })
     };
 
   return (

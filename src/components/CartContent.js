@@ -1,18 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { CartColumns, CartItem, CartTotals } from ".";
+import { useCartContext } from "../context/cart_context";
 
 const CartContent = () => {
+  const { cart, clearCart } = useCartContext();
+
   return (
     <Container>
-      <h1>Cart</h1>
-      <p>
-        Not yet ready to order? Click here to{" "}
-        <Link to="/" className="link">
-          continue shopping
-        </Link>
-        .
-      </p>
+      <CartColumns />
+      <CartTotals />
+
+      {cart.map((item) => {
+        return <CartItem key={item.id} {...item}></CartItem>
+      })}
     </Container>
   );
 };
@@ -21,13 +23,7 @@ const Container = styled.div`
   margin-top: 30px;
   color: var(--clr-primary-3);
 
-  h1 {
-    margin-bottom: 10px;
-  }
 
-  .link {
-    text-decoration: underline;
-  }
 `;
 
 export default CartContent;

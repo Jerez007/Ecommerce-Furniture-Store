@@ -4,17 +4,8 @@ import { useFilterContext } from "../context/filter_context";
 import { formatPrice } from "../utils/helpers";
 
 const Filters = () => {
-  console.log('useFilterContext>>>>>>>>', useFilterContext());
   const {
-    filters: {
-      text,
-      category,
-      company,
-      color,
-      min_price,
-      price,
-      highest_price,
-    },
+    filters: { text, category, company, color, min_price, price, max_price },
     updateFilters,
     clearFilters,
     all_products,
@@ -33,7 +24,9 @@ const Filters = () => {
 
   // // Gets a unique array of categories, companies and colors
   let categories = getUniqueList(all_products, "category");
-  let companies = getUniqueList(all_products, "companies");
+  categories.splice(categories.length - 1, 1);
+  let companies = getUniqueList(all_products, "company");
+  console.log(">>>>>>>>>>>>>>", companies);
   let colors = getUniqueList(all_products, "colors");
 
   return (
@@ -44,15 +37,66 @@ const Filters = () => {
         <button type="button">Clear Filters</button>
       </div>
 
-      {/* colors filter*/}
-      <div className="filter-container">
+      {/* categories filter*/}
+      <div className="filters-container">
         <h4>Category</h4>
         <hr />
-        {categories.map((category, index) => {
-          return <button key={index}>{category}</button>
+        {categories.map((item, index) => {
+          return (
+            <button
+              type="button"
+              key={index}
+              name="category"
+              onClick={updateFilters}
+              className={`${category === item.toLowerCase() ? "active" : null}`}
+            >
+              {item}
+            </button>
+          );
         })}
       </div>
-      {/* end of color filters */}
+      {/* end of categories filter */}
+
+      {/* companies filter */}
+      <div className="filters-container">
+        <h4>Company</h4>
+        <hr />
+        {/* <select name="company" value={company} onChange={updateFilters}>
+          {companies.map((item, index) => {
+            return <option key={index} value={item}>{item}</option>
+          })}
+        </select> */}
+        {companies.map((item, index) => {
+          return (
+            <button
+              type="button"
+              key={index}
+              name="company"
+              onClick={updateFilters}
+              className={`${company === item.toLowerCase() ? "active" : null}`}
+            >
+              {item}
+            </button>
+          );
+        })}
+      </div>
+      {/* end of companies filter */}
+
+      {/* price filter */}
+      <div className="filter-container">
+        <h4>Price</h4>
+        <hr />
+        <p>{formatPrice(price)}</p>
+        <input
+          type="range"
+          name="price"
+          min={min_price}
+          max={max_price}
+          value={price} 
+          onChange={updateFilters}
+        ></input>
+      </div>
+      {/* end of price filter */}
     </Container>
   );
 };
@@ -68,6 +112,7 @@ const Container = styled.div`
 
   hr {
     margin-top: 7px;
+    margin-bottom: 7px;
     height: 1px;
     margin-right: 10px;
   }
@@ -79,6 +124,18 @@ const Container = styled.div`
     outline: none;
     color: var(--clr-primary-3);
     width: 100px;
+  }
+
+  .filters-container {
+    margin-bottom: 20px;
+
+    button {
+      margin: 5px;
+    }
+  }
+
+  .active {
+    border: 3px solid var(--clr-primary-3);
   }
 `;
 

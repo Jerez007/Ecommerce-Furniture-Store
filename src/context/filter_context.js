@@ -26,7 +26,7 @@ const initialState = {
     company: "all",
     price: 0,
     min_price: 0,
-    highest_price: 0,
+    max_price: 0,
   },
 };
 
@@ -36,12 +36,10 @@ export const FilterProvider = ({ children }) => {
   const { products } = useProductsContext();
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  console.log(" products in useProductsContext() >>>>>", products);
 
   // Gets the initial data from products and finds the max price when products list changes
   useEffect(() => {
     dispatch({ type: LOAD_PRODUCTS, payload: products });
-    console.log(`UseEffect  >>>>>>>>>>>>>>${Date()}`, products); //returns 0 lenght
   }, [products]);
 
   // Filters and sorts products when products list changes, or when sort and filter values are changed
@@ -75,6 +73,17 @@ export const FilterProvider = ({ children }) => {
   const updateFilters = (e) => {
     let name = e.target.name
     let value = e.target.value
+
+    // handles special case for buttons, as we are not able to get value using the regular e.target.value method for buttons
+    if (name === 'category' || name === "company") {
+      value = e.target.textContent
+    }
+
+    // Price value is a string and needs to be turned into a number
+    if(name === "price") {
+      value = Number(value)
+    }
+
     dispatch({ type: UPDATE_FILTERS, payload: {name, value} })
   };
 

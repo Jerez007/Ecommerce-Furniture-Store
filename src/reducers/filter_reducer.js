@@ -14,11 +14,6 @@ import {
 const filter_reducer = (state, action) => {
   // Gets the maxium price from products. By default, filtered products is just set to products
   if (action.type === LOAD_PRODUCTS) {
-    console.log(
-      `filter REDUCER action.type === LOAD_PRODUCTS >>>>>>>>>>>>>>${Date()}`,
-      action.payload
-    ); //returns 0 lenght
-
     let highestPrice = action.payload.map((product) => product.price);
     highestPrice = Math.max(...highestPrice);
 
@@ -28,7 +23,7 @@ const filter_reducer = (state, action) => {
       filtered_products: [...action.payload],
       filters: {
         ...state.filters,
-        highest_price: highestPrice,
+        max_price: highestPrice,
         price: highestPrice,
       },
     };
@@ -101,6 +96,7 @@ const filter_reducer = (state, action) => {
 
   // Filters products
   if (action.type === FILTER_PRODUCTS) {
+    // console.log('filtering products');      
     return {...state}
   }
 

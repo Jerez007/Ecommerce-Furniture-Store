@@ -15,21 +15,22 @@ const cart_reducer = (state, action) => {
     if (tempItem) {
       const tempCart = state.cart.map((item) => {
         if (item.id === id) {
-          let newAmount = item.amount + amount
+          let newAmount = item.amount + amount;
 
           // Makes sure that the new amount is not higher than the stock
           if (newAmount > item.max) {
-            newAmount = item.max
+            newAmount = item.max;
           }
 
-          return {...item, amount: newAmount}
-        } else  {
-          return item 
+          return { ...item, amount: newAmount };
+        } else {
+          return item;
         }
-      })
+      });
 
-      return {...state, cart: tempCart}
-    } else {  // adds new time to cart
+      return { ...state, cart: tempCart };
+    } else {
+      // adds new time to cart
       const newItem = {
         id,
         name: product.name,
@@ -40,6 +41,16 @@ const cart_reducer = (state, action) => {
       };
       return { ...state, cart: [...state.cart, newItem] };
     }
+  }
+
+  if (action.type === REMOVE_CART_ITEM) {
+    let tempCart = state.cart.filter((item) => item.id !== action.payload);
+
+    return { ...state, cart: tempCart };
+  }
+
+  if (action.type === CLEAR_CART) {
+    return { ...state, cart: [] };
   }
 
   throw new Error(`The action type "${action.type}" was not found`);

@@ -40,7 +40,9 @@ const CartItem = ({ id, image, name, price, amount }) => {
         </div>
 
         <div className="subtotal-container">
-          <DeleteIcon onClick={removeItem}/>
+          <button type="button" onClick={() => removeItem(id)}>
+            <DeleteIcon />
+          </button>
           <h5>Subtotal</h5>
           <p>{formatPrice(price * amount)}</p>
         </div>
@@ -121,6 +123,12 @@ const Container = styled.div`
     align-items: center;
     margin-top: -45px;
 
+    button {
+      border: none;
+      background-color: white;
+      outline: none;
+    }
+
     h5 {
       margin-top: 20px;
       margin-bottom: 10px;
@@ -129,7 +137,6 @@ const Container = styled.div`
   .name {
     text-transform: capitalize;
   }
-
 `;
 
 export default CartItem;

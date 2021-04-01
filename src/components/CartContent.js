@@ -15,9 +15,13 @@ const CartContent = () => {
       <hr className="hr-block" />
 
       <h4>SHIP TO HOME</h4>
-        {cart.map((item) => {
-          return <CartItem key={item.id} {...item}></CartItem>;
-        })}
+      {cart.map((item) => {
+        return <CartItem key={item.id} {...item}></CartItem>;
+      })}
+
+      <button type="button" className="btn clear-btn" onClick={clearCart}>
+        Clear Cart
+      </button>
     </Container>
   );
 };
@@ -38,7 +42,9 @@ const Container = styled.div`
     margin-bottom: 30px;
   }
 
-
+  .clear-btn {
+    background-color: red !important;
+  }
 `;
 
 export default CartContent;

@@ -9,19 +9,19 @@ import {
   COUNT_CART_TOTALS,
 } from "../actions";
 
-// Checks local storage for cart items. 
+// Checks local storage for cart items.
 const getLocalStorage = () => {
-  let cart = localStorage.getItem('cart')
+  let cart = localStorage.getItem("cart");
 
-  if (cart) { 
-    return JSON.parse(localStorage.getItem('cart')) //parses the string back into JSON
+  if (cart) {
+    return JSON.parse(localStorage.getItem("cart")); //parses the string back into JSON
   } else {
-    return []
+    return [];
   }
-}
+};
 
 const initialState = {
-  cart: getLocalStorage(),  // Value depends on whether or not there are cart items in local storage
+  cart: getLocalStorage(), // Value depends on whether or not there are cart items in local storage
   total_items: 0,
   total_amount: 0,
   shipping_fee: 999,
@@ -38,21 +38,27 @@ export const CartProvider = ({ children }) => {
   };
 
   // Removes product from the cart
-  const removeItem = (id) => {};
+  const removeItem = (id) => {
+    dispatch({ type: REMOVE_CART_ITEM, payload: id });
+  };
 
   // Toggles(increase/decrease) amount of product in the cart
   const toggleAmount = (id, value) => {};
 
   // Clears all items in the cart
-  const clearCart = () => {};
+  const clearCart = () => {
+    dispatch({ type: CLEAR_CART });
+  };
 
   // Gets invoked everytime cart changes and saves to local storage
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(state.cart))  // must be stored as a string
-  }, [state.cart])
+    localStorage.setItem("cart", JSON.stringify(state.cart)); // must be stored as a string
+  }, [state.cart]);
 
   return (
-    <CartContext.Provider value={{ ...state, addToCart, removeItem, toggleAmount, clearCart}}>
+    <CartContext.Provider
+      value={{ ...state, addToCart, removeItem, toggleAmount, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   );

@@ -12,11 +12,11 @@ const CartContent = () => {
       <CartColumns />
       <CartTotals />
 
-      <hr className="hr-block"/>
+      <hr className="hr-block" />
 
       <h4>SHIP TO HOME</h4>
       {cart.map((item) => {
-        return <CartItem key={item.id} {...item}></CartItem>
+        return <CartItem key={item.id} {...item}></CartItem>;
       })}
     </Container>
   );

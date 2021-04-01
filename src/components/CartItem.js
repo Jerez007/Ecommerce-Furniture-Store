@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import { MiniQuantityButtons } from ".";
 import { useCartContext } from "../context/cart_context";
 import { formatPrice } from "../utils/helpers";
+import QuantityButton from "./QuantityButton";
 
 const CartItem = ({ id, image, name, price, amount}) => {
   const { removeItem, toggleAmount } = useCartContext();
@@ -24,7 +26,7 @@ const CartItem = ({ id, image, name, price, amount}) => {
         </div>
 
         <div className="toggle-container">
-          
+          <MiniQuantityButtons amount={amount} increase={increase} decrease={decrease} />
         </div>
       </div>
     </Container>
@@ -69,6 +71,10 @@ const Container = styled.div`
     font-weight: 550;
   }
   /* end of styling for the price */
+
+  .toggle-container {
+    width: 40px;
+  }
 `;
 
 export default CartItem;

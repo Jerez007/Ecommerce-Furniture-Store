@@ -12,7 +12,7 @@ const CartContent = () => {
       <CartColumns />
       <CartTotals />
 
-      <hr />
+      <hr className="hr-block"/>
 
       <h4>SHIP TO HOME</h4>
       {cart.map((item) => {
@@ -26,7 +26,7 @@ const Container = styled.div`
   margin-top: 30px;
   color: var(--clr-primary-3);
 
-  hr {
+  .hr-block {
     background-color: #f7d656;
     height: 40px;
     border: none;

@@ -20,6 +20,7 @@ import CartColumns from './CartColumns'
 import CartItem from './CartItem'
 import SocialMedia from './SocialMedia'
 import CartTotals from './CartTotals'
+import AmountButtons from './AmountButtons'
 
 export {
   Navbar,
@@ -44,5 +45,5 @@ export {
   AddToCart,
   CartTotals,
   SocialMedia,
-
+  AmountButtons,
 };

@@ -36,7 +36,6 @@ export const FilterProvider = ({ children }) => {
   const { products } = useProductsContext();
   const [state, dispatch] = useReducer(reducer, initialState);
 
-
   // Gets the initial data from products and finds the max price when products list changes
   useEffect(() => {
     dispatch({ type: LOAD_PRODUCTS, payload: products });
@@ -71,27 +70,28 @@ export const FilterProvider = ({ children }) => {
 
   // Updates the filters
   const updateFilters = (e) => {
-    let name = e.target.name
-    let value = e.target.value
+    let name = e.target.name;
+    let value = e.target.value;
+
 
     // handles special case for buttons, as we are not able to get value using the regular e.target.value method for buttons
-    if (name === 'category' || name === "company") {
-      value = e.target.textContent
+    if (name === "category" || name === "company") {
+      value = e.target.textContent;
     }
 
     // Price value is a string and needs to be turned into a number
-    if(name === "price") {
-      value = Number(value)
+    if (name === "price") {
+      value = Number(value);
     }
-
-    dispatch({ type: UPDATE_FILTERS, payload: {name, value} })
+    console.log("NAVBAR name is>>>>>>>>>>>>>>>>>", name);
+    console.log("NAVBAR  value is>>>>>>>>>>>>>>>>>", value);
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
   };
 
-
   // clears filters and sets back to default
-    const clearFilters = (e) => {
-      dispatch({ type: CLEAR_FILTERS })
-    };
+  const clearFilters = (e) => {
+    dispatch({ type: CLEAR_FILTERS });
+  };
 
   return (
     <FilterContext.Provider
@@ -102,7 +102,7 @@ export const FilterProvider = ({ children }) => {
         increaseDecreaseToggle,
         updateSort,
         updateFilters,
-        clearFilters
+        clearFilters,
       }}
     >
       {children}

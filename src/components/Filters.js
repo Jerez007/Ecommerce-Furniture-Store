@@ -5,7 +5,7 @@ import { formatPrice } from "../utils/helpers";
 
 const Filters = () => {
   const {
-    filters: { text, category, company, color, min_price, price, max_price },
+    filters: { text, category, company, min_price, price, max_price },
     updateFilters,
     clearFilters,
     all_products,
@@ -15,9 +15,9 @@ const Filters = () => {
   const getUniqueList = (data, type) => {
     let list = data.map((item) => item[type]);
 
-    if (type === "colors") {
-      list = list.flat();
-    }
+    // if (type === "colors") {
+    //   list = list.flat();
+    // }
 
     return ["all", ...new Set(list)]; //returns a new list with unique values
   };
@@ -26,8 +26,7 @@ const Filters = () => {
   let categories = getUniqueList(all_products, "category");
   categories.splice(categories.length - 1, 1);
   let companies = getUniqueList(all_products, "company");
-  console.log(">>>>>>>>>>>>>>", companies);
-  let colors = getUniqueList(all_products, "colors");
+  // let colors = getUniqueList(all_products, "colors");
 
   return (
     <Container>

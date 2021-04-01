@@ -30,11 +30,11 @@ const CartTotals = () => {
             onClick={() => setToggle(!toggle)}
           /> */}
         </div>
-        <hr />
+        <hr className={`${toggle ? "hide-section" : null}`} />
 
         {/* order summary details. can be toggled on or off */}
         {toggle && (
-          <div>
+          <div className="order-details">
             <h5>Purchase now</h5>
 
             <div className="subtotal">
@@ -46,6 +46,8 @@ const CartTotals = () => {
               <p>Tax</p>
               <h5>{formatPrice(total_amount * 0.13)}</h5>
             </div>
+
+            <hr />
           </div>
         )}
 
@@ -79,21 +81,29 @@ const Container = styled.div`
   }
 
   button {
-    margin-top: 20px;
+    margin-top: 25px;
     width: 100%;
-    height: 35px;
+    height: 40px;
   }
 
   h5:nth-child(1) {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 
   p:nth-child(1) {
     margin-bottom: 10px;
   }
 
-  .hide-details {
+  .hide-section {
     display: none;
+  }
+
+  .order-details {
+    margin-top: 20px;
+
+    hr {
+      margin: 18px 0px;
+    }
   }
 `;
 

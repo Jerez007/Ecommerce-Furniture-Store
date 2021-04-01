@@ -208,7 +208,8 @@ const NavContainer = styled.nav`
       margin-left: 5em;
 
       .basket {
-        padding-left: 10px;
+        transform: rotateY(3.142rad);
+        margin-left: 10px;
       }
 
       p {
@@ -218,6 +219,7 @@ const NavContainer = styled.nav`
 
       span {
         color: darkblue;
+        font-weight: 550;
       }
     }
   }
@@ -364,6 +366,10 @@ const NavContainer = styled.nav`
 
     .nav-right {
       margin-right: 45px;
+    }
+
+    .basket {
+      margin-right: 0px;
     }
   }
 `;

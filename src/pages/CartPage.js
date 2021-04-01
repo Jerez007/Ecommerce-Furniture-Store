@@ -24,7 +24,7 @@ const CartPage = () => {
 
   return (
     <Container>
-      <h1>Cart</h1>
+      <h1>CART</h1>
       <p>
         Not yet ready to order? Click here to{" "}
         <Link to="/" className="link">

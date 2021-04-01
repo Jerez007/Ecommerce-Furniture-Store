@@ -43,7 +43,9 @@ export const CartProvider = ({ children }) => {
   };
 
   // Toggles(increase/decrease) amount of product in the cart
-  const toggleAmount = (id, value) => {};
+  const toggleAmount = (id, value) => {
+    dispatch({ type: TOGGLE_CART_ITEM_AMOUNT, payload: {id, value} })
+  };
 
   // Clears all items in the cart
   const clearCart = () => {

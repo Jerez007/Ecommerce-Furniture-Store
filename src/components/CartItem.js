@@ -9,9 +9,13 @@ import DeleteIcon from "@material-ui/icons/Delete";
 const CartItem = ({ id, image, name, price, amount }) => {
   const { removeItem, toggleAmount } = useCartContext();
 
-  const increase = () => {};
+  const increase = () => {
+    toggleAmount(id, "increase");
+  };
 
-  const decrease = () => {};
+  const decrease = () => {
+    toggleAmount(id, "decrease");
+  };
 
   return (
     <Container>

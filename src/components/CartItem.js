@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { useCartContext } from "../context/cart_context";
 
-const CartItem = () => {
+const CartItem = ({ id, image, name, price, amount}) => {
+  const { removeItem, toggleAmount } = useCartContext();
+
+  const increase = () => {};
+
+  const decrease = () => {};
 
   return <Container>Cart Item</Container>;
 };

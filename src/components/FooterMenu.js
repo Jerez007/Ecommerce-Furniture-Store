@@ -27,6 +27,8 @@ const FooterMenu = () => {
 };
 
 const Wrapper = styled.footer`
+  margin-top: 50px;
+
   .menu-center {
     display: flex;
     justify-content: space-around;

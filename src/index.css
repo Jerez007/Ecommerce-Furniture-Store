@@ -45,6 +45,7 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background: var(--clr-primary-2);
   color: white;
+  font-weight: 600;
   border-color: rgb(243, 238, 238);
   border-radius: var(--radius);
   padding: 0.45rem 0.85rem;

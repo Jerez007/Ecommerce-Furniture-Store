@@ -39,7 +39,9 @@ const CartPage = () => {
 };
 
 const Container = styled.div`
-  margin: 20px;
+  margin-top: 40px;
+  margin-left: 17px;
+  margin-right: 17px;
   color: var(--clr-primary-3);
 
   h1 {

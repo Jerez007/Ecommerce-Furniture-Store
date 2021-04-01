@@ -210,6 +210,7 @@ const NavContainer = styled.nav`
       .basket {
         transform: rotateY(3.142rad);
         margin-left: 10px;
+        color: var(--clr-primary-3);
       }
 
       p {

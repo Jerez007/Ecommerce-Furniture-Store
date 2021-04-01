@@ -12,6 +12,9 @@ const CartContent = () => {
       <CartColumns />
       <CartTotals />
 
+      <hr />
+
+      <h4>SHIP TO HOME</h4>
       {cart.map((item) => {
         return <CartItem key={item.id} {...item}></CartItem>
       })}
@@ -23,7 +26,17 @@ const Container = styled.div`
   margin-top: 30px;
   color: var(--clr-primary-3);
 
+  hr {
+    background-color: #f7d656;
+    height: 40px;
+    border: none;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
 
+  h4 {
+    margin-bottom: 30px;
+  }
 `;
 
 export default CartContent;

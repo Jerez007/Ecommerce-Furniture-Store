@@ -4,9 +4,10 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import { formatPrice } from "../utils/helpers";
 import { useCartContext } from "../context/cart_context";
+import { Link } from "react-router-dom";
 
 const CartTotals = () => {
-  const { total_amount, shipping_fee } = useCartContext();
+  const { total_amount } = useCartContext();
   const [toggle, setToggle] = useState(false);
 
   return (
@@ -30,7 +31,7 @@ const CartTotals = () => {
             onClick={() => setToggle(!toggle)}
           /> */}
         </div>
-        <hr className={`${toggle ? "hide-section" : null}`} />
+        {/* <hr className={`${toggle ? "hide-section" : null}`} /> */}
 
         {/* order summary details. can be toggled on or off */}
         {toggle && (
@@ -46,8 +47,6 @@ const CartTotals = () => {
               <p>Tax</p>
               <h5>{formatPrice(total_amount * 0.13)}</h5>
             </div>
-
-            <hr />
           </div>
         )}
 
@@ -56,7 +55,11 @@ const CartTotals = () => {
           <h3>{formatPrice(total_amount * 0.13 + total_amount)}</h3>
         </div>
 
-        <button type="button">Checkout</button>
+        <Link to="/checkout">
+          <button type="button" className="btn">
+            Checkout
+          </button>
+        </Link>
       </div>
     </Container>
   );
@@ -70,6 +73,8 @@ const Container = styled.div`
 
   hr {
     margin: 10px 0px;
+    height: 1px;
+    color: rgba(255, 255, 255, 0.25) !important;
   }
 
   .summary-section,
@@ -80,23 +85,24 @@ const Container = styled.div`
     justify-content: space-between;
   }
 
-  button {
-    margin-top: 25px;
-    width: 100%;
-    height: 40px;
+  .btn {
+    margin-top: 25px !important;
+    width: 100% !important;
+    height: 40px !important;
   }
 
   h5:nth-child(1) {
     margin-bottom: 15px;
+    font-size: 16px;
   }
 
   p:nth-child(1) {
     margin-bottom: 10px;
   }
 
-  .hide-section {
+  /* .hide-section {
     display: none;
-  }
+  } */
 
   .order-details {
     margin-top: 20px;
@@ -104,6 +110,18 @@ const Container = styled.div`
     hr {
       margin: 18px 0px;
     }
+  }
+
+  .total {
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+
+  .subtotal,
+  .tax {
+    font-size: 18px;
   }
 `;
 

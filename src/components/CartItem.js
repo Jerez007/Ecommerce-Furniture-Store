@@ -4,8 +4,9 @@ import { MiniQuantityButtons } from ".";
 import { useCartContext } from "../context/cart_context";
 import { formatPrice } from "../utils/helpers";
 import QuantityButton from "./QuantityButton";
+import DeleteIcon from "@material-ui/icons/Delete";
 
-const CartItem = ({ id, image, name, price, amount}) => {
+const CartItem = ({ id, image, name, price, amount }) => {
   const { removeItem, toggleAmount } = useCartContext();
 
   const increase = () => {};
@@ -15,10 +16,15 @@ const CartItem = ({ id, image, name, price, amount}) => {
   return (
     <Container>
       <div className="content">
-        <img src={image} alt={name} />
+        <div className="image-container">
+          <img src={image} alt={name} />
+        </div>
+
+        <div className="name">
+          <p>{name}</p>
+        </div>
 
         <div className="info">
-          <p>{name}</p>
           <p className="price-container">
             <span>Price</span>
             <span className="price">{formatPrice(price)}</span>
@@ -26,7 +32,17 @@ const CartItem = ({ id, image, name, price, amount}) => {
         </div>
 
         <div className="toggle-container">
-          <MiniQuantityButtons amount={amount} increase={increase} decrease={decrease} />
+          <MiniQuantityButtons
+            amount={amount}
+            increase={increase}
+            decrease={decrease}
+          />
+        </div>
+
+        <div className="subtotal-container">
+          <DeleteIcon onClick={removeItem}/>
+          <h5>Subtotal</h5>
+          <p>{formatPrice(price * amount)}</p>
         </div>
       </div>
     </Container>
@@ -35,11 +51,40 @@ const CartItem = ({ id, image, name, price, amount}) => {
 
 const Container = styled.div`
   color: var(--clr-primary-3);
+  margin-bottom: 40px;
 
   .content {
     display: grid;
-    grid-template-columns: auto 2fr 1fr 1fr;
+    grid-template-areas:
+      "images productName buttons buttons buttons empty"
+      "images price buttons buttons buttons subtotal"
+      "images price buttons buttons buttons subtotal";
+    gap: 0;
   }
+
+  /* grid assignments */
+  .image-container {
+    grid-area: images;
+  }
+
+  .name {
+    grid-area: productName;
+  }
+
+  .info {
+    grid-area: price;
+  }
+
+  .toggle-container {
+    grid-area: buttons;
+    margin-left: -100px;
+  }
+
+  .subtotal-container {
+    grid-area: subtotal;
+  }
+
+  /* end of grid assignments */
 
   img {
     height: 150px;
@@ -51,15 +96,13 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-left: 10px;
-
     text-transform: capitalize;
   }
 
   /* styling for the price */
   .price-container span:nth-child(1) {
     font-size: 14px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 
   .price-container {
@@ -72,9 +115,21 @@ const Container = styled.div`
   }
   /* end of styling for the price */
 
-  .toggle-container {
-    width: 40px;
+  .subtotal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -45px;
+
+    h5 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
   }
+  .name {
+    text-transform: capitalize;
+  }
+
 `;
 
 export default CartItem;

@@ -15,9 +15,9 @@ const CartContent = () => {
       <hr className="hr-block" />
 
       <h4>SHIP TO HOME</h4>
-      {cart.map((item) => {
-        return <CartItem key={item.id} {...item}></CartItem>;
-      })}
+        {cart.map((item) => {
+          return <CartItem key={item.id} {...item}></CartItem>;
+        })}
     </Container>
   );
 };
@@ -37,6 +37,8 @@ const Container = styled.div`
   h4 {
     margin-bottom: 30px;
   }
+
+
 `;
 
 export default CartContent;

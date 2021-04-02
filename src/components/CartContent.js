@@ -15,8 +15,13 @@ const CartContent = () => {
       <hr className="hr-block" />
 
       <h4>SHIP TO HOME</h4>
+
       {cart.map((item) => {
-        return <CartItem key={item.id} {...item}></CartItem>;
+        return (
+          <div className="item-container">
+            <CartItem key={item.id} {...item}></CartItem>
+          </div>
+        );
       })}
 
       <button type="button" className="btn clear-btn" onClick={clearCart}>
@@ -28,13 +33,14 @@ const CartContent = () => {
 
 const Container = styled.div`
   margin-top: 30px;
+  margin-bottom: 50px;
   color: var(--clr-primary-3);
 
   .hr-block {
     background-color: #f7d656;
     height: 40px;
     border: none;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding: 20px;
   }
 
@@ -44,6 +50,11 @@ const Container = styled.div`
 
   .clear-btn {
     background-color: red !important;
+    margin-top: 20px;
+  }
+
+  .item-container {
+    border-bottom: 1px solid hsl(0, 0%, 90%, 0.3);
   }
 `;
 

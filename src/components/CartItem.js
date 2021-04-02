@@ -57,7 +57,8 @@ const CartItem = ({ id, image, name, price, amount }) => {
 
 const Container = styled.div`
   color: var(--clr-primary-3);
-  margin-bottom: 40px;
+  margin-bottom: 60px;
+  margin-top: 20px;
 
   .content {
     display: grid;
@@ -65,7 +66,6 @@ const Container = styled.div`
       "images productName buttons buttons buttons empty"
       "images price buttons buttons buttons subtotal"
       "images price buttons buttons buttons subtotal";
-    gap: 0;
   }
 
   /* grid assignments */
@@ -75,19 +75,23 @@ const Container = styled.div`
 
   .name {
     grid-area: productName;
+    align-self: center;
   }
 
   .info {
     grid-area: price;
+    align-self: end;
   }
 
   .toggle-container {
     grid-area: buttons;
-    margin-left: -100px;
+    align-self: end;
+    margin-left: -50px;
   }
 
   .subtotal-container {
     grid-area: subtotal;
+    align-self: end;
   }
 
   /* end of grid assignments */
@@ -140,6 +144,35 @@ const Container = styled.div`
   }
   .name {
     text-transform: capitalize;
+  }
+
+  /* media queries */
+  @media screen and (max-width: 455px) {
+    .subtotal-container {
+      h5,
+      p {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    .name {
+      margin-left: 10px;
+    }
+
+    .subtotal-container {
+      align-self: start;
+    }
+
+    .toggle-container {
+      margin-left: 0px;
+    }
+
+    .info {
+      margin-left: 10px;
+      font-size: 14px;
+    }
   }
 `;
 

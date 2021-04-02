@@ -10,7 +10,10 @@ const CartContent = () => {
   return (
     <Container>
       <CartColumns />
-      <CartTotals />
+
+      <div className="cart-totals">
+        <CartTotals />
+      </div>
 
       <hr className="hr-block" />
 
@@ -62,6 +65,12 @@ const Container = styled.div`
   @media screen and (min-width: 776px) {
     .hr-block,
     .shiphome-text {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 776px) {
+    .cart-totals {
       display: none;
     }
   }

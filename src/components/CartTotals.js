@@ -26,7 +26,6 @@ const CartTotals = () => {
               onClick={() => setToggle(!toggle)}
             />
           )}
-
         </div>
 
         {/* order summary details. can be toggled on or off */}
@@ -45,6 +44,36 @@ const CartTotals = () => {
             </div>
           </div>
         )}
+
+        <div className="total">
+          <h3>Due now</h3>
+          <h3>{formatPrice(total_amount * 0.13 + total_amount)}</h3>
+        </div>
+
+        <Link to="/checkout">
+          <button type="button" className="btn">
+            Checkout
+          </button>
+        </Link>
+      </div>
+
+      {/* displayed on wider screens only */}
+      <div className="desktop-version">
+        <h2>Order Summary</h2>
+
+        <div className="order-details">
+          <h5>Purchase now</h5>
+
+          <div className="subtotal">
+            <p>Subtotal</p>
+            <h5>{formatPrice(total_amount)}</h5>
+          </div>
+
+          <div className="tax">
+            <p>Tax</p>
+            <h5>{formatPrice(total_amount * 0.13)}</h5>
+          </div>
+        </div>
 
         <div className="total">
           <h3>Due now</h3>
@@ -120,14 +149,23 @@ const Container = styled.div`
     font-size: 18px;
   }
 
+  /* styling for desktop version */
+  .desktop.version {
+    display: flex;
+  }
+
   /* >>>>>>>>>>>>>>>>>>>>>> */
   /* Media queries */
   /* media queries */
-  @media screen and (min-width: 776px) {
-    padding: 0;
-
-    .content {
+  @media screen and (max-width: 776px) {
+    .desktop-version {
       display: none;
+    }
+  }
+
+  @media screen and (min-width: 776px) {
+    .content {
+      display: none !important;
     }
   }
 `;

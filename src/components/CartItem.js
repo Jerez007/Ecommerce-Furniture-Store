@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { MiniQuantityButtons } from ".";
+import { CartTotals, MiniQuantityButtons } from ".";
 import { useCartContext } from "../context/cart_context";
 import { formatPrice } from "../utils/helpers";
 import QuantityButton from "./QuantityButton";
@@ -102,10 +102,6 @@ const Container = styled.div`
 
   /* displayed on the desktop version only. hidden on smaller screens */
   .desktop-version {
-    display: grid;
-    grid-template-columns: 4fr 1fr 1fr 1fr;
-
-    
   }
   /* end of display for desktop version */
 

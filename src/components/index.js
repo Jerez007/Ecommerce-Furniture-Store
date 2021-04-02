@@ -23,7 +23,6 @@ import CartTotals from './CartTotals'
 import QuantityButtons from './QuantityButton'
 import MiniQuantityButtons from "./MiniQuantityButtons";
 
-
 export {
   Navbar,
   Sidebar,

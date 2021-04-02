@@ -26,12 +26,8 @@ const CartTotals = () => {
               onClick={() => setToggle(!toggle)}
             />
           )}
-          {/* <ArrowDropDownIcon
-            fontSize="large"
-            onClick={() => setToggle(!toggle)}
-          /> */}
+
         </div>
-        {/* <hr className={`${toggle ? "hide-section" : null}`} /> */}
 
         {/* order summary details. can be toggled on or off */}
         {toggle && (
@@ -122,6 +118,17 @@ const Container = styled.div`
   .subtotal,
   .tax {
     font-size: 18px;
+  }
+
+  /* >>>>>>>>>>>>>>>>>>>>>> */
+  /* Media queries */
+  /* media queries */
+  @media screen and (min-width: 776px) {
+    padding: 0;
+
+    .content {
+      display: none;
+    }
   }
 `;
 

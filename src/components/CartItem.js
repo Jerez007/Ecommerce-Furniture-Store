@@ -51,6 +51,38 @@ const CartItem = ({ id, image, name, price, amount }) => {
           <p>{formatPrice(price * amount)}</p>
         </div>
       </div>
+
+      {/* only displayed on wider screens */}
+      <div className="desktop-version">
+        <div className="image-container">
+          <img src={image} alt={name} />
+          <p>{name}</p>
+        </div>
+
+        <div className="info">
+          <p className="price-container">
+            <span>Price</span>
+            <span className="price">{formatPrice(price)}</span>
+          </p>
+        </div>
+
+        <div className="toggle-container">
+          <MiniQuantityButtons
+            amount={amount}
+            increase={increase}
+            decrease={decrease}
+          />
+        </div>
+
+        <div className="subtotal-container">
+          <button type="button" onClick={() => removeItem(id)}>
+            <DeleteIcon />
+          </button>
+          <h5>Subtotal</h5>
+          <p>{formatPrice(price * amount)}</p>
+        </div>
+      </div>
+      {/* end of code for wider screens */}
     </Container>
   );
 };
@@ -67,6 +99,15 @@ const Container = styled.div`
       "images price buttons buttons buttons subtotal"
       "images price buttons buttons buttons subtotal";
   }
+
+  /* displayed on the desktop version only. hidden on smaller screens */
+  .desktop-version {
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr 1fr;
+
+    
+  }
+  /* end of display for desktop version */
 
   /* grid assignments */
   .image-container {
@@ -146,7 +187,20 @@ const Container = styled.div`
     text-transform: capitalize;
   }
 
+  /* >>>>>>>>>>>>>>>>>>>>>>>>>> */
   /* media queries */
+  @media screen and (max-width: 776px) {
+    .desktop-version {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 776px) {
+    .content {
+      display: none;
+    }
+  }
+
   @media screen and (max-width: 455px) {
     .subtotal-container {
       h5,

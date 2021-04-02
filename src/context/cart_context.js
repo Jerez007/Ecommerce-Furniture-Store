@@ -54,6 +54,7 @@ export const CartProvider = ({ children }) => {
 
   // Gets invoked everytime cart changes and saves to local storage
   useEffect(() => {
+    dispatch({ type: COUNT_CART_TOTALS }) //gets number of items in the cart and total cost
     localStorage.setItem("cart", JSON.stringify(state.cart)); // must be stored as a string
   }, [state.cart]);
 

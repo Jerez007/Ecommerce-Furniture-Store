@@ -11,7 +11,6 @@ const CartColumns = () => {
         <h4>Subtotal</h4>
         <span></span>
       </div>
-      <hr/>
     </Container>
   );
 };
@@ -23,15 +22,13 @@ const Container = styled.div`
   /* media queries */
   @media screen and (min-width: 776px) {
     display: block;
+    margin-top: 60px;
 
     .content {
       display: grid;
-      grid-template-columns: 6fr 1fr 2fr 1fr auto;
+      grid-template-columns: 4fr 1fr 1fr 1fr;
       column-gap: 1rem;
-    }
-
-    hr {
-      margin: 7px 0px;
+      border-bottom: 1px solid hsl(0, 0%, 90%, 0.9);
     }
   }
 `;

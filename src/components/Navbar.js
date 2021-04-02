@@ -9,9 +9,11 @@ import { FaBars } from "react-icons/fa";
 import logo from "../assets/logo.png";
 import { useProductsContext } from "../context/products_context";
 import { useFilterContext } from "../context/filter_context";
+import { useCartContext } from "../context/cart_context";
 
 function Navbar() {
   const { toggleSidebar } = useProductsContext();
+  const { total_items } = useCartContext(); // the total number of items in the cart
   const {
     filters: { text },
     updateFilters,
@@ -69,8 +71,9 @@ function Navbar() {
               <br />
               <span className="hours">10:00-18:00</span>
             </p>
-            <Link to="/cart">
+            <Link to="/cart" className="cart-container">
               <ShoppingCartOutlinedIcon className="basket" fontSize="large" />
+              <span className="cart-total">{total_items}</span>
             </Link>
           </div>
         </div>
@@ -252,6 +255,29 @@ const NavContainer = styled.nav`
   }
   /* End of search bar for mobile */
 
+  /* total items in cart */
+  .cart-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 5px;
+  }
+
+  .cart-total {
+    position: absolute;
+    top: -5px;
+    background-color: #f7d656;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    font-size: 0.90rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  }
+  /* end of the total items in cart */
+
   //  /* MEDIA QUERIES */
   @media screen and (max-width: 358px) {
     .nav-search {
@@ -284,7 +310,7 @@ const NavContainer = styled.nav`
 
       .location {
         margin-left: auto;
-        margin-right: 10px;
+        margin-right: 0px;
       }
     }
 

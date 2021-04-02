@@ -14,7 +14,7 @@ const CartContent = () => {
 
       <hr className="hr-block" />
 
-      <h4>SHIP TO HOME</h4>
+      <h4 className="shiphome-text">SHIP TO HOME</h4>
 
       {cart.map((item) => {
         return (
@@ -55,6 +55,15 @@ const Container = styled.div`
 
   .item-container {
     border-bottom: 1px solid hsl(0, 0%, 90%, 0.3);
+  }
+
+  /* >>>>>>>>>>>>>>>>>> */
+  /* media queries */
+  @media screen and (min-width: 776px) {
+    .hr-block,
+    .shiphome-text {
+      display: none;
+    }
   }
 `;
 

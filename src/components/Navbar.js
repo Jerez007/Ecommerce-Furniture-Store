@@ -10,10 +10,12 @@ import logo from "../assets/logo.png";
 import { useProductsContext } from "../context/products_context";
 import { useFilterContext } from "../context/filter_context";
 import { useCartContext } from "../context/cart_context";
+import { useUserContext } from "../context/user_context";
 
 function Navbar() {
   const { toggleSidebar } = useProductsContext();
   const { total_items } = useCartContext(); // the total number of items in the cart
+  const { loginWithRedirect, myUser, logout } = useUserContext();
   const {
     filters: { text },
     updateFilters,
@@ -28,10 +30,21 @@ function Navbar() {
           </div>
 
           <div className="nav-right">
-            <div>
-              <PersonOutlineRoundedIcon fontSize="large" />
-              <p>Sign In</p>
-            </div>
+            {/* only shown if there is no user logged in */}
+            {!myUser && (
+              <div onClick={loginWithRedirect}>
+                <PersonOutlineRoundedIcon fontSize="large" />
+                <p>Sign In</p>
+              </div>
+            )}
+
+            {/* only shown if there is a user logged in */}
+            {myUser && (
+              <div onClick={() => logout({ returnTo: window.location.origin })}>
+                <PersonOutlineRoundedIcon fontSize="large" />
+                <p>Sign out</p>
+              </div>
+            )}
 
             <div>
               <PinDropOutlinedIcon fontSize="large" />
@@ -129,7 +142,10 @@ const NavContainer = styled.nav`
     align-items: center;
     justify-content: space-between;
     margin-right: 30px;
-    cursor: pointer;
+
+    div {
+      cursor: pointer;
+    }
   }
 
   button:focus {
@@ -270,7 +286,7 @@ const NavContainer = styled.nav`
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    font-size: 0.70rem;
+    font-size: 0.7rem;
     display: flex;
     align-items: center;
     justify-content: center;

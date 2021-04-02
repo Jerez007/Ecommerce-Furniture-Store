@@ -28,6 +28,9 @@ function App() {
           <Contact />
         </Route>
 
+        <Route exact path="/checkout">
+        </Route>
+
         <Route exact path="*">
           <Error />
         </Route>

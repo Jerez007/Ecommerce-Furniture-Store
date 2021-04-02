@@ -9,27 +9,35 @@ const CartContent = () => {
 
   return (
     <Container>
-      <CartColumns />
+      {/* on smaller screens this div takes up the whole width as the element to the right is not to display */}
+      <div className="left-side">
+        <CartColumns />
 
-      <div className="cart-totals">
-        <CartTotals />
+        <div className="cart-totals">
+          <CartTotals />
+        </div>
+
+        <hr className="hr-block" />
+
+        <h4 className="shiphome-text">SHIP TO HOME</h4>
+
+        {cart.map((item) => {
+          return (
+            <div className="item-container">
+              <CartItem key={item.id} {...item}></CartItem>
+            </div>
+          );
+        })}
+
+        <button type="button" className="btn clear-btn" onClick={clearCart}>
+          Clear Cart
+        </button>
       </div>
 
-      <hr className="hr-block" />
-
-      <h4 className="shiphome-text">SHIP TO HOME</h4>
-
-      {cart.map((item) => {
-        return (
-          <div className="item-container">
-            <CartItem key={item.id} {...item}></CartItem>
-          </div>
-        );
-      })}
-
-      <button type="button" className="btn clear-btn" onClick={clearCart}>
-        Clear Cart
-      </button>
+      {/* displayed only when on wide screen */}
+      <div className="right-side">
+        <CartTotals />
+      </div>
     </Container>
   );
 };
@@ -63,14 +71,20 @@ const Container = styled.div`
   /* >>>>>>>>>>>>>>>>>> */
   /* media queries */
   @media screen and (min-width: 776px) {
+    display: flex;
+
     .hr-block,
     .shiphome-text {
       display: none;
     }
+
+    .cart-totals {
+      display: none !important;
+    }
   }
 
-  @media screen and (min-width: 776px) {
-    .cart-totals {
+  @media screen and (max-width: 776px) {
+    .right-side {
       display: none;
     }
   }

@@ -102,6 +102,7 @@ const Container = styled.div`
 
   /* displayed on the desktop version only. hidden on smaller screens */
   .desktop-version {
+    display: flex;
   }
   /* end of display for desktop version */
 

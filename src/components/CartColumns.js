@@ -14,9 +14,9 @@ const CartColumns = () => {
       </div>
 
       {/* order summart total with total amounts and taxes shown only desktop/wide screen versions */}
-      <div className="order-summary">
+      {/* <div className="order-summary">
         <CartTotals />
-      </div>
+      </div> */}
     </Container>
   );
 };
@@ -39,7 +39,7 @@ const Container = styled.div`
     }
 
     .order-summary {
-      width: 300px;
+      width: 250px;
       margin-left: 30px;
       margin-top: -50px;
     }

@@ -21,7 +21,7 @@ const MiniQuantityButton = ({ amount, increase, decrease }) => {
 };
 
 const Container = styled.div`
-  font-size: 10px; 
+  font-size: 10px;
   .content {
     display: flex;
     flex-direction: column;
@@ -57,6 +57,13 @@ const Container = styled.div`
 
   button {
     outline: none;
+  }
+
+  /* media queries */
+  @media screen and (min-width: 776px) {
+    .title {
+      display: none !important;
+    }
   }
 `;
 

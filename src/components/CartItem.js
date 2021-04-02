@@ -56,12 +56,12 @@ const CartItem = ({ id, image, name, price, amount }) => {
       <div className="desktop-version">
         <div className="image-container">
           <img src={image} alt={name} />
-          <p>{name}</p>
+          <p className="productName">{name}</p>
         </div>
 
         <div className="info">
           <p className="price-container">
-            <span>Price</span>
+            <span className="label">Price</span>
             <span className="price">{formatPrice(price)}</span>
           </p>
         </div>
@@ -75,11 +75,11 @@ const CartItem = ({ id, image, name, price, amount }) => {
         </div>
 
         <div className="subtotal-container">
+          <h5 className="label">Subtotal</h5>
+          <p className="price">{formatPrice(price * amount)}</p>
           <button type="button" onClick={() => removeItem(id)}>
             <DeleteIcon />
           </button>
-          <h5>Subtotal</h5>
-          <p>{formatPrice(price * amount)}</p>
         </div>
       </div>
       {/* end of code for wider screens */}
@@ -91,7 +91,10 @@ const Container = styled.div`
   color: var(--clr-primary-3);
   margin-bottom: 60px;
   margin-top: 20px;
+  margin-right: 20px;
 
+
+  
   .content {
     display: grid;
     grid-template-areas:
@@ -102,8 +105,37 @@ const Container = styled.div`
 
   /* displayed on the desktop version only. hidden on smaller screens */
   .desktop-version {
-    display: flex;
+    /* display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+
+    .image-container {
+      display: flex;
+    }
+
+    .label {
+      display: none;
+    }
+
+    .productName {
+      margin-left: 30px;
+    }
+
+    .price {
+      margin-right: -40px;
+    }
+
+    .toggle-container {
+      margin-right: -50px;
+    }
+
+    .subtotal-container {
+      .price {
+        padding-bottom: -100px;
+      }
+    } */
   }
+
   /* end of display for desktop version */
 
   /* grid assignments */
@@ -195,6 +227,12 @@ const Container = styled.div`
   @media screen and (min-width: 776px) {
     .content {
       display: none;
+    }
+
+    img {
+      height: 120px;
+      width: 120px;
+      object-fit: contain;
     }
   }
 

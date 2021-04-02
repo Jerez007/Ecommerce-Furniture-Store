@@ -93,7 +93,7 @@ const cart_reducer = (state, action) => {
 
       return total
     }, {
-      total_items: 0, total_amount: 0
+      total_items: 0, total_amount: 0  // returns this two values, default value is 0
     })
     return {...state, total_items, total_amount}
   }

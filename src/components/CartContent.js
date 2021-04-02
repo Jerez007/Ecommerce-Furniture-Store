@@ -62,16 +62,22 @@ const Container = styled.div`
   .clear-btn {
     background-color: red !important;
     margin-top: 20px;
+    max-width: 150px;
   }
 
   .item-container {
     border-bottom: 1px solid hsl(0, 0%, 90%, 0.3);
   }
 
+  .left-side {
+    display: grid;
+  }
+
   /* >>>>>>>>>>>>>>>>>> */
   /* media queries */
   @media screen and (min-width: 776px) {
     display: flex;
+    justify-content: space-between;
 
     .hr-block,
     .shiphome-text {
@@ -80,6 +86,14 @@ const Container = styled.div`
 
     .cart-totals {
       display: none !important;
+    }
+
+    .left-side {
+      flex: 1;
+    }
+
+    .right-side {
+      margin-left: 20px;
     }
   }
 

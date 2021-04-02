@@ -10,7 +10,6 @@ const CartColumns = () => {
         <h4>Price</h4>
         <h4>Quantity</h4>
         <h4>Subtotal</h4>
-        <span></span>
       </div>
 
       {/* order summart total with total amounts and taxes shown only desktop/wide screen versions */}
@@ -33,20 +32,21 @@ const Container = styled.div`
     .content {
       display: grid;
       flex: 1;
-      grid-template-columns: 4fr 1fr 1fr 1fr;
+      grid-template-columns: 300px 1fr 1fr 1fr auto;
       column-gap: 1rem;
+      justify-items: center;
       border-bottom: 1px solid hsl(0, 0%, 90%, 0.9);
+      height: 30px;
     }
 
     .order-summary {
-      width: 250px;
+      width: 380px;
       margin-left: 30px;
       margin-top: -50px;
     }
   }
 
   @media screen and (max-width: 776px) {
-
     .order-summary {
       display: none;
     }

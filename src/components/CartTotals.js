@@ -125,10 +125,6 @@ const Container = styled.div`
     margin-bottom: 10px;
   }
 
-  /* .hide-section {
-    display: none;
-  } */
-
   .order-details {
     margin-top: 20px;
 

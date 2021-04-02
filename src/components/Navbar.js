@@ -270,7 +270,7 @@ const NavContainer = styled.nav`
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    font-size: 0.90rem;
+    font-size: 0.70rem;
     display: flex;
     align-items: center;
     justify-content: center;

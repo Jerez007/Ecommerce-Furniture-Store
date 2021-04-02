@@ -51,6 +51,15 @@ const Container = styled.div`
     margin-bottom: 15px;
     text-transform: uppercase;
   }
+
+
+  /* media queries */
+  @media screen and (min-width: 776px) {
+    .title {
+      display: none !important;
+    }
+  }
+
 `;
 
 export default QuantityButton;

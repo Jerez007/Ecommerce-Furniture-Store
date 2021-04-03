@@ -4,5 +4,14 @@ import SingleProduct from './SingleProductPage'
 import CheckoutPage from './CheckoutPage'
 import ProductsPage from './ProductsPage'
 import CartPage from './CartPage'
+import ReviewPage from './ReviewPage'
 
-export { Home, Error, SingleProduct, CheckoutPage, ProductsPage, CartPage };
+export {
+  Home,
+  Error,
+  SingleProduct,
+  CheckoutPage,
+  ProductsPage,
+  CartPage,
+  ReviewPage,
+};

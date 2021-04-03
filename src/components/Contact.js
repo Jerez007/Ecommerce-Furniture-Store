@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Contact = () => {
   return (
-    <Wrapper>
+    <Container>
       <div className="section-center">
         <div className="content">
           <h3>win a $1000 solis-j gift card</h3>
@@ -36,10 +36,10 @@ const Contact = () => {
           </form>
         </div>
       </div>
-    </Wrapper>
+    </Container>
   );
 };
-const Wrapper = styled.section`
+const Container = styled.section`
   .section-center {
     background-image: url("https://www.jysk.ca/static/version1615191202/frontend/JYSK/default/en_CA/images/bg/blue-pattern.jpg");
     color: white;

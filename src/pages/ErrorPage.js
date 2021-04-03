@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
   return (
-    <Wrapper>
+    <Container>
       <section>
         <h1>404</h1>
         <h3>Sorry, the page you tried cannot be found</h3>
@@ -12,11 +12,11 @@ const ErrorPage = () => {
           back home
         </Link>
       </section>
-    </Wrapper>
+    </Container>
   );
 };
 
-const Wrapper = styled.main`
+const Container = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;

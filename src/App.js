@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import { Contact, Footer, Navbar, Sidebar } from './components';
 import FooterMenu from './components/FooterMenu';
 import SocialMedia from './components/SocialMedia';
-import { Home, Error, SingleProduct, ProductsPage, CartPage, CheckoutPage } from "./pages";
+import { Home, Error, SingleProduct, ProductsPage, CartPage, CheckoutPage, ReviewPage } from "./pages";
 
 function App() {
   return (
@@ -43,6 +43,11 @@ function App() {
 
         <Route exact path="/products/bedroom">
           <ProductsPage />
+          <Contact />
+        </Route>
+
+        <Route exact path="/products/review">
+          <ReviewPage />
           <Contact />
         </Route>
 

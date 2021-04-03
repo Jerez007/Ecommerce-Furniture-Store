@@ -4,7 +4,7 @@ import { socialMediaIcons } from "../utils/constants";
 
 const SocialMedia = () => {
   return (
-    <Wrapper>
+    <Container>
       <div className="icons-center">
         {socialMediaIcons.map((item) => {
           const {id, icon} = item;
@@ -15,11 +15,11 @@ const SocialMedia = () => {
           )
         })}
       </div>
-    </Wrapper>
+    </Container>
   )
 };
 
-const Wrapper = styled.div`
+const Container = styled.div`
   .icons-center {
     display: flex;
     justify-content: center;

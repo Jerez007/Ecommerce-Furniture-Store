@@ -21,6 +21,7 @@ const initialState = {
   single_product_loading: false,
   single_product_error: false,
   single_product: {},
+  review_product_id : ""
 };
 
 const ProductsContext = React.createContext();
@@ -58,6 +59,7 @@ export const ProductsProvider = ({ children }) => {
       dispatch({ type: GET_SINGLE_PRODUCT_ERROR})
     }
   };
+
 
   //gets the products at initial render only
   useEffect(() => {

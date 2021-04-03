@@ -5,15 +5,15 @@ import styled from "styled-components";
 
 const Hero = () => {
   return (
-    <Wrapper>
+    <Container>
       <div className="hero-center">
         <img src={hero} alt="" />
       </div>
-    </Wrapper>
+    </Container>
   );
 }
 
-const Wrapper = styled.div`
+const Container = styled.div`
   img {
     width: 100vw;
   }

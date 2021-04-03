@@ -78,7 +78,9 @@ const SingleProductPage = () => {
         <div className="sku-review">
           <span>SKU: {sku}</span>
 
-          <p>Write a review</p>
+          <p>
+            <Link to="/products/review">Write a review</Link>
+          </p>
         </div>
 
         <div className="image-slider">

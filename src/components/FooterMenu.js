@@ -4,7 +4,7 @@ import { footerMenu } from "../utils/constants";
 
 const FooterMenu = () => {
   return (
-    <Wrapper>
+    <Container>
       <div className="menu-center">
         {footerMenu.map((item) => {
           const { id, title, links } = item;
@@ -22,11 +22,11 @@ const FooterMenu = () => {
           )
         })}
       </div>
-    </Wrapper>
+    </Container>
   );
 };
 
-const Wrapper = styled.footer`
+const Container = styled.footer`
   margin-top: 50px;
 
   .menu-center {

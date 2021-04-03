@@ -16,14 +16,15 @@ import { useHistory } from "react-router-dom";
 // load Stripe
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
-
 // stripe checkout, states, variabels and styling are as per stripe doc
 // https://stripe.com/docs/payments/integration-builder
 const CheckoutForm = () => {
   const { cart, total_amount, clearCart } = useCartContext();
+  console.log('>>>>>>>>>>>>>>>>.checkoutform cart', total_amount);
   const { myUser } = useUserContext();
   const history = useHistory();
 
+  // stripe states and variables
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState("");
@@ -52,10 +53,15 @@ const CheckoutForm = () => {
 
   // communicates with stripe and send cart data
   const createPaymentIntent = async () => {
+    console.log('>>>>>>>>>>>>>>>>>>>>>> total amount', total_amount);
     try {
-      const data = await axios.post('/.netlify/functions/create-payment-intent', JSON.stringify({cart, total_amount}))
+      const { data } = await axios.post(
+        "/.netlify/functions/create-payment-intent",
+        JSON.stringify({ cart, total_amount })
+      );
+      setClientSecret(data.clientSecret);
     } catch (error) {
-      
+      console.log(error.response);
     }
   };
 
@@ -114,8 +120,6 @@ const Container = styled.section`
   justify-content: center;
   align-content: center;
   padding: 60px;
- 
-
 
   form {
     width: 50vw;

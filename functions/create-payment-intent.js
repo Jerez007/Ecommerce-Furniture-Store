@@ -10,6 +10,7 @@ const stripe = require("stripe")(process.env.REACT_APP_STRIPE_SECRET_KEY);
 exports.handler = async function (event, context) {
   if (event.body) {
     //returns this for post request
+    console.log('>>>>>>>>>>>event.body in create-payment-intent', event.body);
     const { cart, total_amount } = JSON.parse(event.body);
 
     // calculates total
@@ -32,14 +33,10 @@ exports.handler = async function (event, context) {
     } catch (error) {
       return {
         statusCode: 500,
-        body: JSON.stringify({ error: error.message }),
+        body: JSON.stringify({ msg: error.message }),
       };
     }
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify(cart),
-    };
   }
   return {
     statusCode: 200,

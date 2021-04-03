@@ -20,7 +20,6 @@ const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 // https://stripe.com/docs/payments/integration-builder
 const CheckoutForm = () => {
   const { cart, total_amount, clearCart } = useCartContext();
-  console.log(">>>>>>>>>>>>>>>>.checkoutform cart", total_amount);
   const { myUser } = useUserContext();
   const history = useHistory();
 
@@ -53,7 +52,6 @@ const CheckoutForm = () => {
 
   // communicates with stripe and send cart data
   const createPaymentIntent = async () => {
-    console.log(">>>>>>>>>>>>>>>>>>>>>> total amount", total_amount);
     try {
       const { data } = await axios.post(
         "/.netlify/functions/create-payment-intent",

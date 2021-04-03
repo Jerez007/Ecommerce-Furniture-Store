@@ -1,35 +1,27 @@
-import React from "react"
+import React from "react";
 import styled from "styled-components";
-import {
-  ProductHero,
-  Filters,
-  Sort,
-  ProductList,
-} from "../components";
-
-
+import { ProductHero, Filters, Sort, ProductList } from "../components";
 
 const ProductsPage = () => {
   return (
     <main>
-      <ProductHero title="products"/>
+      <ProductHero title="products" />
       <Container>
         <div className="products">
-          <Filters />
+          <Filters/>
 
           <div>
             <Sort/>
-            <ProductList/>
+            <ProductList />
           </div>
         </div>
       </Container>
     </main>
   );
-}
+};
 
 const Container = styled.div`
-margin-bottom: 100px;
-`
+  margin-bottom: 100px;
+`;
 
-
-export default ProductsPage
+export default ProductsPage;

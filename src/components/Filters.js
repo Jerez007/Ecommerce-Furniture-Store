@@ -4,7 +4,7 @@ import { useFilterContext } from "../context/filter_context";
 import { formatPrice } from "../utils/helpers";
 
 const Filters = () => {
-  const [hideFilters, setHideFilters] = useState(false)
+  const [hideFilters, setHideFilters] = useState(false);
 
   const {
     filters: { category, company, min_price, price, max_price },
@@ -25,7 +25,14 @@ const Filters = () => {
   };
 
   // // Gets a unique array of categories, companies and colors
-  let categories = ["all", "dining room", "living room", "kitchen", "bedroom", "office"]
+  let categories = [
+    "all",
+    "dining room",
+    "living room",
+    "kitchen",
+    "bedroom",
+    "office",
+  ];
   let companies = getUniqueList(all_products, "company");
   // let colors = getUniqueList(all_products, "colors");
 
@@ -33,7 +40,7 @@ const Filters = () => {
     <Container>
       <div className="btn-container">
         <button type="button" onClick={() => setHideFilters(!hideFilters)}>
-          { hideFilters ? <span>Show Filters</span> : <span>Hide Filters</span>}
+          {hideFilters ? <span>Show Filters</span> : <span>Hide Filters</span>}
         </button>
 
         <button type="button" className="clear-btn" onClick={clearFilters}>

@@ -23,11 +23,6 @@ function Navbar() {
     updateFilters,
   } = useFilterContext();
 
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
-    history.push("/products");
-  };
-
   return (
     <NavContainer>
       <div className="nav-center">
@@ -70,7 +65,7 @@ function Navbar() {
             <img src={logo} alt="logo furniture" />
           </Link>
 
-          <form onSubmit={onSubmitHandler} className="desktop-search">
+          <form className="desktop-search">
             <input
               type="text"
               name="text"
@@ -381,7 +376,9 @@ const NavContainer = styled.nav`
 
     .nav-search {
       justify-content: space-between;
-      border-bottom: 2px solid lightgray;
+      /* border-bottom: 1px solid lightgray; */
+      border-bottom: 3px solid hsl(0, 0%, 90%, 0.5);
+
       padding-bottom: 10px;
       border-top: none;
       padding-left: 30px;
@@ -410,6 +407,13 @@ const NavContainer = styled.nav`
   }
 
   @media screen and (min-width: 1031px) {
+    form {
+      input {
+        width: 400px !important;
+        margin-left: 30px;
+      }
+    }
+
     .location {
       margin-right: 35px;
     }

@@ -31,14 +31,14 @@ const SingleProductPage = () => {
   }, [id]);
 
   // Automatiically redirects user back to homepage incase of error/product not found, after 3 seconds
-  useEffect(() => {
-    if (error) {
-      setTimeout(() => {
-        history.push("/");
-      }, 3000);
-    }
-    // eslint-disable-next-line
-  }, [error]);
+  // useEffect(() => {
+  //   if (error) {
+  //     setTimeout(() => {
+  //       history.push("/");
+  //     }, 3000);
+  //   }
+  //   // eslint-disable-next-line
+  // }, [error]);
 
   // Handles loading and error
   if (loading) {

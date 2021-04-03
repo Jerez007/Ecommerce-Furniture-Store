@@ -21,6 +21,31 @@ function App() {
           <Contact />
         </Route>
 
+        <Route exact path="/products/kitchen">
+          <ProductsPage />
+          <Contact />
+        </Route>
+
+        <Route exact path="/products/diningroom">
+          <ProductsPage />
+          <Contact />
+        </Route>
+
+        <Route exact path="/products/livingroom">
+          <ProductsPage />
+          <Contact />
+        </Route>
+
+        <Route exact path="/products/office">
+          <ProductsPage />
+          <Contact />
+        </Route>
+
+        <Route exact path="/products/bedroom">
+          <ProductsPage />
+          <Contact />
+        </Route>
+
         <Route exact path="/products/:id" children={<SingleProduct />} />
 
         <Route exact path="/cart">

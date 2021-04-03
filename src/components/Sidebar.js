@@ -11,37 +11,77 @@ import { useFilterContext } from "../context/filter_context";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
-  const { isSidebarOpen, closeSidebar } = useProductsContext();
+  const { isSidebarOpen, toggleSidebar } = useProductsContext();
   const { updateFilters } = useFilterContext();
 
   return (
     <SidebarContainer>
       <div className={`${isSidebarOpen ? "sidebar" : "hideSidebar"}`}>
-        <div className="all">
+        {/* <div className="all">
           <DoneOutlinedIcon />
           <span>all products</span>
-        </div>
+        </div> */}
 
-        <div className="livingroom" name="category" onClick={updateFilters}>
+        <Link to="/products/" className="category">
+          <DoneOutlinedIcon />
+          <button type="button" name="category" onClick={updateFilters}>
+            all
+          </button>
+        </Link>
+
+        <Link to="/products/livingroom" className="category">
+          <WeekendOutlinedIcon />
+          <button type="button" name="category" onClick={updateFilters}>
+            living room
+          </button>
+        </Link>
+
+        {/* <div className="livingroom" name="category" onClick={updateFilters}>
           <WeekendOutlinedIcon />
           <span>living room</span>
-        </div>
+        </div> */}
 
-        <button
-          type="button"
-          className="kitchen"
-          name="category"
-          onClick={updateFilters}
-        >
+        <Link to="/products/kitchen" className="category">
+          {/* <div
+            className="kitchen"
+            name="category"
+            value="kitchen"
+            onClick={updateFilters}
+          >
+            <KitchenOutlinedIcon />
+            <span>kitchen</span>
+          </div> */}
           <KitchenOutlinedIcon />
-          <span>kitchen</span>
-        </button>
+          <button type="button" name="category" onClick={updateFilters}>
+            kitchen
+          </button>
+        </Link>
 
-        <div className="dining" name="category" onClick={updateFilters}>
+        <Link to="/products/diningroom" className="category">
+          <LocalDiningOutlinedIcon />
+          <button type="button" name="category" onClick={updateFilters}>
+            dining room
+          </button>
+        </Link>
+
+        <Link to="/products/bedroom" className="category">
+          <HotelOutlinedIcon />
+          <button type="button" name="category" onClick={updateFilters}>
+            bedroom
+          </button>
+        </Link>
+
+        <Link to="/products/office" className="category">
+          <HomeWorkOutlinedIcon />
+          <button type="button" name="category" onClick={updateFilters}>
+            office
+          </button>
+        </Link>
+        {/* <div className="dining" name="category" onClick={updateFilters}>
           <LocalDiningOutlinedIcon />
           <span>Dining room</span>
         </div>
-
+        
         <div className="bedroom" name="category" onClick={updateFilters}>
           <HotelOutlinedIcon />
           <span>bedroom</span>
@@ -50,13 +90,15 @@ const Sidebar = () => {
         <div className="office" name="category" onClick={updateFilters}>
           <HomeWorkOutlinedIcon />
           <span>office</span>
-        </div>
+        </div> */}
       </div>
     </SidebarContainer>
   );
 };
 
 const SidebarContainer = styled.div`
+  text-decoration: none;
+
   /* sidebar */
   .sidebar {
     display: grid;
@@ -65,7 +107,7 @@ const SidebarContainer = styled.div`
     color: #545454;
     transition: all 0.3s linear;
 
-    div {
+    .category {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -78,6 +120,13 @@ const SidebarContainer = styled.div`
   /* hides sidebar */
   .hideSidebar {
     display: none;
+  }
+
+  button {
+    outline: none !important;
+    background-color: white;
+    border: none;
+    text-transform: capitalize;
   }
 
   /* media queries */

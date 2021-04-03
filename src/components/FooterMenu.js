@@ -15,7 +15,7 @@ const FooterMenu = () => {
 
               {links.map((link) => {
                 return (
-                  <a href="#">{link}</a>              
+                  <a id={id} href="#">{link}</a>              
                 )
               })}
             </div>

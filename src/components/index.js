@@ -22,6 +22,7 @@ import SocialMedia from './SocialMedia'
 import CartTotals from './CartTotals'
 import QuantityButtons from './QuantityButton'
 import MiniQuantityButtons from "./MiniQuantityButtons";
+import StripeCheckout from './StripeCheckout'
 
 export {
   Navbar,
@@ -48,4 +49,5 @@ export {
   SocialMedia,
   QuantityButtons,
   MiniQuantityButtons,
+  StripeCheckout,
 };

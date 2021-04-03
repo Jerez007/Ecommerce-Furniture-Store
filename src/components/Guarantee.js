@@ -4,7 +4,6 @@ import HouseOutlinedIcon from "@material-ui/icons/HouseOutlined";
 import ForumOutlinedIcon from "@material-ui/icons/ForumOutlined";
 import PinDropOutlinedIcon from "@material-ui/icons/PinDropOutlined";
 import styled from "styled-components";
-import { House } from "@material-ui/icons";
 
 const Guarantee = () => {
   return (

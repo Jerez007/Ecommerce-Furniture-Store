@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import CartTotals from "./CartTotals";
 
 const CartColumns = () => {
   return (
@@ -12,10 +11,6 @@ const CartColumns = () => {
         <h4>Subtotal</h4>
       </div>
 
-      {/* order summart total with total amounts and taxes shown only desktop/wide screen versions */}
-      {/* <div className="order-summary">
-        <CartTotals />
-      </div> */}
     </Container>
   );
 };

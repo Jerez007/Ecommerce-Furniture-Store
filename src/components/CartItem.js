@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { CartTotals, MiniQuantityButtons } from ".";
+import { MiniQuantityButtons } from ".";
 import { useCartContext } from "../context/cart_context";
 import { formatPrice } from "../utils/helpers";
-import QuantityButton from "./QuantityButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 const CartItem = ({ id, image, name, price, amount }) => {

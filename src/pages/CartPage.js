@@ -42,6 +42,7 @@ const Container = styled.div`
   margin-top: 40px;
   margin-left: 17px;
   margin-right: 17px;
+  margin-bottom: 100px;
   color: var(--clr-primary-3);
 
   h1 {

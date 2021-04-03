@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useFilterContext } from "../context/filter_context";
 import { formatPrice } from "../utils/helpers";
 
 const Filters = () => {
   const {
-    filters: { text, category, company, min_price, price, max_price },
+    filters: { category, company, min_price, price, max_price },
     updateFilters,
     clearFilters,
     all_products,

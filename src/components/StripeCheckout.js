@@ -20,7 +20,7 @@ const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 // https://stripe.com/docs/payments/integration-builder
 const CheckoutForm = () => {
   const { cart, total_amount, clearCart } = useCartContext();
-  console.log('>>>>>>>>>>>>>>>>.checkoutform cart', total_amount);
+  console.log(">>>>>>>>>>>>>>>>.checkoutform cart", total_amount);
   const { myUser } = useUserContext();
   const history = useHistory();
 
@@ -53,7 +53,7 @@ const CheckoutForm = () => {
 
   // communicates with stripe and send cart data
   const createPaymentIntent = async () => {
-    console.log('>>>>>>>>>>>>>>>>>>>>>> total amount', total_amount);
+    console.log(">>>>>>>>>>>>>>>>>>>>>> total amount", total_amount);
     try {
       const { data } = await axios.post(
         "/.netlify/functions/create-payment-intent",
@@ -70,12 +70,56 @@ const CheckoutForm = () => {
     // eslint-disabled-next-line
   }, []);
 
-  const handleChange = async (event) => {};
+  // taken from stripe api
+  const handleChange = async (event) => {
+    // Listen for changes in the CardElement
+    // and display any errors as the customer types their card details
+    setDisabled(event.empty);
+    setError(event.error ? event.error.message : "");
+  };
 
-  const handleSubmit = async (ev) => {};
+  // taken from stripe api
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+    setProcessing(true)
+    const payload = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement)
+      }
+    })
+
+    if(payload.error) {
+      setError(`Payment failed ${payload.error.message}`)
+      setProcessing(false)
+    } else {  // when payment is successful
+      setError(null)
+      setProcessing(false)
+      setSucceeded(true)
+
+      // clears the cart and sends to the home page
+      setTimeout(() => {
+        clearCart()
+        history.push('/')
+      }, 5000)
+    }
+
+  };
 
   return (
     <div>
+      {succeeded ? (
+        <article>
+          <h3>Thank you!</h3>
+          <h3>Your payment was successful!</h3>
+          <h3>Redirecting to the home page shortly</h3>
+        </article>
+      ) : (
+        <article>
+          <h3>Hello, {myUser && myUser.name}</h3>
+          <p>Your total is {formatPrice(total_amount)}</p>
+        </article>
+      )}
+
       {/* setup as per stripe doc */}
       <form id="payment-form" onSubmit={handleSubmit}>
         <CardElement
@@ -120,6 +164,18 @@ const Container = styled.section`
   justify-content: center;
   align-content: center;
   padding: 60px;
+
+  /* styling for the messages when payment is successful */
+  article {
+    h3 {
+      margin-bottom: 8px;
+    }
+    p {
+      margin-bottom: 12px;
+    }
+  }
+
+  /* end of stylin */
 
   form {
     width: 50vw;

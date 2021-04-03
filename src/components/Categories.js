@@ -1,45 +1,59 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import bedroom from '../assets/bedroom.jpeg'
+import bedroom from "../assets/bedroom.jpeg";
 import diningroom from "../assets/diningroom.jpeg";
 import kitchen from "../assets/kitchen.jpeg";
 import livingroom from "../assets/livingroom.jpeg";
 import office from "../assets/office.jpeg";
-
+import { useFilterContext } from "../context/filter_context";
 
 const Categories = () => {
+  const { updateFilters } = useFilterContext();
+
   return (
     <CategoriesContainer>
       <h1>shop by categories</h1>
+
       <div className="categories-center">
-        <div className="image-container">
-          <img src={bedroom} alt="bedroom" />
-          <p>bedroom</p>
-        </div>
+        <Link to="/products/bedroom">
+          <div className="image-container">
+            <img src={bedroom} alt="bedroom" />
+            <p>bedroom</p>
+          </div>
+        </Link>
 
-        <div className="image-container">
-          <img src={kitchen} alt="kitchen" />
-          <p>kitchen</p>
-        </div>
+        <Link to="/products/kitchen">
+          <div className="image-container">
+            <img src={kitchen} alt="kitchen" />
+            <p>kitchen</p>
+          </div>
+        </Link>
 
-        <div className="image-container">
-          <img src={diningroom} alt="diningroom" />
-          <p>diningroom</p>
-        </div>
+        <Link to="/products/diningroom">
+          <div className="image-container">
+            <img src={diningroom} alt="diningroom" />
+            <p>diningroom</p>
+          </div>
+        </Link>
 
-        <div className="image-container">
-          <img src={livingroom} alt="livingroom" />
-          <p>livingroom</p>
-        </div>
+        <Link to="/products/kitchen">
+          <div className="image-container">
+            <img src={livingroom} alt="livingroom" />
+            <p>livingroom</p>
+          </div>
+        </Link>
 
-        <div className="image-container">
-          <img src={office} alt="office" />
-          <p>office</p>
-        </div>
+        <Link to="/products/kitchen">
+          <div className="image-container">
+            <img src={office} alt="office" />
+            <p>office</p>
+          </div>
+        </Link>
       </div>
     </CategoriesContainer>
   );
-}
+};
 
 const CategoriesContainer = styled.div`
   background-color: #f5f5f5;
@@ -84,5 +98,4 @@ const CategoriesContainer = styled.div`
   }
 `;
 
-
-export default Categories
+export default Categories;

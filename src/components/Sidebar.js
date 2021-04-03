@@ -14,6 +14,7 @@ const Sidebar = () => {
   const { isSidebarOpen, toggleSidebar } = useProductsContext();
   const { updateFilters } = useFilterContext();
 
+
   return (
     <SidebarContainer>
       <div className={`${isSidebarOpen ? "sidebar" : "hideSidebar"}`}>
@@ -31,7 +32,11 @@ const Sidebar = () => {
 
         <Link to="/products/livingroom" className="category">
           <WeekendOutlinedIcon />
-          <button type="button" name="category" onClick={updateFilters}>
+          <button
+            type="button"
+            name="category"
+            onClick={updateFilters}
+          >
             living room
           </button>
         </Link>
@@ -113,6 +118,7 @@ const SidebarContainer = styled.div`
       align-items: center;
       border: 1px solid #f6f6f6;
       padding: 15px;
+      color: var(--clr-primary-3);
     }
   }
   /* end of sidebar section*/

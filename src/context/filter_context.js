@@ -72,8 +72,7 @@ export const FilterProvider = ({ children }) => {
   const updateFilters = (e) => {
     let name = e.target.name;
     let value = e.target.value;
-    console.log("BEFORE name is>>>>>>>>>>>>>", name);
-    console.log("BEFORE value is>>>>>>>>>>>>>", value);
+
     // handles special case for buttons, as we are not able to get value using the regular e.target.value method for buttons
     if (name === "category" || name === "company") {
       value = e.target.textContent;
@@ -83,9 +82,8 @@ export const FilterProvider = ({ children }) => {
     if (name === "price") {
       value = Number(value);
     }
-
-    console.log("name is>>>>>>>>>>>>>", name);
-    console.log("value is>>>>>>>>>>>>>", value);
+console.log('name is >>>>>>>>>>>>>>>>>>>>', name);
+console.log("value is >>>>>>>>>>>>>>>>>>>>", value);
 
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
   };

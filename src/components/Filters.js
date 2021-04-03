@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useFilterContext } from "../context/filter_context";
 import { formatPrice } from "../utils/helpers";
 
 const Filters = () => {
+  const [hideFilters, setHideFilters] = useState(false)
+
   const {
     filters: { category, company, min_price, price, max_price },
     updateFilters,
@@ -30,13 +32,17 @@ const Filters = () => {
   return (
     <Container>
       <div className="btn-container">
-        <button type="button">Hide Filters</button>
+        <button type="button" onClick={() => setHideFilters(!hideFilters)}>
+          { hideFilters ? <span>Show Filters</span> : <span>Hide Filters</span>}
+        </button>
 
-        <button type="button" className="clear-btn" onClick={clearFilters}>Clear Filters</button>
+        <button type="button" className="clear-btn" onClick={clearFilters}>
+          Clear Filters
+        </button>
       </div>
 
       {/* categories filter*/}
-      <div className="filters-container">
+      <div className={`${hideFilters ? "hide" : "filters-container"}`}>
         <h4>Category</h4>
         <hr />
         {categories.map((item, index) => {
@@ -56,7 +62,7 @@ const Filters = () => {
       {/* end of categories filter */}
 
       {/* companies filter */}
-      <div className="filters-container">
+      <div className={`${hideFilters ? "hide" : "filters-container"}`}>
         <h4>Company</h4>
         <hr />
 
@@ -77,7 +83,7 @@ const Filters = () => {
       {/* end of companies filter */}
 
       {/* price filter */}
-      <div className="filter-container">
+      <div className={`${hideFilters ? "hide" : "filters-container"}`}>
         <h4>Price</h4>
         <hr />
         <p>{formatPrice(price)}</p>
@@ -86,7 +92,7 @@ const Filters = () => {
           name="price"
           min={min_price}
           max={max_price}
-          value={price} 
+          value={price}
           onChange={updateFilters}
         ></input>
       </div>
@@ -97,6 +103,10 @@ const Filters = () => {
 
 const Container = styled.div`
   margin-left: 10px;
+
+  .hide {
+    display: none;
+  }
 
   .btn-container {
     display: flex;

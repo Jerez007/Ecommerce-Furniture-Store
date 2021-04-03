@@ -1,33 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { loadStripe } from "@stripe/stripe-js";
 import {
-  CartElement,
+  CardElement,
   useStripe,
   Elements,
   useElements,
 } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useCartContext } from "../context/cart_context";
-import { useUserContext } from "../context/cart_context";
+import { useUserContext } from "../context/user_context";
 import { formatPrice } from "../utils/helpers";
 import { useHistory } from "react-router-dom";
 
 // load Stripe
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
+
+// stripe checkout, states, variabels and styling are as per stripe doc
+// https://stripe.com/docs/payments/integration-builder
 const CheckoutForm = () => {
   const { cart, total_amount, clearCart } = useCartContext();
   const { myUser } = useUserContext();
   const history = useHistory();
 
-  // states from the stripe website
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState("");
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState(""); // from netlify servless functions
-  const stripe = useState(); //invoke Stripe
+  const stripe = useStripe(); //invoke Stripe
   const elements = useElements(); // stripe hook
 
   const cardStyle = {
@@ -48,7 +50,52 @@ const CheckoutForm = () => {
     },
   };
 
-  return <h2>hello from stripe checkout</h2>;
+  // communicates with stripe and send cart data
+  const createPaymentIntent = async () => {
+    try {
+      const data = await axios.post('/.netlify/functions/create-payment-intent', JSON.stringify({cart, total_amount}))
+    } catch (error) {
+      
+    }
+  };
+
+  useEffect(() => {
+    createPaymentIntent();
+    // eslint-disabled-next-line
+  }, []);
+
+  const handleChange = async (event) => {};
+
+  const handleSubmit = async (ev) => {};
+
+  return (
+    <div>
+      {/* setup as per stripe doc */}
+      <form id="payment-form" onSubmit={handleSubmit}>
+        <CardElement
+          id="card-elements"
+          options={cardStyle}
+          onChange={handleChange}
+        />
+        <button disabled={processing || disabled || succeeded} id="submit">
+          <span id="button-text">
+            {processing ? <div className="spinner" id="spinner"></div> : "Pay"}
+          </span>
+        </button>
+        {/* Show any error that happens when processing payment */}
+        {error && (
+          <div className="card-error" role="alert">
+            {error}
+          </div>
+        )}
+
+        {/* Show success message upon completion */}
+        <p className={succeeded ? "result-message" : "result-message hidden"}>
+          Payment succeeded.
+        </p>
+      </form>
+    </div>
+  );
 };
 
 const StripeCheckout = () => {
@@ -63,8 +110,15 @@ const StripeCheckout = () => {
 
 // styling from stripe website
 const Container = styled.section`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 60px;
+ 
+
+
   form {
-    width: 30vw;
+    width: 50vw;
     align-self: center;
     box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
       0px 2px 5px 0px rgba(50, 50, 93, 0.1),

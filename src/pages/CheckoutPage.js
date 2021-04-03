@@ -26,7 +26,7 @@ const Container = styled.main`
   .message {
     font-size: 30px;
     text-align: center;
-    padding: 150px;
+    padding: 80px;
     line-height: 2;
   }
 

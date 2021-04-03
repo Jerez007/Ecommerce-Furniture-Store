@@ -23,6 +23,8 @@ const Product = ({ id, name, image, price }) => {
 };
 
 const ProductsContainer = styled.div`
+  text-align: center;
+
   .products-container {
     position: relative;
     padding: 30px 40px 2px 40px;
@@ -53,6 +55,7 @@ const ProductsContainer = styled.div`
   .info {
     display: flex;
     justify-content: space-between;
+    text-align: center;
     padding: 5px 40px 0px 40px;
   }
 

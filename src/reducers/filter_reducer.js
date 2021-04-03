@@ -31,6 +31,7 @@ const filter_reducer = (state, action) => {
 
   // Sets products view to grid
   if (action.type === SET_GRIDVIEW) {
+
     return {
       ...state,
       grid_view: true,

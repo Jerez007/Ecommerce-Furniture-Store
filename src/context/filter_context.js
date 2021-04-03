@@ -83,8 +83,7 @@ export const FilterProvider = ({ children }) => {
     if (name === "price") {
       value = Number(value);
     }
-    console.log("NAVBAR name is>>>>>>>>>>>>>>>>>", name);
-    console.log("NAVBAR  value is>>>>>>>>>>>>>>>>>", value);
+
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
   };
 

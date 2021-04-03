@@ -23,8 +23,7 @@ const Filters = () => {
   };
 
   // // Gets a unique array of categories, companies and colors
-  let categories = getUniqueList(all_products, "category");
-  categories.splice(categories.length - 1, 1);
+  let categories = ["all", "dining room", "living room", "kitchen", "bedroom", "office"]
   let companies = getUniqueList(all_products, "company");
   // let colors = getUniqueList(all_products, "colors");
 
@@ -60,11 +59,7 @@ const Filters = () => {
       <div className="filters-container">
         <h4>Company</h4>
         <hr />
-        {/* <select name="company" value={company} onChange={updateFilters}>
-          {companies.map((item, index) => {
-            return <option key={index} value={item}>{item}</option>
-          })}
-        </select> */}
+
         {companies.map((item, index) => {
           return (
             <button

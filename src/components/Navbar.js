@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import PersonOutlineRoundedIcon from "@material-ui/icons/PersonOutlineRounded";
 import PinDropOutlinedIcon from "@material-ui/icons/PinDropOutlined";
@@ -16,10 +16,17 @@ function Navbar() {
   const { toggleSidebar } = useProductsContext();
   const { total_items } = useCartContext(); // the total number of items in the cart
   const { loginWithRedirect, myUser, logout } = useUserContext();
+  const { history } = useHistory();
+
   const {
     filters: { text },
     updateFilters,
   } = useFilterContext();
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    history.push("/products");
+  };
 
   return (
     <NavContainer>
@@ -63,7 +70,7 @@ function Navbar() {
             <img src={logo} alt="logo furniture" />
           </Link>
 
-          <form onSubmit={(e) => e.preventDefault()} className="desktop-search">
+          <form onSubmit={onSubmitHandler} className="desktop-search">
             <input
               type="text"
               name="text"

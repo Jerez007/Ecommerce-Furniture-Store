@@ -81,28 +81,29 @@ const CheckoutForm = () => {
   // taken from stripe api
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-    setProcessing(true)
+    setProcessing(true);
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
-        card: elements.getElement(CardElement)
-      }
-    })
+        card: elements.getElement(CardElement),
+      },
+    });
 
-    if(payload.error) {
-      setError(`Payment failed ${payload.error.message}`)
-      setProcessing(false)
-    } else {  // when payment is successful
-      setError(null)
-      setProcessing(false)
-      setSucceeded(true)
+    if (payload.error) {
+      setError(`Payment failed ${payload.error.message}`);
+      setProcessing(false);
+    } else {
+      // when payment is successful
+      setError(null);
+      setProcessing(false);
+      setSucceeded(true);
 
       // clears the cart and sends to the home page
       setTimeout(() => {
-        clearCart()
-        history.push('/')
-      }, 5000)
-    }
+        clearCart();
 
+        history.push("/");
+      }, 7000);
+    }
   };
 
   return (

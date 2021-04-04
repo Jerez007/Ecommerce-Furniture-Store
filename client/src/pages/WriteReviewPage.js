@@ -52,7 +52,7 @@ const WriteReviewPage = () => {
               setReviewData({
                 ...reviewData,
                 review_summary: e.target.value,
-                date: new Date(),
+                date: new Date().toLocaleDateString(),
               });
             }}
           />

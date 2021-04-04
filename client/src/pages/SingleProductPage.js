@@ -125,24 +125,21 @@ const SingleProductPage = () => {
         <div className="description">{description}</div>
       </div>
 
-      <h1 className="reviews_title">Reviews</h1>
+      <div className="reviews-content">
+        <h1>Reviews</h1>
 
-      <div className="reviews">
         {reviews_loading ? <Loading /> : null}
         {reviews_error ? <Error /> : null}
         {product_reviews.map((reviewItem) => {
-          const {id, nickname, review_summary, review, date} = reviewItem
+          const { id, nickname, review_summary, review, date } = reviewItem;
           if (id === reviewItem.id) {
             return (
               <div className="content">
-                <h3>{review_summary}</h3>
+                <h2>{review_summary}</h2>
                 <h4>Written by: {nickname}</h4>
-                <h5>{date}</h5>
+                <h4 className="date">{date}</h4>
 
-                <p>
-                  {review}
-                </p>
-              
+                <p>{review}</p>
               </div>
             );
           }
@@ -239,22 +236,35 @@ const ProductContainer = styled.div`
   }
 
   /* review section */
-  .reviews_title {
-    margin-left: 50px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid lightgray;
-    padding-bottom: 7px;
-  }
 
-  .reviews {
+  .reviews-content {
+    color: black;
     margin-left: 50px;
-    color: var(--clr-primary-3);
-  }
-
-  .content {
+    margin-top: 35px;
     border-bottom: 1px solid lightgray;
-    margin-bottom: 30px;
+    padding-bottom: 35px;
+
+    h1 {
+      border-bottom: 1px solid lightgray;
+      padding-bottom: 7px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      text-transform: uppercase;
+      color: var(--clr-primary-3);
+    }
+
+    h4 {
+      margin-bottom: 10px;
+      font-weight: 540;
+    }
+
+    .date {
+      color: #ccc;
+      font-weight: 10px !important;
+      margin-bottom: 17px;
+    }
   }
   /* end of review section */
 `;

@@ -22,6 +22,7 @@ const ProductsPage = () => {
 
 const Container = styled.div`
   margin-bottom: 100px;
+  
 `;
 
 export default ProductsPage;

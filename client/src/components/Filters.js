@@ -109,7 +109,7 @@ const Filters = () => {
 };
 
 const Container = styled.div`
-  margin-left: 10px;
+  margin-left: 30px;
 
   .hide {
     display: none;

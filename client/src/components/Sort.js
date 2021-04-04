@@ -69,7 +69,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   margin-top: 30px;
-  margin-left: 10px;
+  margin-left: 30px;
 
   button {
     border: transparent;
@@ -96,13 +96,18 @@ const Container = styled.div`
 
   .btn-container {
     margin-left: auto;
-    padding-right: 20px;
   }
 
   /* media queries */
   @media screen and (max-width: 769px) {
     .btn-container {
       display: none;
+    }
+  }
+
+  @media screen and (min-width: 1022px) {
+    .btn-container {
+      margin-right: -10px;
     }
   }
 `;

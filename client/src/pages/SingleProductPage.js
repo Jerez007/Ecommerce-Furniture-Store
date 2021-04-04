@@ -136,8 +136,8 @@ const SingleProductPage = () => {
         {reviews_loading ? <Loading /> : null}
         {reviews_error ? <Error /> : null}
         {product_reviews.map((reviewItem) => {
-          const { id, nickname, review_summary, review, date } = reviewItem;
-          if (id === reviewItem.id) {
+          const { id: reviewID, nickname, review_summary, review, date } = reviewItem;
+          if (id === reviewID) {
             return (
               <div className="content">
                 <div className="review-header">

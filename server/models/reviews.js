@@ -1,13 +1,10 @@
 import mongoose from "mongoose";
 
 const reviewSchema = mongoose.Schema({
-  regNo: Number,
+  id: String,
+  nickname: String,
   review: String,
-  grade: String,
-  section: {
-    type: String,
-    default: "A",
-  },
+  date: String,
 });
 
 // creates a model

@@ -2,18 +2,23 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Link, useParams } from "react-router-dom";
 import { SignalCellularNull } from "@material-ui/icons";
+import axios from "axios";
 
 const WriteReviewPage = () => {
   const { id } = useParams();
   const [reviewData, setReviewData] = useState({
     nickname: "",
     review: "",
-    date: null,
+    date: "",
     id,
   });
 
+  // sends request to the server
   const createReview = (e) => {
     e.preventDefault();
+    axios.post('http://localhost:5000/reviews', reviewData).then(() => {
+      window.location.reload(false)
+    })
   };
 
   return (

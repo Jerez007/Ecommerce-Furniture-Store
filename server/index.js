@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
-import reviewRoutes from './node_modules/reviews.js'
+import reviewRoutes from './routes/reviews.js'
 import dotenv from "dotenv";
 
 dotenv.config();

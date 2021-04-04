@@ -22,19 +22,19 @@ const products_reducer = (state, action) => {
   // Featured products fetched successfully
   if (action.type === GET_PRODUCTS_SUCCESS) {
     // Shuffle array
-    const shuffled = action.payload.sort(() => 0.5 - Math.random());
+    // const shuffled = action.payload.sort(() => 0.5 - Math.random());
 
     // Get sub-array of first n elements after shuffled
-    let selected = shuffled.slice(0, 4);
+    // let selected = shuffled.slice(0, 4);
 
-    // const featured_products = action.payload.filter(
-    //   (product) => product.featured === true
-    // );
+    const featured_products = action.payload.filter(
+      (product) => product.featured !== true
+    );
     return {
       ...state,
       products_loading: false,
       products: action.payload,
-      featured_products: selected,
+      featured_products,
     };
   }
 

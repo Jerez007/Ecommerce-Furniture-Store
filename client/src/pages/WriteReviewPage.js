@@ -9,6 +9,7 @@ const WriteReviewPage = () => {
   const [reviewData, setReviewData] = useState({
     nickname: "",
     review: "",
+    review_summary: "",
     date: "",
     id,
   });
@@ -16,9 +17,9 @@ const WriteReviewPage = () => {
   // sends request to the server
   const createReview = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/reviews', reviewData).then(() => {
-      window.location.reload(false)
-    })
+    axios.post("http://localhost:5000/reviews", reviewData).then(() => {
+      window.location.reload(false);
+    });
   };
 
   return (
@@ -40,6 +41,22 @@ const WriteReviewPage = () => {
             }}
           />
 
+          <label for="review_summary">Review Summary*</label>
+          <textarea
+            required
+            className="review_summary"
+            maxlength="25"
+            id="review_summary"
+            name="review_summary"
+            onChange={(e) => {
+              setReviewData({
+                ...reviewData,
+                review_summary: e.target.value,
+                date: new Date(),
+              });
+            }}
+          />
+
           <label for="review">Review *</label>
           <textarea
             required
@@ -51,11 +68,10 @@ const WriteReviewPage = () => {
               setReviewData({
                 ...reviewData,
                 review: e.target.value,
-                date: new Date(),
               });
-              console.log(">>>>>>>>>>>>>>", reviewData);
             }}
           />
+
           <input
             type="submit"
             value="Submit Review"
@@ -73,6 +89,7 @@ const Container = styled.main`
   width: 100vw;
   margin-left: auto;
   margin-right: auto;
+  font-size: 20px;
 
   .content {
     display: flex;
@@ -81,10 +98,14 @@ const Container = styled.main`
 
   input {
     height: 40px;
+    outline: none;
+    font-size: 20px;
   }
 
   textarea {
     height: 100px;
+    outline: none;
+    font-size: 20px;
   }
 
   .btn {
@@ -97,6 +118,10 @@ const Container = styled.main`
   label {
     margin-bottom: 10px;
     margin-top: 15px;
+  }
+
+  .review_summary {
+    height: 50px !important;
   }
 `;
 

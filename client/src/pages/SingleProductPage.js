@@ -3,7 +3,7 @@ import { useParams, useHistory, Link } from "react-router-dom";
 import { useProductsContext } from "../context/products_context";
 import { formatPrice } from "../utils/helpers";
 import { single_product_url as url } from "../utils/constants";
-import { backend_url} from "../utils/constants"
+import { backend_url } from "../utils/constants";
 import styled from "styled-components";
 import {
   Loading,
@@ -33,7 +33,7 @@ const SingleProductPage = () => {
   // gets review for the product from the database
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
-    fetchProductReviews(backend_url, id)
+    fetchProductReviews(backend_url);
     // eslint-disable-next-line
   }, [id]);
 
@@ -71,6 +71,8 @@ const SingleProductPage = () => {
     stars,
     reviews,
   } = product;
+
+  console.log(" REVIEWS>>>>>>>>>>>>>>>>>>>>>>>>>>>", product_reviews);
 
   return (
     <ProductContainer>
@@ -123,8 +125,17 @@ const SingleProductPage = () => {
         <div className="description">{description}</div>
       </div>
 
+      <h1 className="reviews_title">Reviews</h1>
+
       <div className="reviews">
-        <h1>Reviews</h1>
+        {reviews_loading ? <Loading /> : null}
+        {reviews_error ? <Error /> : null}
+        {product_reviews.map((review) => {
+          // const {id, nickname, review, date} =  review
+          if (id === review.id) {
+            return <h2>asfsfsdf</h2>;
+          }
+        })}
       </div>
     </ProductContainer>
   );
@@ -217,11 +228,16 @@ const ProductContainer = styled.div`
   }
 
   /* review section */
-  .reviews {
-    color: var(--clr-primary-3);
-
-    margin-left: 20px;
+  .reviews_title {
+    margin-left: 50px;
     margin-top: 30px;
+    border-bottom: 1px solid hsl(0, 0%, 90%, 0.9);
+    padding-bottom: 7px;
+  }
+
+  .reviews {
+    margin-left: 50px;
+    color: var(--clr-primary-3);
   }
   /* end of review section */
 `;

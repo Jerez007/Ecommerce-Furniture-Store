@@ -79,7 +79,7 @@ const SingleProductPage = () => {
           <span>SKU: {sku}</span>
 
           <p>
-            <Link to="/products/review">Write a review</Link>
+            <Link to={`/products/review/${sku}`}>Write a review</Link>
           </p>
         </div>
 

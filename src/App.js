@@ -46,7 +46,7 @@ function App() {
           <Contact />
         </Route>
 
-        <Route exact path="/products/review">
+        <Route exact path="/products/review/:id">
           <ReviewPage />
           <Contact />
         </Route>

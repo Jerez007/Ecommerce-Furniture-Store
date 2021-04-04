@@ -21,7 +21,6 @@ const initialState = {
   single_product_loading: false,
   single_product_error: false,
   single_product: {},
-  review_product_id : ""
 };
 
 const ProductsContext = React.createContext();

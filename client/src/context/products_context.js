@@ -9,6 +9,9 @@ import {
   GET_SINGLE_PRODUCT_START,
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
+  GET_PRODUCT_REVIEW_START,
+  GET_PRODUCT_REVIEW_SUCCESS,
+  GET_PRODUCT_REVIEW_ERROR,
 } from "../actions";
 import { products_url as url } from "../utils/constants";
 
@@ -53,12 +56,11 @@ export const ProductsProvider = ({ children }) => {
     try {
       const response = await axios.get(url);
       const singleProduct = response.data;
-      dispatch({type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct })
+      dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct });
     } catch (error) {
-      dispatch({ type: GET_SINGLE_PRODUCT_ERROR})
+      dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
     }
   };
-
 
   //gets the products at initial render only
   useEffect(() => {
@@ -66,7 +68,9 @@ export const ProductsProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductsContext.Provider value={{ ...state, toggleSidebar, fetchSingleProduct }}>
+    <ProductsContext.Provider
+      value={{ ...state, toggleSidebar, fetchSingleProduct }}
+    >
       {children}
     </ProductsContext.Provider>
   );

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import PinterestIcon from "@material-ui/icons/Pinterest";
@@ -61,7 +61,10 @@ export const footerMenu = [
   },
 ];
 
-
 export const products_url = "https://course-api.com/react-store-products";
 
-export const single_product_url = 'https://course-api.com/react-store-single-product?id=';
+export const single_product_url =
+  "https://course-api.com/react-store-single-product?id=";
+
+// backend. this will be placed in an env when in production.
+export const backend_url = "http://localhost:5000";

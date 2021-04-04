@@ -115,6 +115,10 @@ const SingleProductPage = () => {
 
         <div className="description">{description}</div>
       </div>
+
+      <div className="reviews">
+        <h1>Reviews</h1>
+      </div>
     </ProductContainer>
   );
 };
@@ -204,6 +208,15 @@ const ProductContainer = styled.div`
   .description {
     margin-bottom: 30px;
   }
+
+  /* review section */
+  .reviews {
+    color: var(--clr-primary-3);
+
+    margin-left: 20px;
+    margin-top: 30px;
+  }
+  /* end of review section */
 `;
 
 export default SingleProductPage;

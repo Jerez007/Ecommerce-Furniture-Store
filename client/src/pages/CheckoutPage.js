@@ -14,7 +14,7 @@ const CheckoutPage = () => {
       <div className="content">
         {cart.length < 1 ? (
           <div className="message">
-            Your cart is empty. <br/> <Link to="/"><button type="button" className="btn">Start Shopping</button></Link>
+            Your cart is empty. <br/> <Link to="/products"><button type="button" className="btn">Start Shopping</button></Link>
           </div>
         ) : (
           <StripeCheckout />

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link, useParams } from "react-router-dom";
-import { SignalCellularNull } from "@material-ui/icons";
+import { Link, useHistory, useParams } from "react-router-dom";
 import axios from "axios";
+import { useProductsContext } from "../context/products_context";
 
 const WriteReviewPage = () => {
   const { id } = useParams();

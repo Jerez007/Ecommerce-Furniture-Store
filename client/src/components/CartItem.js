@@ -29,7 +29,7 @@ const CartItem = ({ id, image, name, price, amount }) => {
 
         <div className="info">
           <p className="price-container">
-            <span>Price</span>
+            <span className="hide">Price</span>
             <span className="price">{formatPrice(price)}</span>
           </p>
         </div>
@@ -46,7 +46,7 @@ const CartItem = ({ id, image, name, price, amount }) => {
           <button type="button" onClick={() => removeItem(id)}>
             <DeleteIcon />
           </button>
-          <h5>Subtotal</h5>
+          <h5 className="hide">Subtotal</h5>
           <p>{formatPrice(price * amount)}</p>
         </div>
       </div>
@@ -58,28 +58,20 @@ const CartItem = ({ id, image, name, price, amount }) => {
           <p className="productName">{name}</p>
         </div>
 
-        <div className="info">
-          <p className="price-container">
-            <span className="label">Price</span>
-            <span className="price">{formatPrice(price)}</span>
-          </p>
-        </div>
+        <p className="price">{formatPrice(price)}</p>
 
-        <div className="toggle-container">
-          <MiniQuantityButtons
-            amount={amount}
-            increase={increase}
-            decrease={decrease}
-          />
-        </div>
+        <MiniQuantityButtons
+          amount={amount}
+          increase={increase}
+          decrease={decrease}
+          className="quantity-buttons"
+        />
 
-        <div className="subtotal-container">
-          <h5 className="label">Subtotal</h5>
-          <p className="price">{formatPrice(price * amount)}</p>
-          <button type="button" onClick={() => removeItem(id)}>
-            <DeleteIcon />
-          </button>
-        </div>
+        <p className="price">{formatPrice(price * amount)}</p>
+
+        <button type="button" onClick={() => removeItem(id)}>
+          <DeleteIcon />
+        </button>
       </div>
       {/* end of code for wider screens */}
     </Container>
@@ -92,8 +84,6 @@ const Container = styled.div`
   margin-top: 20px;
   margin-right: 20px;
 
-
-  
   .content {
     display: grid;
     grid-template-areas:
@@ -104,18 +94,34 @@ const Container = styled.div`
 
   /* displayed on the desktop version only. hidden on smaller screens */
   .desktop-version {
-    /* display: flex;
-    justify-content: space-between;
-    text-transform: capitalize;
-
-    .image-container {
-      display: flex;
-    }
+    display: grid;
 
     .label {
       display: none;
     }
 
+    .image-container {
+      display: flex;
+      background-color: red;
+      width: max-content;
+    }
+
+    button {
+      background-color: black;
+      border: none;
+      width: max-content;
+    }
+
+    p {
+      background-color: green;
+      width: max-content;
+    }
+
+    .quantity-buttons {
+      
+
+    }
+    /*
     .productName {
       margin-left: 30px;
     }
@@ -133,9 +139,7 @@ const Container = styled.div`
         padding-bottom: -100px;
       }
     } */
-  }
-
-  /* end of display for desktop version */
+  } /* end of display for desktop version */
 
   /* grid assignments */
   .image-container {

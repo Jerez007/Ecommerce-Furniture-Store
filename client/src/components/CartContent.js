@@ -16,7 +16,7 @@ const CartContent = () => {
           <CartTotals />
         </div>
 
-        <hr className="hr-block" />
+        <hr className="hr-block hide" />
 
         <h4 className="shiphome-text">SHIP TO HOME</h4>
 
@@ -36,6 +36,7 @@ const CartContent = () => {
       {/* displayed only when on wide screen */}
       <div className="right-side">
         <CartTotals />
+        <hr className="hr-block" />
       </div>
     </Container>
   );
@@ -78,7 +79,7 @@ const Container = styled.div`
     display: flex;
     justify-content: space-between;
 
-    .hr-block,
+    .hide,
     .shiphome-text {
       display: none;
     }

@@ -42,7 +42,7 @@ const Contact = () => {
 const Container = styled.section`
   .section-center {
     background-image: url("https://www.jysk.ca/static/version1615191202/frontend/JYSK/default/en_CA/images/bg/blue-pattern.jpg");
-    color: white;
+    color: white !important;
   }
 
   .content {

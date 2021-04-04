@@ -29,7 +29,6 @@ const Container = styled.div`
       flex: 1;
       grid-template-columns: 300px 1fr 1fr 1fr auto;
       column-gap: 1rem;
-      justify-items: center;
       border-bottom: 1px solid hsl(0, 0%, 90%, 0.9);
       height: 30px;
     }

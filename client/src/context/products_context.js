@@ -9,11 +9,12 @@ import {
   GET_SINGLE_PRODUCT_START,
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
-  GET_PRODUCT_REVIEW_START,
-  GET_PRODUCT_REVIEW_SUCCESS,
-  GET_PRODUCT_REVIEW_ERROR,
+  GET_PRODUCT_REVIEWS_START,
+  GET_PRODUCT_REVIEWS_SUCCESS,
+  GET_PRODUCT_REVIEWS_ERROR,
 } from "../actions";
-import { products_url as url } from "../utils/constants";
+import { products_url as url, backend_url } from "../utils/constants";
+
 
 const initialState = {
   isSidebarOpen: false,
@@ -24,6 +25,10 @@ const initialState = {
   single_product_loading: false,
   single_product_error: false,
   single_product: {},
+  product_reviews_loading: false,
+  product_reviews_error: false,
+  product_reviews: [],
+
 };
 
 const ProductsContext = React.createContext();
@@ -62,6 +67,19 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
+  // gets reviews for a single product from the database
+  const fetchProductReviews = async (url, id) => {
+    dispatch({ type: GET_PRODUCT_REVIEWS_START})
+
+    try {
+      const response = await axios.get(backend_url)
+      const reviews = response.data
+      dispatch({type: GET_PRODUCT_REVIEWS_SUCCESS, payload: reviews})
+    } catch (error) {
+      dispatch({ type: GET_PRODUCT_REVIEWS_ERROR})
+    }
+  }
+
   //gets the products at initial render only
   useEffect(() => {
     fetchProducts(url);
@@ -69,7 +87,12 @@ export const ProductsProvider = ({ children }) => {
 
   return (
     <ProductsContext.Provider
-      value={{ ...state, toggleSidebar, fetchSingleProduct }}
+      value={{
+        ...state,
+        toggleSidebar,
+        fetchSingleProduct,
+        fetchProductReviews,
+      }}
     >
       {children}
     </ProductsContext.Provider>

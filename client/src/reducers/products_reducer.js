@@ -6,6 +6,9 @@ import {
   GET_SINGLE_PRODUCT_START,
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
+  GET_PRODUCT_REVIEWS_START,
+  GET_PRODUCT_REVIEWS_SUCCESS,
+  GET_PRODUCT_REVIEWS_ERROR,
 } from "../actions";
 
 const products_reducer = (state, action) => {
@@ -70,6 +73,33 @@ const products_reducer = (state, action) => {
     };
   }
   // =====> End of section for SINGLE PRODUCTS
+
+  // section for getting the reviews for a single product
+  if (action.type === GET_PRODUCT_REVIEWS_START) {
+    return {
+      ...state,
+      product_reviews_loading: true,
+      product_reviews_error: false,
+    };
+  }
+
+  if (action.type === GET_PRODUCT_REVIEWS_SUCCESS) {
+    return {
+      ...state,
+      product_reviews: action.payload,
+      product_reviews_loading: false,
+      product_reviews_error: false,
+    };
+  }
+
+  if (action.type === GET_PRODUCT_REVIEWS_ERROR) {
+    return {
+      ...state,
+      product_reviews_loading: false,
+      product_reviews_error: true,
+    };
+  }
+  // end of section for reviews
 
   throw new Error(`The action type "${action.type}" was not found`);
 };

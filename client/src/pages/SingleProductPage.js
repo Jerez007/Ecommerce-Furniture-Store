@@ -3,6 +3,7 @@ import { useParams, useHistory, Link } from "react-router-dom";
 import { useProductsContext } from "../context/products_context";
 import { formatPrice } from "../utils/helpers";
 import { single_product_url as url } from "../utils/constants";
+import { backend_url} from "../utils/constants"
 import styled from "styled-components";
 import {
   Loading,
@@ -22,11 +23,17 @@ const SingleProductPage = () => {
     single_product_error: error,
     single_product: product,
     fetchSingleProduct,
+    product_reviews_loading: reviews_loading,
+    product_reviews_error: reviews_error,
+    product_reviews,
+    fetchProductReviews,
   } = useProductsContext();
 
   // gets single product everytime id in param changes
+  // gets review for the product from the database
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
+    fetchProductReviews(backend_url, id)
     // eslint-disable-next-line
   }, [id]);
 

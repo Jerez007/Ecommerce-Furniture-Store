@@ -11,6 +11,7 @@ import {
   ProductHero,
   Stars,
   ProductImageSlider,
+  Contact,
 } from "../components";
 import AddToCart from "../components/AddToCart";
 import { FaCheck, FaMinus } from "react-icons/fa";
@@ -72,7 +73,6 @@ const SingleProductPage = () => {
     reviews,
   } = product;
 
-  console.log(" REVIEWS>>>>>>>>>>>>>>>>>>>>>>>>>>>", product_reviews);
 
   return (
     <ProductContainer>
@@ -126,7 +126,12 @@ const SingleProductPage = () => {
       </div>
 
       <div className="reviews-content">
-        <h1>Reviews</h1>
+        <div className="heading">
+          <h1 className="reviews-title">Reviews</h1>
+          <span>
+            <Link to={`/products/review/${sku}`}>Write a review</Link>
+          </span>
+        </div>
 
         {reviews_loading ? <Loading /> : null}
         {reviews_error ? <Error /> : null}
@@ -135,16 +140,22 @@ const SingleProductPage = () => {
           if (id === reviewItem.id) {
             return (
               <div className="content">
-                <h2>{review_summary}</h2>
-                <h4>Written by: {nickname}</h4>
+                <div className="review-header">
+                  <h2>{review_summary}</h2>
+                  <h4>Written by: {nickname}</h4>
+                </div>
+
                 <h4 className="date">{date}</h4>
 
                 <p>{review}</p>
               </div>
             );
           }
+          return null
         })}
       </div>
+
+      <Contact />
     </ProductContainer>
   );
 };
@@ -239,15 +250,21 @@ const ProductContainer = styled.div`
 
   .reviews-content {
     color: black;
-    margin-left: 50px;
+    margin-left: 70px;
+    margin-right: 70px;
     margin-top: 35px;
-    border-bottom: 1px solid lightgray;
-    padding-bottom: 35px;
 
-    h1 {
+    .heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       border-bottom: 1px solid lightgray;
       padding-bottom: 7px;
       margin-bottom: 30px;
+
+      span {
+        text-decoration: underline;
+      }
     }
 
     h2 {
@@ -264,6 +281,19 @@ const ProductContainer = styled.div`
       color: #ccc;
       font-weight: 10px !important;
       margin-bottom: 17px;
+    }
+
+    p {
+      border-bottom: 1px solid lightgray;
+      padding-bottom: 35px;
+      margin-bottom: 35px;
+      font-size: 20px;
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
   }
   /* end of review section */

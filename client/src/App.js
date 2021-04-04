@@ -52,7 +52,7 @@ function App() {
         </Route>
 
         <Route exact path="/products/:id" children={<SingleProduct />} />
-
+        
         <Route exact path="/cart">
           <CartPage />
           <Contact />

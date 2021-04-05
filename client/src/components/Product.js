@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
-
 const Product = ({ id, name, image, price }) => {
   return (
     <ProductsContainer>
@@ -67,6 +66,17 @@ const ProductsContainer = styled.div`
     font-weight: 600;
     letter-spacing: var(--spacing);
     color: #181818;
+  }
+
+  /* media queries */
+  @media screen and (min-width: 1031px) {
+    .info {
+      font-size: 20px;
+
+      h5 {
+        font-size: 20px;
+      }
+    }
   }
 `;
 

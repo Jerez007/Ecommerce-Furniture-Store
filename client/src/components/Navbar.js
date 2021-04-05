@@ -407,15 +407,48 @@ const NavContainer = styled.nav`
   }
 
   @media screen and (min-width: 1031px) {
+    input::-webkit-input-placeholder {
+      font-size: 27px;
+    }
+
+    .nav-left {
+      padding: 15px;
+      p {
+        font-size: 22px;
+      }
+    }
+
+    .nav-right {
+      font-size: 20px;
+    }
+
+    .nav-search {
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      img {
+        width: 160px;
+        height: 70px;
+      }
+    }
+
     form {
       input {
         width: 400px !important;
         margin-left: 30px;
+        height: 60px !important;
+      }
+
+      .btn {
+        width: 120px !important;
+        font-size: 20px;
+        font-weight: 400;
       }
     }
 
     .location {
       margin-right: 35px;
+      font-size: 20px !important;
     }
 
     .nav-right {
@@ -424,6 +457,15 @@ const NavContainer = styled.nav`
 
     .basket {
       margin-right: 0px;
+      font-size: 60px !important;
+    }
+
+    .cart-total {
+      font-size: 22px;
+      width: 20px;
+      height: 20px;
+      padding: 15px;
+      font-weight: 300 !important;
     }
   }
 `;

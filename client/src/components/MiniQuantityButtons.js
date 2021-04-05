@@ -61,6 +61,26 @@ const Container = styled.div`
 
   /* media queries */
   @media screen and (min-width: 776px) {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+
+    .quantity-btn {
+      width: 40px;
+      height: 40px;
+      border: none;
+    }
+
+    .quantity {
+      margin: 0 10px;
+      padding: 15px;
+      height: 40px;
+    }
+
+    .title {
+      margin-bottom: 10px;
+    }
+
     .title {
       display: none !important;
     }

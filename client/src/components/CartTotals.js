@@ -146,9 +146,6 @@ const Container = styled.div`
   }
 
   /* styling for desktop version */
-  .desktop.version {
-    display: flex;
-  }
 
   /* >>>>>>>>>>>>>>>>>>>>>> */
   /* Media queries */
@@ -160,9 +157,14 @@ const Container = styled.div`
   }
 
   @media screen and (min-width: 776px) {
+    width: 340px;
     .content {
       display: none !important;
     }
+  }
+
+  @media screen and (min-width: 1152px) {
+    width: 440px;
   }
 `;
 

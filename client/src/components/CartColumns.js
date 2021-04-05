@@ -9,6 +9,7 @@ const CartColumns = () => {
         <h4>Price</h4>
         <h4>Quantity</h4>
         <h4>Subtotal</h4>
+        <span></span>
       </div>
 
     </Container>
@@ -21,14 +22,14 @@ const Container = styled.div`
 
   /* media queries */
   @media screen and (min-width: 776px) {
-    display: flex;
+    display: block;
     margin-top: 60px;
 
     .content {
       display: grid;
       flex: 1;
-      grid-template-columns: 300px 1fr 1fr 1fr auto;
-      column-gap: 1rem;
+      grid-template-columns: 150px 1fr 1fr 1fr auto;
+      justify-items: center;
       border-bottom: 1px solid hsl(0, 0%, 90%, 0.9);
       height: 30px;
     }

@@ -69,10 +69,6 @@ const Container = styled.div`
     border-bottom: 1px solid hsl(0, 0%, 90%, 0.3);
   }
 
-  .left-side {
-    display: grid;
-  }
-
   /* >>>>>>>>>>>>>>>>>> */
   /* media queries */
   @media screen and (min-width: 776px) {

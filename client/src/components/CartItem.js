@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { MiniQuantityButtons } from ".";
+import { MiniQuantityButtons, QuantityButtons } from ".";
 import { useCartContext } from "../context/cart_context";
 import { formatPrice } from "../utils/helpers";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -53,23 +53,27 @@ const CartItem = ({ id, image, name, price, amount }) => {
 
       {/* only displayed on wider screens */}
       <div className="desktop-version">
-        <div className="image-container">
+        <div className="itemCol">
           <img src={image} alt={name} />
-          <p className="productName">{name}</p>
+          <h5 className="productName">{name}</h5>
         </div>
 
-        <p className="price">{formatPrice(price)}</p>
+        <h5 className="priceCol">{formatPrice(price)}</h5>
 
         <MiniQuantityButtons
           amount={amount}
           increase={increase}
           decrease={decrease}
-          className="quantity-buttons"
+          className="quantityCol"
         />
 
-        <p className="price">{formatPrice(price * amount)}</p>
+        <h5 className="subtotalCol">{formatPrice(price * amount)}</h5>
 
-        <button type="button" onClick={() => removeItem(id)}>
+        <button
+          className="buttonCol"
+          type="button"
+          onClick={() => removeItem(id)}
+        >
           <DeleteIcon />
         </button>
       </div>
@@ -94,51 +98,6 @@ const Container = styled.div`
 
   /* displayed on the desktop version only. hidden on smaller screens */
   .desktop-version {
-    display: grid;
-
-    .label {
-      display: none;
-    }
-
-    .image-container {
-      display: flex;
-      background-color: red;
-      width: max-content;
-    }
-
-    button {
-      background-color: black;
-      border: none;
-      width: max-content;
-    }
-
-    p {
-      background-color: green;
-      width: max-content;
-    }
-
-    .quantity-buttons {
-      
-
-    }
-    /*
-    .productName {
-      margin-left: 30px;
-    }
-
-    .price {
-      margin-right: -40px;
-    }
-
-    .toggle-container {
-      margin-right: -50px;
-    }
-
-    .subtotal-container {
-      .price {
-        padding-bottom: -100px;
-      }
-    } */
   } /* end of display for desktop version */
 
   /* grid assignments */
@@ -228,6 +187,47 @@ const Container = styled.div`
   }
 
   @media screen and (min-width: 776px) {
+    .desktop-version {
+      display: grid;
+      grid-template-columns: 210px 1fr 1fr 1fr auto !important;
+      justify-items: center;
+
+      align-items: center !important;
+      grid-template-rows: 130px !important;
+
+      .productName {
+        text-transform: capitalize;
+        font-size: 17px;
+        margin-top: -10px;
+      
+      }
+
+      h5 {
+        font-size: 19px;
+        margin-right: 20px;
+      }
+
+      img {
+        height: 100%;
+        margin-top: 30px;
+      }
+
+      .itemCol {
+        height: 100%;
+        display: grid;
+        align-items: center;
+        gap: 1rem;
+        text-align: left;
+      }
+
+
+
+      .buttonCol {
+        width: max-content;
+        border: none;
+      }
+    }
+
     .content {
       display: none;
     }

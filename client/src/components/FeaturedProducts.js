@@ -43,7 +43,6 @@ const FeaturedProductsContainer = styled.div`
     color: var(--clr-primary-3);
   }
 
-
   /* media queries */
   @media screen and (min-width: 590px) {
     .featured {
@@ -53,6 +52,12 @@ const FeaturedProductsContainer = styled.div`
       img {
         height: 180px;
       }
+    }
+  }
+
+  @media screen and (min-width: 1031px) {
+    h2 {
+      font-size: 32px;
     }
   }
 `;

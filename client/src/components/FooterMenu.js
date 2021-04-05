@@ -15,11 +15,13 @@ const FooterMenu = () => {
 
               {links.map((link) => {
                 return (
-                  <a id={id} href="#">{link}</a>              
-                )
+                  <a id={id} href="#">
+                    {link}
+                  </a>
+                );
               })}
             </div>
-          )
+          );
         })}
       </div>
     </Container>
@@ -60,6 +62,7 @@ const Container = styled.footer`
     width: max-content;
   }
 
+  /* media queries */
   @media screen and (max-width: 765px) {
     .menu-center {
       display: grid;
@@ -72,6 +75,18 @@ const Container = styled.footer`
       display: grid;
       grid-template-columns: 1fr;
       grid-row-gap: 10px;
+    }
+  }
+
+  @media screen and (min-width: 1031px) {
+    h2 {
+      font-size: 34px !important;
+    }
+
+    a {
+      font-size: 26px;
+      line-height: 1.3;
+      opacity: 0.7;
     }
   }
 `;

@@ -30,10 +30,21 @@ const Container = styled.div`
     }
   }
 
+  /* media queries */
   @media screen and (max-width: 280px) {
     .icons-center {
       .icon {
         padding: 0px 5px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1031px) {
+    .icons-center {
+      .icon {
+        .MuiSvgIcon-root {
+          font-size: 70px;
+        }
       }
     }
   }

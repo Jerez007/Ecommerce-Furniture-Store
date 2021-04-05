@@ -46,6 +46,7 @@ const ProductsContainer = styled.div`
 
   img {
     width: 100%;
+    max-height: 250px;
     display: block;
     object-fit: cover;
     transition: var(--transition);

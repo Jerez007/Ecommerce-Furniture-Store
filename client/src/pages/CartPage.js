@@ -52,6 +52,11 @@ const Container = styled.div`
   .link {
     text-decoration: underline;
   }
+
+  /* media queries */
+  @media screen and (min-width: 600px) {
+    font-size: 24px;
+  }
 `;
 
 export default CartPage;

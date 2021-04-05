@@ -61,7 +61,7 @@ const Container = styled.div`
 
   .clear-btn {
     background-color: red !important;
-    margin-top: 20px;
+    margin-top: 40px;
     max-width: 150px;
   }
 

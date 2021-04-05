@@ -4,6 +4,7 @@ import { MiniQuantityButtons, QuantityButtons } from ".";
 import { useCartContext } from "../context/cart_context";
 import { formatPrice } from "../utils/helpers";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { Link } from "react-router-dom";
 
 const CartItem = ({ id, image, name, price, amount }) => {
   const { removeItem, toggleAmount } = useCartContext();
@@ -20,7 +21,9 @@ const CartItem = ({ id, image, name, price, amount }) => {
     <Container>
       <div className="content">
         <div className="image-container">
-          <img src={image} alt={name} />
+          <Link to={`/products/${id}`}>
+            <img src={image} alt={name} />
+          </Link>
         </div>
 
         <div className="name">
@@ -54,7 +57,9 @@ const CartItem = ({ id, image, name, price, amount }) => {
       {/* only displayed on wider screens */}
       <div className="desktop-version">
         <div className="itemCol">
-          <img src={image} alt={name} />
+          <Link to={`/products/${id}`}>
+            <img src={image} alt={name} />
+          </Link>
           <h5 className="productName">{name}</h5>
         </div>
 
@@ -194,10 +199,9 @@ const Container = styled.div`
       }
 
       img {
-        height: 100%;
+        max-height: 110px !important;
         margin-top: 30px;
       }
-
     }
 
     .content {
@@ -229,7 +233,8 @@ const Container = styled.div`
       }
 
       img {
-        height: 100%;
+        max-height: 110px !important;
+
         margin-top: 30px;
       }
 
@@ -252,7 +257,8 @@ const Container = styled.div`
     }
 
     img {
-      height: 120px;
+      max-height: 110px !important;
+
       width: 120px;
       object-fit: contain;
     }

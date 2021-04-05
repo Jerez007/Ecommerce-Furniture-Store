@@ -37,6 +37,11 @@ const Container = styled.div`
       text-transform: capitalize !important;
     }
   }
+
+  /* media queries */
+  @media screen and (min-width: 660px) {
+    font-size: 24px;
+  }
 `;
 
 export default ProductHero

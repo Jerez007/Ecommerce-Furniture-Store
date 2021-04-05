@@ -60,7 +60,75 @@ const Container = styled.div`
   }
 
   /* media queries */
+  @media screen and (min-width: 514px) {
+    font-size: 18px;
+
+    .quantity-btn {
+      width: 25px;
+      height: 25px;
+    }
+
+    .quantity {
+      margin: 0 5px;
+      padding: 12px;
+      height: 20px;
+    }
+
+    .title {
+      margin-bottom: 10px;
+    }
+
+  }
+
   @media screen and (min-width: 776px) {
+    font-size: 14px;
+
+    .quantity-btn {
+      width: 20px;
+      height: 20px;
+      border: none;
+    }
+
+    .quantity {
+      margin: 0 5px;
+      padding: 8px;
+      height: 20px;
+    }
+
+    .title {
+      margin-bottom: 10px;
+    }
+
+    .title {
+      display: none !important;
+    }
+  }
+
+  @media screen and (min-width: 776px) {
+    font-size: 14px;
+
+    .quantity-btn {
+      width: 20px;
+      height: 20px;
+      border: none;
+    }
+
+    .quantity {
+      margin: 0 5px;
+      padding: 8px;
+      height: 20px;
+    }
+
+    .title {
+      margin-bottom: 10px;
+    }
+
+    .title {
+      display: none !important;
+    }
+  }
+
+  @media screen and (min-width: 970px) {
     display: flex;
     justify-content: center;
     font-size: 20px;

@@ -157,7 +157,7 @@ const Container = styled.div`
   }
 
   @media screen and (min-width: 776px) {
-    width: 340px;
+    width: 210px;
     .content {
       display: none !important;
     }

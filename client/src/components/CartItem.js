@@ -186,10 +186,31 @@ const Container = styled.div`
     }
   }
 
+  /* >>>>>>>>>>>>>>>>>>> */
+  @media screen and (min-width: 970px) {
+    .desktop-version {
+      h5 {
+        font-size: 19px !important;
+      }
+
+      img {
+        height: 100%;
+        margin-top: 30px;
+      }
+
+    }
+
+    .content {
+      display: none;
+    }
+  }
+
+  /* >>>>>>>>>>>>>>>>>> */
+
   @media screen and (min-width: 776px) {
     .desktop-version {
       display: grid;
-      grid-template-columns: 210px 1fr 1fr 1fr auto !important;
+      grid-template-columns: 140px 24% 29% 20% auto !important;
       justify-items: center;
 
       align-items: center !important;
@@ -199,12 +220,12 @@ const Container = styled.div`
         text-transform: capitalize;
         font-size: 17px;
         margin-top: -10px;
-      
       }
 
       h5 {
-        font-size: 19px;
-        margin-right: 20px;
+        font-size: 14px;
+        display: grid;
+        text-align: center !important;
       }
 
       img {
@@ -219,8 +240,6 @@ const Container = styled.div`
         gap: 1rem;
         text-align: left;
       }
-
-
 
       .buttonCol {
         width: max-content;

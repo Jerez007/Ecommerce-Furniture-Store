@@ -104,12 +104,44 @@ const Container = styled.section`
       border: none;
       width: 120px;
       text-transform: capitalize;
+      background-color: #3d5999 !important;
     }
   }
 
   @media screen and (max-width: 615px) {
     .content {
       width: 330px;
+    }
+  }
+
+  /* media queries */
+  @media screen and (min-width: 1031px) {
+    font-size: 22px;
+
+    .content {
+      width: 640px;
+    }
+
+    h3 {
+      font-weight: 800 !important;
+      font-size: 32px;
+    }
+
+    input::-webkit-input-placeholder {
+      font-size: 25px;
+    }
+
+    .contact-form {
+      input {
+        height: 70px !important;
+      }
+
+      .btn {
+        height: 70px !important;
+        font-size: 20px;
+        font-weight: 300;
+        width: 200px;
+      }
     }
   }
 `;

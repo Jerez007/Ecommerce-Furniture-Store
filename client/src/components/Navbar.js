@@ -5,8 +5,7 @@ import PersonOutlineRoundedIcon from "@material-ui/icons/PersonOutlineRounded";
 import PinDropOutlinedIcon from "@material-ui/icons/PinDropOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import SearchIcon from "@material-ui/icons/Search";
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
+import DeleteIcon from "@material-ui/icons/Delete";
 import { FaBars } from "react-icons/fa";
 import logo from "../assets/logo.png";
 import { useProductsContext } from "../context/products_context";
@@ -15,10 +14,9 @@ import { useCartContext } from "../context/cart_context";
 import { useUserContext } from "../context/user_context";
 import { formatPrice } from "../utils/helpers";
 
-
 function Navbar() {
   const { toggleSidebar } = useProductsContext();
-  const { cart, total_items, total_amount } = useCartContext(); // the total number of items in the cart
+  const { cart, total_items, total_amount, removeItem } = useCartContext(); // the total number of items in the cart
   const { loginWithRedirect, myUser, logout } = useUserContext();
   const { history } = useHistory();
 
@@ -105,20 +103,56 @@ function Navbar() {
                   <h3>{total_items} Items in Cart</h3>
                   <div className="cart-subtotal">
                     <h3>Cart Subtotal:</h3>
-                    <h3 className="total-amount-modal">{formatPrice(total_amount)}</h3>
+                    <h3 className="total-amount-modal">
+                      {formatPrice(total_amount)}
+                    </h3>
                   </div>
                 </div>
 
-                <button type="button" className="btn">
-                  Go to Checkout
-                </button>
-
-                <div className="cart-items">
-                  {cart.map((item) => {
-                    const { image } = item;
-                    return <img src={image}></img>;
-                  })}
+                <div className="btn-container">
+                  <button type="button" className="btn">
+                    Go to Checkout
+                  </button>
                 </div>
+
+                <div className="cart-items-container">
+                  {cart.map((item) => {
+                    const {
+                      id,
+                      image,
+                      name,
+                      price,
+                      amount,
+                    } = item;
+                    return (
+                      <div className="cart-items">
+                        <div className="image-container">
+                          <img src={image} alt={name}></img>
+                        </div>
+
+                        <div>
+                          <p>{name}</p>
+                          <h3>{formatPrice(price)}</h3>
+                          <p>
+                            QTY: <span>{amount}</span>
+                          </p>
+                        </div>
+
+                        <div className="trash-button-container">
+                          <button
+                            className="trash-button"
+                            type="button"
+                            onClick={() => removeItem(id)}
+                          >
+                            <DeleteIcon />
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                  
+                </div>
+                <p className="viewCart">View and edit Cart</p>
               </div>
               {/* end of basket modal */}
             </Link>
@@ -331,7 +365,7 @@ const NavContainer = styled.nav`
     position: absolute;
     top: 40px;
     right: 0px;
-    width: 85vw;
+    width: 300px;
     height: max-content;
     background-color: white;
     color: var(--clr-primary-3);
@@ -340,14 +374,42 @@ const NavContainer = styled.nav`
     z-index: 99;
     padding: 10px;
 
+    image.container {
+      display: flex;
+      width: 50px;
+
+      img {
+        width: 100%;
+      }
+    }
+
     p {
       border: none !important;
     }
 
+    .trash-button-container {
+      align-self: right;
+    }
+
+    .trash-button {
+      width: max-content !important;
+      background-color: white;
+      border: none;
+      flex: 1;
+      margin-right: 0 !important;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+    }
+
     button {
-      width: 80vw;
+      display: flex;
+      width: 220px;
       margin-top: 8px;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
+      justify-content: center;
     }
 
     h3 {
@@ -377,9 +439,35 @@ const NavContainer = styled.nav`
       justify-content: space-between;
     }
 
-    .cart-items {
+    .cart-items-container {
       border-top: 1px solid hsl(0, 0%, 90%, 0.9);
       padding-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .cart-items {
+      display: flex;
+      justify-content: space-around;
+      height: 100px;
+      text-transform: uppercase;
+      font-size: 12px;
+      border-bottom: 1px solid hsl(0, 0%, 90%, 0.9);
+      margin-bottom: 8px;
+
+      p:nth-child(1) {
+        font-weight: 800;
+      }
+
+      p,
+      h3 {
+        margin-bottom: 5px;
+      }
+    }
+
+    .viewCart {
+      padding: 20px;
+      text-align: center;
+      color: #233f86;
     }
   }
   /* end of the total items in cart */

@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import PersonOutlineRoundedIcon from "@material-ui/icons/PersonOutlineRounded";
 import PinDropOutlinedIcon from "@material-ui/icons/PinDropOutlined";
@@ -18,8 +18,7 @@ function Navbar() {
   const { toggleSidebar } = useProductsContext();
   const { cart, total_items, total_amount, removeItem } = useCartContext(); // the total number of items in the cart
   const { loginWithRedirect, myUser, logout } = useUserContext();
-  const { history } = useHistory();
-
+  const [showBasketModal, setShowBasketModal] = useState(false);
   const {
     filters: { text },
     updateFilters,
@@ -88,12 +87,16 @@ function Navbar() {
               <br />
               <span className="hours">10:00-18:00</span>
             </p>
-            <Link to="/cart" className="cart-container">
-              <ShoppingCartOutlinedIcon className="basket" fontSize="large" />
+            <div className="cart-container">
+              <ShoppingCartOutlinedIcon
+                className="basket"
+                fontSize="large"
+                onClick={() => setShowBasketModal(!showBasketModal)}
+              />
               <span className="cart-total">{total_items}</span>
 
-              {/* modal for basket icon */}
-              <div className="basketModal">
+              {/* modal for basket icon. shown only when clicked */}
+              <div className={`${showBasketModal ? "basketModal" : "hide"}`}>
                 <div className="cart-title">
                   <h1>CART</h1>
                   <span>X</span>
@@ -117,13 +120,7 @@ function Navbar() {
 
                 <div className="cart-items-container">
                   {cart.map((item) => {
-                    const {
-                      id,
-                      image,
-                      name,
-                      price,
-                      amount,
-                    } = item;
+                    const { id, image, name, price, amount } = item;
                     return (
                       <div className="cart-items">
                         <div className="image-container">
@@ -150,12 +147,13 @@ function Navbar() {
                       </div>
                     );
                   })}
-                  
                 </div>
-                <p className="viewCart">View and edit Cart</p>
+                <p className="viewCart">
+                  <Link to="/cart">View and edit Cart</Link>
+                </p>
               </div>
               {/* end of basket modal */}
-            </Link>
+            </div>
           </div>
         </div>
 
@@ -339,7 +337,11 @@ const NavContainer = styled.nav`
   }
   /* End of search bar for mobile */
 
-  /* total items in cart and basket modal*/
+  /*basket modal*/
+  .hide {
+    display: none;
+  }
+
   .cart-container {
     display: flex;
     align-items: center;
@@ -465,7 +467,7 @@ const NavContainer = styled.nav`
     }
 
     .viewCart {
-      padding: 20px;
+      padding: 15px;
       text-align: center;
       color: #233f86;
     }

@@ -82,8 +82,6 @@ export const FilterProvider = ({ children }) => {
     if (name === "price") {
       value = Number(value);
     }
-console.log('name is >>>>>>>>>>>>>>>>>>>>', name);
-console.log("value is >>>>>>>>>>>>>>>>>>>>", value);
 
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
   };

@@ -3,8 +3,11 @@ import styled from "styled-components";
 import { Link, Redirect, useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { useProductsContext } from "../context/products_context";
+import { useUserContext } from "../context/user_context";
 
 const WriteReviewPage = () => {
+  const { myUser } = useUserContext()
+  console.log('user is >>>>>>>>>>>>>>>>>>>>>>>>', myUser);
   const { id } = useParams();
   const [reviewData, setReviewData] = useState({
     nickname: "",
@@ -39,7 +42,6 @@ const WriteReviewPage = () => {
             name="nickname"
             onChange={(e) => {
               setReviewData({ ...reviewData, nickname: e.target.value });
-              console.log(">>>>>>>>>>>>>>", reviewData);
             }}
           />
 

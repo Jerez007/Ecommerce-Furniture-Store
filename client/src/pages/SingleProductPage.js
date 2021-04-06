@@ -115,7 +115,7 @@ const SingleProductPage = () => {
           )}
 
           {stock === 0 && (
-            <div>
+            <div className="noStock-container">
               <FaMinus className="minus-mark" />
               <span>Out of stock online</span>
             </div>
@@ -239,6 +239,10 @@ const ProductContainer = styled.div`
     padding: 5px;
     font-size: 22px;
     margin-right: 4px;
+  }
+
+  .noStock-container {
+    margin-top: 25px;
   }
   /* end of stock info section */
 

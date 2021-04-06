@@ -1,7 +1,6 @@
-import React from 'react';
-import hero from '../assets/hero.jpg'
+import React from "react";
+import hero from "../assets/hero.jpg";
 import styled from "styled-components";
-
 
 const Hero = () => {
   return (
@@ -11,22 +10,30 @@ const Hero = () => {
       </div>
     </Container>
   );
-}
+};
 
 const Container = styled.div`
-  img {
-    width: 100vw;
+  margin-top: 5px;
+  .hero-center {
+    display: flex;
+    img {
+      width: 100vw;
+      height: 42vh;
+    }
   }
 
   @media screen and (min-width: 1136px) {
+    margin-top: 10px;
     .hero-center {
       display: flex;
       img {
-        width: 90vw;
+        width: 100vw;
+        height: 80vh;
+
         margin: auto auto;
       }
     }
   }
 `;
 
-export default Hero
+export default Hero;

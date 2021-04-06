@@ -5,6 +5,8 @@ import PersonOutlineRoundedIcon from "@material-ui/icons/PersonOutlineRounded";
 import PinDropOutlinedIcon from "@material-ui/icons/PinDropOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import SearchIcon from "@material-ui/icons/Search";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import { FaBars } from "react-icons/fa";
 import logo from "../assets/logo.png";
 import { useProductsContext } from "../context/products_context";
@@ -89,6 +91,9 @@ function Navbar() {
             <Link to="/cart" className="cart-container">
               <ShoppingCartOutlinedIcon className="basket" fontSize="large" />
               <span className="cart-total">{total_items}</span>
+              <div className="basketModal">
+                sfsdfsf
+              </div>
             </Link>
           </div>
         </div>
@@ -273,7 +278,7 @@ const NavContainer = styled.nav`
   }
   /* End of search bar for mobile */
 
-  /* total items in cart */
+  /* total items in cart and basket modal*/
   .cart-container {
     display: flex;
     align-items: center;
@@ -293,6 +298,17 @@ const NavContainer = styled.nav`
     align-items: center;
     justify-content: center;
     padding: 10px;
+  }
+
+  .basketModal {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    width:85vw;
+    height: 40vh;
+    background-color: white;
+    border: 1px solid hsl(0, 0%, 90%, 0.9);
+    z-index: 99;
   }
   /* end of the total items in cart */
 
@@ -326,9 +342,19 @@ const NavContainer = styled.nav`
       padding: 7px 0;
       border-bottom: 0px;
 
+      .nav-toggle {
+        margin-left: 5px;
+      }
+
       .location {
         margin-left: auto;
         margin-right: 0px;
+        font-size: 13px;
+      }
+
+      img {
+        width: 60px;
+        height: 40px;
       }
     }
 

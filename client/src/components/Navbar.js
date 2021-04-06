@@ -13,10 +13,12 @@ import { useProductsContext } from "../context/products_context";
 import { useFilterContext } from "../context/filter_context";
 import { useCartContext } from "../context/cart_context";
 import { useUserContext } from "../context/user_context";
+import { formatPrice } from "../utils/helpers";
+
 
 function Navbar() {
   const { toggleSidebar } = useProductsContext();
-  const { total_items } = useCartContext(); // the total number of items in the cart
+  const { cart, total_items, total_amount } = useCartContext(); // the total number of items in the cart
   const { loginWithRedirect, myUser, logout } = useUserContext();
   const { history } = useHistory();
 
@@ -91,9 +93,34 @@ function Navbar() {
             <Link to="/cart" className="cart-container">
               <ShoppingCartOutlinedIcon className="basket" fontSize="large" />
               <span className="cart-total">{total_items}</span>
+
+              {/* modal for basket icon */}
               <div className="basketModal">
-                sfsdfsf
+                <div className="cart-title">
+                  <h1>CART</h1>
+                  <span>X</span>
+                </div>
+
+                <div className="cart-info">
+                  <h3>{total_items} Items in Cart</h3>
+                  <div className="cart-subtotal">
+                    <h3>Cart Subtotal:</h3>
+                    <h3 className="total-amount-modal">{formatPrice(total_amount)}</h3>
+                  </div>
+                </div>
+
+                <button type="button" className="btn">
+                  Go to Checkout
+                </button>
+
+                <div className="cart-items">
+                  {cart.map((item) => {
+                    const { image } = item;
+                    return <img src={image}></img>;
+                  })}
+                </div>
               </div>
+              {/* end of basket modal */}
             </Link>
           </div>
         </div>
@@ -304,11 +331,56 @@ const NavContainer = styled.nav`
     position: absolute;
     top: 40px;
     right: 0px;
-    width:85vw;
-    height: 40vh;
+    width: 85vw;
+    height: max-content;
     background-color: white;
+    color: var(--clr-primary-3);
     border: 1px solid hsl(0, 0%, 90%, 0.9);
+    text-align: left;
     z-index: 99;
+    padding: 10px;
+
+    p {
+      border: none !important;
+    }
+
+    button {
+      width: 80vw;
+      margin-top: 8px;
+      margin-bottom: 5px;
+    }
+
+    h3 {
+      font-weight: 300;
+    }
+
+    .total-amount-modal {
+      font-weight: 600;
+    }
+
+    .cart-subtotal {
+      h3 {
+        margin-bottom: 5px;
+        text-align: right;
+      }
+    }
+
+    .cart-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .cart-info {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .cart-items {
+      border-top: 1px solid hsl(0, 0%, 90%, 0.9);
+      padding-top: 10px;
+    }
   }
   /* end of the total items in cart */
 

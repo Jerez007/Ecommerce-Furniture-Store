@@ -113,7 +113,7 @@ const Container = styled.div`
 
   .name {
     grid-area: productName;
-    align-self: center;
+    align-self: start;
   }
 
   .info {

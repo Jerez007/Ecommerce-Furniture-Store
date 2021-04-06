@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link, Redirect, useHistory, useParams } from "react-router-dom";
 import axios from "axios";
@@ -27,6 +27,10 @@ const WriteReviewPage = () => {
     
   };
 
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
   return (
     <Container>
       <section>
@@ -36,7 +40,7 @@ const WriteReviewPage = () => {
           <label for="nickname">Nickname *</label>
           <input
             required
-            maxlength="20"
+            maxlength="10"
             type="text"
             id="nickname"
             name="nickname"

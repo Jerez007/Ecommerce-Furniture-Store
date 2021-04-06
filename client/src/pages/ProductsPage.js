@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { ProductHero, Filters, Sort, ProductList } from "../components";
 
 const ProductsPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main>
       <ProductHero title="products" />

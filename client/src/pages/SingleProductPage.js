@@ -38,6 +38,10 @@ const SingleProductPage = () => {
     // eslint-disable-next-line
   }, [id]);
 
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
   // Automatiically redirects user back to homepage incase of error/product not found, after 3 seconds
   // useEffect(() => {
   //   if (error) {

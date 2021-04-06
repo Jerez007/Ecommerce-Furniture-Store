@@ -13,7 +13,7 @@ import {
   GET_PRODUCT_REVIEWS_SUCCESS,
   GET_PRODUCT_REVIEWS_ERROR,
 } from "../actions";
-import { products_url as url, backend_url } from "../utils/constants";
+import { products_url as url } from "../utils/constants";
 
 
 const initialState = {
@@ -72,7 +72,7 @@ export const ProductsProvider = ({ children }) => {
     dispatch({ type: GET_PRODUCT_REVIEWS_START})
 
     try {
-      const response = await axios.get(backend_url)
+      const response = await axios.get(process.env.REACT_APP_SERVER_URL);
       const reviews = response.data
       dispatch({type: GET_PRODUCT_REVIEWS_SUCCESS, payload: reviews})
     } catch (error) {

@@ -101,8 +101,6 @@ const Container = styled.div`
       "images price buttons buttons buttons subtotal";
   }
 
-
-
   /* grid assignments */
   .image-container {
     grid-area: images;
@@ -193,7 +191,7 @@ const Container = styled.div`
   @media screen and (min-width: 970px) {
     .desktop-version {
       h5 {
-        font-size: 19px !important;
+        font-size: 18px !important;
       }
 
       img {
@@ -216,7 +214,7 @@ const Container = styled.div`
       justify-items: center;
 
       align-items: center !important;
-      grid-template-rows: 130px !important;
+      grid-template-rows: 150px !important;
 
       .productName {
         text-transform: capitalize;

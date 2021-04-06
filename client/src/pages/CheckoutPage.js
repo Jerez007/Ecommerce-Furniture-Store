@@ -9,12 +9,17 @@ const CheckoutPage = () => {
 
   return (
     <Container>
-      <ProductHero title="checkout"/>
+      <ProductHero title="checkout" />
 
       <div className="content">
         {cart.length < 1 ? (
           <div className="message">
-            Your cart is empty. <br/> <Link to="/products"><button type="button" className="btn">Start Shopping</button></Link>
+            <span>Your cart is empty.</span> <br />
+            <Link to="/products">
+              <button type="button" className="btn">
+                Start Shopping
+              </button>
+            </Link>
           </div>
         ) : (
           <StripeCheckout />
@@ -26,10 +31,12 @@ const CheckoutPage = () => {
 
 const Container = styled.main`
   .message {
-    font-size: 30px;
-    text-align: center;
-    padding: 80px;
-    line-height: 2;
+    span:nth-child(1) {
+      font-size: 30px;
+      text-align: center;
+      padding: 80px;
+      line-height: 2;
+    }
   }
 
   button {

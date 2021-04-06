@@ -48,7 +48,7 @@ const Sort = () => {
         <button
           type="button"
           className={`${!grid_view ? "active" : null}`}
-          onClick={setGridView}
+          onClick={setListView}
         >
           <ViewListIcon fontSize="large" />
         </button>
@@ -56,7 +56,7 @@ const Sort = () => {
         <button
           type="button"
           className={`${grid_view ? "active" : null}`}
-          onClick={setListView}
+          onClick={setGridView}
         >
           <ViewComfyIcon fontSize="large" />
         </button>

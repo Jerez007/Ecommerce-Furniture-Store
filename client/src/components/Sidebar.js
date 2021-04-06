@@ -14,6 +14,10 @@ const Sidebar = () => {
   const { isSidebarOpen, toggleSidebar } = useProductsContext();
   const { updateFilters } = useFilterContext();
 
+  const clickHandler = () => {
+    toggleSidebar();
+    updateFilters();
+  };
 
   return (
     <SidebarContainer>
@@ -25,18 +29,14 @@ const Sidebar = () => {
 
         <Link to="/products/" className="category">
           <DoneOutlinedIcon />
-          <button type="button" name="category" onClick={updateFilters}>
+          <button type="button" name="category" onClick={clickHandler}>
             all
           </button>
         </Link>
 
         <Link to="/products/livingroom" className="category">
           <WeekendOutlinedIcon />
-          <button
-            type="button"
-            name="category"
-            onClick={updateFilters}
-          >
+          <button type="button" name="category" onClick={updateFilters}>
             living room
           </button>
         </Link>

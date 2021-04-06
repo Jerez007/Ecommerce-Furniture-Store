@@ -30,12 +30,12 @@ const FooterMenu = () => {
 
 const Container = styled.footer`
   margin-top: 50px;
-
   .menu-center {
     display: flex;
     justify-content: space-around;
     background-color: #f6f6f6;
     padding: 35px 0px;
+    padding-left: 20px;
   }
 
   h2 {

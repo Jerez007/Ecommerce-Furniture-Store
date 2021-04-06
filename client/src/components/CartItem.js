@@ -95,10 +95,15 @@ const Container = styled.div`
 
   .content {
     display: grid;
+    position: relative;
     grid-template-areas:
       "images productName buttons buttons buttons empty"
       "images price buttons buttons buttons subtotal"
       "images price buttons buttons buttons subtotal";
+  }
+
+  .buttonCol{
+    background-color: white;
   }
 
   /* grid assignments */
@@ -131,7 +136,7 @@ const Container = styled.div`
 
   img {
     height: 150px;
-    width: 150px;
+    width: 130px;
     object-fit: contain;
   }
 
@@ -279,7 +284,9 @@ const Container = styled.div`
     }
 
     .toggle-container {
-      margin-left: 0px;
+      position: absolute;
+      bottom: 0;
+      right: -50px;
     }
 
     .info {

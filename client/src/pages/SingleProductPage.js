@@ -250,8 +250,8 @@ const ProductContainer = styled.div`
 
   .reviews-content {
     color: black;
-    margin-left: 70px;
-    margin-right: 70px;
+    margin-left: 30px;
+    margin-right: 30px;
     margin-top: 35px;
 
     .heading {

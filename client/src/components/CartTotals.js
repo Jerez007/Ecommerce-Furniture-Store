@@ -157,9 +157,14 @@ const Container = styled.div`
   }
 
   @media screen and (min-width: 776px) {
-    width: 230px;
+    width: 250px;
+    margin-left: 10px;
     .content {
       display: none !important;
+    }
+
+    h2, h3 {
+      font-size: 24px;
     }
   }
 

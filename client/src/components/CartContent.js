@@ -52,7 +52,8 @@ const Container = styled.div`
     height: 40px;
     border: none;
     margin-bottom: 30px;
-    padding: 20px;
+    padding: 17px;
+    margin-left: 10px;
   }
 
   h4 {

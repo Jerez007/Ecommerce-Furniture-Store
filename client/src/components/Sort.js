@@ -105,9 +105,21 @@ const Container = styled.div`
     }
   }
 
-  @media screen and (min-width: 1022px) {
+  @media screen and (min-width: 769px) {
     .btn-container {
-      margin-right: -10px;
+      margin-right: 30px;
+    }
+  }
+
+  @media screen and (min-width: 956px) {
+    .btn-container {
+      margin-right: -40px;
+    }
+  }
+
+  @media screen and (min-width: 1080px) {
+    .btn-container {
+      margin-right: 30px;
     }
   }
 `;

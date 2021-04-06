@@ -34,7 +34,7 @@ const Container = styled.div`
     }
   }
 
-  @media screen and (min-width: 1014px) {
+  @media screen and (min-width: 950px) {
     .products-container {
       grid-template-columns: repeat(3, 1fr);
 

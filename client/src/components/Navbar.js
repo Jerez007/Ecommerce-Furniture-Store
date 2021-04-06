@@ -6,6 +6,7 @@ import PinDropOutlinedIcon from "@material-ui/icons/PinDropOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import DeleteIcon from "@material-ui/icons/Delete";
+import CloseIcon from "@material-ui/icons/Close";
 import { FaBars } from "react-icons/fa";
 import logo from "../assets/logo.png";
 import { useProductsContext } from "../context/products_context";
@@ -97,60 +98,93 @@ function Navbar() {
 
               {/* modal for basket icon. shown only when clicked */}
               <div className={`${showBasketModal ? "basketModal" : "hide"}`}>
-                <div className="cart-title">
-                  <h1>CART</h1>
-                  <span>X</span>
-                </div>
-
-                <div className="cart-info">
-                  <h3>{total_items} Items in Cart</h3>
-                  <div className="cart-subtotal">
-                    <h3>Cart Subtotal:</h3>
-                    <h3 className="total-amount-modal">
-                      {formatPrice(total_amount)}
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="btn-container">
-                  <button type="button" className="btn">
-                    Go to Checkout
-                  </button>
-                </div>
-
-                <div className="cart-items-container">
-                  {cart.map((item) => {
-                    const { id, image, name, price, amount } = item;
-                    return (
-                      <div className="cart-items">
-                        <div className="image-container">
-                          <img src={image} alt={name}></img>
-                        </div>
-
-                        <div>
-                          <p>{name}</p>
-                          <h3>{formatPrice(price)}</h3>
-                          <p>
-                            QTY: <span>{amount}</span>
-                          </p>
-                        </div>
-
-                        <div className="trash-button-container">
-                          <button
-                            className="trash-button"
-                            type="button"
-                            onClick={() => removeItem(id)}
-                          >
-                            <DeleteIcon />
-                          </button>
-                        </div>
+                {/* this is show if cart is not empty */}
+                {cart.length > 0 && (
+                  <>
+                    <div className="cart-title">
+                      <h1>CART</h1>
+                      <span>
+                        <CloseIcon
+                          onClick={() => setShowBasketModal(!showBasketModal)}
+                        />
+                      </span>
+                    </div>
+                    <div className="cart-info">
+                      <h3>{total_items} Items in Cart</h3>
+                      <div className="cart-subtotal">
+                        <h3>Cart Subtotal:</h3>
+                        <h3 className="total-amount-modal">
+                          {formatPrice(total_amount)}
+                        </h3>
                       </div>
-                    );
-                  })}
-                </div>
-                <p className="viewCart">
-                  <Link to="/cart">View and edit Cart</Link>
-                </p>
+                    </div>
+                    <div className="btn-container">
+                      <Link
+                        to="/checkout"
+                        onClick={() => setShowBasketModal(!showBasketModal)}
+                      >
+                        <button type="button" className="btn">
+                          Go to Checkout
+                        </button>
+                      </Link>
+                    </div>
+                    <div className="cart-items-container">
+                      {cart.map((item) => {
+                        const { id, image, name, price, amount } = item;
+                        return (
+                          <div className="cart-items">
+                            <div className="image-container">
+                              <img src={image} alt={name}></img>
+                            </div>
+
+                            <div>
+                              <p>{name}</p>
+                              <h3>{formatPrice(price)}</h3>
+                              <p>
+                                QTY: <span>{amount}</span>
+                              </p>
+                            </div>
+
+                            <div className="trash-button-container">
+                              <button
+                                className="trash-button"
+                                type="button"
+                                onClick={() => removeItem(id)}
+                              >
+                                <DeleteIcon />
+                              </button>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <p className="viewCart">
+                      <Link
+                        to="/cart"
+                        onClick={() => setShowBasketModal(!showBasketModal)}
+                      >
+                        View and edit Cart
+                      </Link>
+                    </p>
+                  </>
+                )}
+
+                {/* shown if cart is empty */}
+                {cart.length < 1 && (
+                  <>
+                    <div className="cart-title">
+                      <h1>CART</h1>
+                      <span>
+                        <CloseIcon
+                          onClick={() => setShowBasketModal(!showBasketModal)}
+                        />
+                      </span>
+                    </div>
+
+                    <h3 className="emptyCart-message">You have no items in your shopping cart.</h3>
+                  
+                  </>
+                )}
               </div>
               {/* end of basket modal */}
             </div>
@@ -376,6 +410,11 @@ const NavContainer = styled.nav`
     z-index: 99;
     padding: 10px;
 
+    .emptyCart-message {
+      text-align: center;
+      padding: 50px;
+    }
+
     image.container {
       display: flex;
       width: 50px;
@@ -551,6 +590,22 @@ const NavContainer = styled.nav`
   }
 
   @media screen and (min-width: 766px) {
+    .basketModal {
+      width: 330px;
+
+      p {
+        font-size: 15px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      .btn {
+        margin: 20px 0;
+      }
+    }
+
     .mobile-search {
       display: none;
     }
@@ -595,6 +650,25 @@ const NavContainer = styled.nav`
   }
 
   @media screen and (min-width: 1031px) {
+    .basketModal {
+      width: 650px;
+      top: 65px;
+      right: 15px;
+
+      .btn {
+        width: 400px !important;
+        height: 50px;
+        font-size: 20px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+      }
+
+      .viewCart {
+        font-size: 22px !important;
+      }
+    }
+
     input::-webkit-input-placeholder {
       font-size: 27px;
     }

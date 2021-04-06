@@ -101,9 +101,7 @@ const Container = styled.div`
       "images price buttons buttons buttons subtotal";
   }
 
-  /* displayed on the desktop version only. hidden on smaller screens */
-  .desktop-version {
-  } /* end of display for desktop version */
+
 
   /* grid assignments */
   .image-container {

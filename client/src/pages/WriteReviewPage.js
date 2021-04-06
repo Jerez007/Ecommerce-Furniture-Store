@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, Redirect, useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { useProductsContext } from "../context/products_context";
 
@@ -17,9 +17,11 @@ const WriteReviewPage = () => {
   // sends request to the server
   const createReview = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:5000/reviews", reviewData).then(() => {
+    axios.post(process.env.REACT_APP_SERVER_URL, reviewData).then(() => {
       window.location.reload(false);
     });
+    window.location.href = `/products/${id}`;
+    
   };
 
   return (
@@ -27,7 +29,7 @@ const WriteReviewPage = () => {
       <section>
         <h1>Write a review</h1>
 
-        <form className="content" onSubmit={createReview}>
+        <form  className="content" onSubmit={createReview}>
           <label for="nickname">Nickname *</label>
           <input
             required

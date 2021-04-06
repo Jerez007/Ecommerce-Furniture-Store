@@ -11,71 +11,71 @@ import { Home, Error, SingleProduct, ProductsPage, CartPage, CheckoutPage, Write
 
 function App() {
   return (
-      <Router>
-        <Navbar />
-        <Sidebar />
+    <Router>
+      <Navbar />
+      <Sidebar />
 
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
 
-          <Route exact path="/products">
-            <ProductsPage />
-            <Contact />
-          </Route>
+        <Route exact path="/products">
+          <ProductsPage />
+          <Contact />
+        </Route>
 
-          <Route exact path="/products/kitchen">
-            <ProductsPage />
-            <Contact />
-          </Route>
+        <Route exact path="/products/kitchen">
+          <ProductsPage />
+          <Contact />
+        </Route>
 
-          <Route exact path="/products/diningroom">
-            <ProductsPage />
-            <Contact />
-          </Route>
+        <Route exact path="/products/diningroom">
+          <ProductsPage />
+          <Contact />
+        </Route>
 
-          <Route exact path="/products/livingroom">
-            <ProductsPage />
-            <Contact />
-          </Route>
+        <Route exact path="/products/livingroom">
+          <ProductsPage />
+          <Contact />
+        </Route>
 
-          <Route exact path="/products/office">
-            <ProductsPage />
-            <Contact />
-          </Route>
+        <Route exact path="/products/office">
+          <ProductsPage />
+          <Contact />
+        </Route>
 
-          <Route exact path="/products/bedroom">
-            <ProductsPage />
-            <Contact />
-          </Route>
+        <Route exact path="/products/bedroom">
+          <ProductsPage />
+          <Contact />
+        </Route>
 
-          <Route exact path="/products/review/:id">
-            <WriteReviewPage />
-            <Contact />
-          </Route>
+        <Route exact path="/products/review/:id">
+          <WriteReviewPage />
+          <Contact />
+        </Route>
 
-          <Route exact path="/products/:id" children={<SingleProduct />} />
+        <Route exact path="/products/:id" children={<SingleProduct />} />
 
-          <Route exact path="/cart">
-            <CartPage />
-            <Contact />
-          </Route>
+        <Route exact path="/cart">
+          <CartPage />
+          <Contact />
+        </Route>
 
-          <Route exact path="/checkout">
-            <CheckoutPage />
-            <Contact />
-          </Route>
+        <Route exact path="/checkout">
+          <CheckoutPage />
+          <Contact />
+        </Route>
 
-          <Route exact path="*">
-            <Error />
-          </Route>
-        </Switch>
+        <Route exact path="*">
+          <Error />
+        </Route>
+      </Switch>
 
-        <FooterMenu />
-        <SocialMedia />
-        <Footer />
-      </Router>
+      <FooterMenu />
+      <SocialMedia />
+      <Footer />
+    </Router>
   );
 }
 

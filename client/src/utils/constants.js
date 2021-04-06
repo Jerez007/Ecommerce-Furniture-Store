@@ -66,5 +66,5 @@ export const products_url = "https://course-api.com/react-store-products";
 export const single_product_url =
   "https://course-api.com/react-store-single-product?id=";
 
-// backend. this will be placed in an env when in production.
-export const backend_url = "http://localhost:5000/reviews";
+
+export const backend_url = process.env.REACT_APP_SERVER_URL;

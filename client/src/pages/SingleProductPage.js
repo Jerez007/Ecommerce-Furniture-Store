@@ -305,6 +305,13 @@ const ProductContainer = styled.div`
     }
   }
   /* end of review section */
+
+  /* media queries */
+  @media screen and (max-width: 450px) {
+    .review-header {
+      font-size: 12px;
+    }
+  }
 `;
 
 export default SingleProductPage;

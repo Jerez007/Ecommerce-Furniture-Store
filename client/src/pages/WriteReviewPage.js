@@ -18,18 +18,16 @@ const WriteReviewPage = () => {
   });
 
   // sends request to the server
-  const createReview = (e) => {
+  const createReview = async (e) => {
     e.preventDefault();
-    axios.post(process.env.REACT_APP_SERVER_URL, reviewData).then(() => {
+    await axios.post(process.env.REACT_APP_SERVER_URL, reviewData).then(() => {
       window.location.reload(false);
     });
     window.location.href = `/products/${id}`;
     
   };
 
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
+
 
   return (
     <Container>
@@ -40,7 +38,7 @@ const WriteReviewPage = () => {
           <label for="nickname">Nickname *</label>
           <input
             required
-            maxlength="10"
+            maxlength="8"
             type="text"
             id="nickname"
             name="nickname"

@@ -69,7 +69,7 @@ const Container = styled.div`
 
     p {
       margin-top: 20px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       font-size: 18px;
     }
 

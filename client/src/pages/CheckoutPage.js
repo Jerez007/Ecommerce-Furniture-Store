@@ -33,7 +33,7 @@ const Container = styled.main`
   .message {
     span:nth-child(1) {
       font-size: 30px;
-      text-align: center;
+      text-align: center !important;
       padding: 80px;
       line-height: 2;
     }
@@ -41,6 +41,7 @@ const Container = styled.main`
 
   button {
     font-weight: 450 !important;
+    
   }
 `;
 

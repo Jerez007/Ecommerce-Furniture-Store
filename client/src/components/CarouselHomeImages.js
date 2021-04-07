@@ -64,6 +64,7 @@ const CarouselHomeImages = () => {
           itemClass="carousel-item-padding-40-px"
           // additionalTransfrom={0 * 12}
           centerMode={true}
+          arrows={true}
         >
           <img src={image1} alt="furniture" />
           <img src={image2} alt="furniture" />
@@ -89,10 +90,7 @@ const Container = styled.div`
   .carousel-container {
     text-align: center;
     margin-top: 40px;
-    padding-bottom: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 40px;
+    padding: 40px 20px;
     background-color: var(--clr-primary-6);
     
      img {
@@ -105,6 +103,7 @@ const Container = styled.div`
       font-size: 24px;
       margin-top: 25px;
       opacity: 0.7;
+      margin-bottom: -20px;
     }
   }
 `;

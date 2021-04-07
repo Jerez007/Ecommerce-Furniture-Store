@@ -750,7 +750,7 @@ const NavContainer = styled.nav`
     .nav-right {
       font-size: 20px;
       padding-top: 15px;
-      padding-bottom: 10git px;
+      padding-bottom: 10px;
     }
 
     .nav-search {

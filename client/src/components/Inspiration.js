@@ -82,13 +82,22 @@ const Container = styled.div`
 
   /* media queries */
   @media screen and (max-width: 769px) {
-    .right-content {
-      display: none;
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .left-content,
+      .right-content {
+        width: 95vw;
+        text-align: center;
+      }
+
+      .left-content {
+        padding-bottom: 20px;
+      }
     }
 
-    .left-content {
-      width: 90vw !important;
-    }
   }
 `;
 

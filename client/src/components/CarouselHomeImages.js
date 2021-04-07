@@ -92,6 +92,7 @@ const Container = styled.div`
     margin-bottom: 40px;
     padding-left: 20px;
     padding-right: 20px;
+    padding-top: 30px;
     background-color: var(--clr-primary-6);
     
      img {

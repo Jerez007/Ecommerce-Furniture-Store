@@ -42,7 +42,7 @@ const GuaranteeContainer = styled.div`
     display: flex;
     justify-content: space-evenly;
     color: #909090;
-    padding: 10px;
+    padding: 20px;
 
     div {
       display: flex;

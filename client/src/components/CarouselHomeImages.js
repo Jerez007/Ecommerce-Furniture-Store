@@ -20,18 +20,18 @@ const CarouselHomeImages = () => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 5,
-      slidesToSlide: 5, // optional, default to 1.
+      items: 4,
+      slidesToSlide: 1, // optional, default to 1.
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
       items: 4,
-      slidesToSlide: 3, // optional, default to 1.
+      slidesToSlide: 1, // optional, default to 1.
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 3,
-      slidesToSlide: 2, // optional, default to 1.
+      slidesToSlide: 1, // optional, default to 1.
     },
   };
 
@@ -89,7 +89,7 @@ const Container = styled.div`
   .carousel-container {
     text-align: center;
     margin-top: 40px;
-    margin-bottom: 40px;
+    padding-bottom: 40px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 40px;

@@ -620,7 +620,7 @@ const NavContainer = styled.nav`
 
       img {
         width: 70px;
-        height: 0px;
+        height: 40px;
       }
     }
 
@@ -717,9 +717,15 @@ const NavContainer = styled.nav`
 
   @media screen and (min-width: 1031px) {
     .basketModal {
+      padding: 20px;
       width: 650px;
       top: 65px;
       right: 15px;
+
+      img {
+        height: 100% !important;
+        padding-bottom: 20px;
+      }
 
       .btn {
         width: 400px !important;

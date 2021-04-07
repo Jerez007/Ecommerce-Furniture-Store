@@ -14,9 +14,9 @@ const Sidebar = () => {
   const { isSidebarOpen, toggleSidebar } = useProductsContext();
   const { updateFilters } = useFilterContext();
 
-  const clickHandler = () => {
+  const clickHandler = (e) => {
     toggleSidebar();
-    updateFilters();
+    updateFilters(e);
   };
 
   return (
@@ -36,7 +36,7 @@ const Sidebar = () => {
 
         <Link to="/products/livingroom" className="category">
           <WeekendOutlinedIcon />
-          <button type="button" name="category" onClick={updateFilters}>
+          <button type="button" name="category" onClick={clickHandler}>
             living room
           </button>
         </Link>
@@ -57,28 +57,28 @@ const Sidebar = () => {
             <span>kitchen</span>
           </div> */}
           <KitchenOutlinedIcon />
-          <button type="button" name="category" onClick={updateFilters}>
+          <button type="button" name="category" onClick={clickHandler}>
             kitchen
           </button>
         </Link>
 
         <Link to="/products/diningroom" className="category">
           <LocalDiningOutlinedIcon />
-          <button type="button" name="category" onClick={updateFilters}>
+          <button type="button" name="category" onClick={clickHandler}>
             dining room
           </button>
         </Link>
 
         <Link to="/products/bedroom" className="category">
           <HotelOutlinedIcon />
-          <button type="button" name="category" onClick={updateFilters}>
+          <button type="button" name="category" onClick={clickHandler}>
             bedroom
           </button>
         </Link>
 
         <Link to="/products/office" className="category">
           <HomeWorkOutlinedIcon />
-          <button type="button" name="category" onClick={updateFilters}>
+          <button type="button" name="category" onClick={clickHandler}>
             office
           </button>
         </Link>

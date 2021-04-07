@@ -181,13 +181,48 @@ function Navbar() {
                       </span>
                     </div>
 
-                    <h3 className="emptyCart-message">You have no items in your shopping cart.</h3>
-                  
+                    <h3 className="emptyCart-message">
+                      You have no items in your shopping cart.
+                    </h3>
                   </>
                 )}
               </div>
               {/* end of basket modal */}
             </div>
+          </div>
+        </div>
+
+        <div className="desktop-version">
+          <div>
+            <Link to="/products" className="links">
+              all
+            </Link>
+          </div>
+          <div>
+            <Link to="/products" className="links">
+              living room
+            </Link>
+          </div>
+
+          <div>
+            <Link to="/products" className="links">
+              kitchen
+            </Link>
+          </div>
+          <div>
+            <Link to="/products" className="links">
+              dining room
+            </Link>
+          </div>
+          <div>
+            <Link to="/products" className="links">
+              bedroom
+            </Link>
+          </div>
+          <div>
+            <Link to="/products" className="links">
+              office
+            </Link>
           </div>
         </div>
 
@@ -210,6 +245,32 @@ function Navbar() {
 }
 
 const NavContainer = styled.nav`
+  .desktop-version {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid hsl(0, 0%, 90%, 0.6);
+
+    color: var(--clr-primary-3) !important;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 5px 0;
+    padding: 10px 30px;
+    font-size: 1.3rem;
+    line-height: 1.428571429;
+
+    div:hover {
+      border-bottom: 5px solid blue;
+      margin-bottom: -10px;
+    }
+
+    .links {
+      color: var(--clr-primary-3) !important;
+      text-decoration: none !important;
+    }
+  }
+
   .nav-center {
     display: flex;
     flex-direction: column;
@@ -539,6 +600,10 @@ const NavContainer = styled.nav`
   }
 
   @media screen and (max-width: 765px) {
+    .desktop-version {
+      display: none;
+    }
+
     .nav-search {
       padding: 7px 0;
       border-bottom: 0px;

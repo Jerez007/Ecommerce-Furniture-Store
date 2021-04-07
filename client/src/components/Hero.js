@@ -23,11 +23,11 @@ const Container = styled.div`
   }
 
   @media screen and (min-width: 1136px) {
-    margin-top: 10px;
+    margin-top: -3px;
     .hero-center {
       display: flex;
       img {
-        width: 100vw;
+        width: 99vw;
         height: 80vh;
 
         margin: auto auto;

@@ -9,7 +9,6 @@ import office from "../assets/office.jpeg";
 import { useFilterContext } from "../context/filter_context";
 
 const Categories = () => {
-  const { updateFilters } = useFilterContext();
 
   return (
     <CategoriesContainer>

@@ -23,6 +23,7 @@ import CartTotals from './CartTotals'
 import QuantityButtons from './QuantityButton'
 import MiniQuantityButtons from "./MiniQuantityButtons";
 import StripeCheckout from './StripeCheckout'
+import  CarouselHomeImages from './CarouselHomeImages'
 
 export {
   Navbar,
@@ -50,4 +51,5 @@ export {
   QuantityButtons,
   MiniQuantityButtons,
   StripeCheckout,
+  CarouselHomeImages,
 };

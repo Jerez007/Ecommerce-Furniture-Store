@@ -1,14 +1,19 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import image1 from "../assets/carouse_image1.jpg";
-import image2 from "../assets/carouse_image2.jpg";
-import image3 from "../assets/carouse_image3.jpg";
-import image4 from "../assets/carouse_image4.jpg";
-import image5 from "../assets/carouse_image5.jpg";
-import image6 from "../assets/carouse_image6.jpg";
-import image7 from "../assets/carouse_image7.jpg";
-import image8 from "../assets/carouse_image8.jpg";
+import image1 from "../assets/carousel_image1.jpg";
+import image2 from "../assets/carousel_image2.jpg";
+import image3 from "../assets/carousel_image3.jpg";
+import image4 from "../assets/carousel_image4.jpg";
+import image5 from "../assets/carousel_image5.jpg";
+import image6 from "../assets/carousel_image6.jpg";
+import image7 from "../assets/carousel_image7.jpg";
+import image8 from "../assets/carousel_image8.jpg";
+import image9 from "../assets/carousel_image9.jpg";
+import image10 from "../assets/carousel_image10.jpg";
+import image11 from "../assets/carousel_image11.jpg";
+import image12 from "../assets/carousel_image12.jpg";
+
 import styled from 'styled-components'
 
 const CarouselHomeImages = () => {
@@ -20,13 +25,13 @@ const CarouselHomeImages = () => {
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 5,
-      slidesToSlide: 5, // optional, default to 1.
+      items: 4,
+      slidesToSlide: 3, // optional, default to 1.
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 5,
-      slidesToSlide: 5, // optional, default to 1.
+      items: 3,
+      slidesToSlide: 2, // optional, default to 1.
     },
   };
 
@@ -57,16 +62,21 @@ const CarouselHomeImages = () => {
           // deviceType={this.props.deviceType}
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
-          additionalTransfrom={0 * 8}
+          // additionalTransfrom={0 * 12}
+          centerMode={true}
         >
-          <img src={image1} alt="" />
-          <img src={image2} alt="" />
-          <img src={image3} alt="" />
-          <img src={image4} alt="" />
-          <img src={image5} alt="" />
-          <img src={image6} alt="" />
-          <img src={image7} alt="" />
-          <img src={image8} alt="" />
+          <img src={image1} alt="furniture" />
+          <img src={image2} alt="furniture" />
+          <img src={image3} alt="furniture" />
+          <img src={image4} alt="furniture" />
+          <img src={image5} alt="furniture" />
+          <img src={image6} alt="furniture" />
+          <img src={image7} alt="furniture" />
+          <img src={image8} alt="furniture" />
+          <img src={image9} alt="furniture" />
+          <img src={image10} alt="furniture" />
+          <img src={image11} alt="furniture" />
+          <img src={image12} alt="furniture" />
         </Carousel>
       </div>
     </Container>
@@ -80,10 +90,11 @@ const Container = styled.div`
     text-align: center;
     margin-top: 40px;
     margin-bottom: 40px;
-    padding-left: 10px;
-    padding-right: 10px;
-
-    img {
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--clr-primary-6);
+    
+     img {
       width: 20vw !important;
       height: 20vw !important;
       margin: 0 !important;

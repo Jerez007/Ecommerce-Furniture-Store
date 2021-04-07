@@ -1,5 +1,5 @@
 import React from 'react'
-import { Hero, Guarantee, Contact, CarouselHomeImages } from '../components'
+import { Hero, Guarantee, Contact, CarouselHomeImages, Inspiration } from '../components'
 import Categories from '../components/Categories'
 import FeaturedProducts from '../components/FeaturedProducts'
 
@@ -9,6 +9,7 @@ const HomePage = () => {
       <Hero />
       <Guarantee />
       <Categories />
+      <Inspiration />
       <CarouselHomeImages />
       <FeaturedProducts />
       <Contact />

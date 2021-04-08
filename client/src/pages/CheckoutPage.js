@@ -32,7 +32,7 @@ const CheckoutPage = () => {
 const Container = styled.main`
   .message {
     text-align: center;
-    margin: 100px 0px;
+    margin-bottom: 100px 0px;
 
     span:nth-child(1) {
       font-size: 30px;

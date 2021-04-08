@@ -116,6 +116,12 @@ const CheckoutForm = () => {
         <article>
           <h3>Hello, {myUser && myUser.name}</h3>
           <p>Your total is {formatPrice(total_amount)}</p>
+          <div className="card-info">
+            <p>Test Card #: 4242 4242 4242 4242</p>
+            <p>MM/YY: 0424</p>
+            <p>CVC: 242</p>
+            <p>ZIP: 42424</p>
+          </div>
         </article>
       )}
 
